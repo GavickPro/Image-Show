@@ -91,7 +91,7 @@ class GKIS_gk_gamebox_Model {
 			`c`.`created` AS `date`,
 			`c`.`introtext` AS `content`,
 			`u`.`username` AS `username`,
-			`u`.`name` AS `name`
+			`u`.`name` AS `name`,
 			`c`.alias AS `alias`,
 			`cats`.alias AS `cat_alias`
 		FROM 
