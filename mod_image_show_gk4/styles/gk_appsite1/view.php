@@ -70,10 +70,13 @@ defined('_JEXEC') or die;
 				// cleaning variables
 				unset($link, $content);
 				// creating slide title
+                if($this->config['image_show_data'][$i]->type == "k2"){
+                	$link =  $this->articlesK2[$this->config['image_show_data'][$i]->artK2_id]["link"];
+                 } else {
+				  // creating slide title
+					$link = ($this->config['image_show_data'][$i]->type == "text") ? $this->config['image_show_data'][$i]->url : $this->articles[$this->config['image_show_data'][$i]->art_id]["link"];	
+					}
 				$content = str_replace('[ampersand]', '&',str_replace('[leftbracket]', '<', str_replace('[rightbracket]', '>', $this->config['image_show_data'][$i]->content)));
-				// creating slide link
-				$link = ($this->config['image_show_data'][$i]->type == "text") ? $this->config['image_show_data'][$i]->url : $this->articles[$this->config['image_show_data'][$i]->art_id]["link"];	
-				
 			?>
 			
 			<div class="gkIsTextItem">
