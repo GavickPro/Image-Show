@@ -38,7 +38,7 @@ class GKIS_gk_appsite1_Model {
 			`c`.`id` AS `id`,
 			`c`.`catid` AS `cid`,
 			`c`.`title` AS `title`,
-			`c`.`introtext` AS `introtext` 
+			`c`.`introtext` AS `introtext`
 		FROM 
 			#__content AS `c` 
 		WHERE 
@@ -55,7 +55,8 @@ class GKIS_gk_appsite1_Model {
 					'id' => $item->id,
 					'cid' => $item->cid,
 					'title' => stripslashes($item->title),
-					'link' => JRoute::_(ContentHelperRoute::getArticleRoute($item->id, $item->cid))
+					'link' => JRoute::_(ContentHelperRoute::getArticleRoute($item->id, $item->cid)),
+					'content' => $item->introtext
 				);
 			}
 		}
@@ -100,6 +101,7 @@ class GKIS_gk_appsite1_Model {
 					'id' => $item->id,
 					'cid' => $item->cid,
 					'title' => stripslashes($item->title),
+					'content' => $item->introtext,
 					'link' => urldecode(JRoute::_(K2HelperRoute::getItemRoute($item->id.':'.urlencode($item->alias), $item->cid.':'.urlencode($item->cat_alias))))
 				);
 			}

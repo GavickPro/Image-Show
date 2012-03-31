@@ -3,7 +3,7 @@
 /**
 * GK Image Show - model file
 * @package Joomla!
-* @Copyright (C) 2009-2011 Gavick.com
+* @Copyright (C) 2009-2012 Gavick.com
 * @ All rights reserved
 * @ Joomla! is Free Software
 * @ Released under GNU/GPL License : http://www.gnu.org/copyleft/gpl.html
@@ -16,7 +16,7 @@ defined('_JEXEC') or die;
 // import com_content route helper
 require_once (JPATH_SITE.DS.'components'.DS.'com_content'.DS.'helpers'.DS.'route.php');
 
-class GKIS_gk_game_magazine_Model {
+class GKIS_gk_appsprotech_Model {
 	// configuration array
 	private $config;
 	// constructor
@@ -38,9 +38,9 @@ class GKIS_gk_game_magazine_Model {
 			`c`.`id` AS `id`,
 			`c`.`catid` AS `cid`,
 			`c`.`title` AS `title`,
-			`c`.`introtext` AS `content`
+			`c`.`introtext` AS `introtext` 
 		FROM 
-			#__content AS `c`
+			#__content AS `c` 
 		WHERE 
 			`c`.`id` IN ('.$query_ids.')
 		;';
@@ -55,8 +55,8 @@ class GKIS_gk_game_magazine_Model {
 					'id' => $item->id,
 					'cid' => $item->cid,
 					'title' => stripslashes($item->title),
-					'link' => JRoute::_(ContentHelperRoute::getArticleRoute($item->id, $item->cid)),
-					'content' => $item->content
+					'text' => stripslashes($item->introtext),
+					'link' => JRoute::_(ContentHelperRoute::getArticleRoute($item->id, $item->cid))
 				);
 			}
 		}
@@ -64,7 +64,7 @@ class GKIS_gk_game_magazine_Model {
 		return $results;
 	}
     
-    function getDataK2($ids) {
+	function getDataK2($ids) {
     	//
     	require_once (JPATH_SITE.DS.'components'.DS.'com_k2'.DS.'helpers'.DS.'route.php');
 		// prepare an array
@@ -101,7 +101,7 @@ class GKIS_gk_game_magazine_Model {
 					'id' => $item->id,
 					'cid' => $item->cid,
 					'title' => stripslashes($item->title),
-					'content' => $item->introtext,
+					'text' => stripslashes($item->introtext),
 					'link' => urldecode(JRoute::_(K2HelperRoute::getItemRoute($item->id.':'.urlencode($item->alias), $item->cid.':'.urlencode($item->cat_alias))))
 				);
 			}
@@ -111,4 +111,4 @@ class GKIS_gk_game_magazine_Model {
 	}
 }
 
-/* eof */
+// EOF

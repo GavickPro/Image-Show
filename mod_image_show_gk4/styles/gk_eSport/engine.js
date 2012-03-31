@@ -246,14 +246,12 @@ window.addEvent("load",function(){
 			if(wrapper.hasClass('gkThumbsBottom')) {
 				$G['baseTextY'] = wrapper.getElement('.gkIsTextTitle').getStyle('bottom').toInt();
 				wrapper.getElements('.gkIsTextTitle').setStyles({
-					'visibility': 'visible',
 					'opacity': 0//,
 					//'bottom': "-100px"
 				});
 			} else {
 				$G['baseTextY'] = wrapper.getElement('.gkIsTextTitle').getStyle('top').toInt();
 				wrapper.getElements('.gkIsTextTitle').setStyles({
-					'visibility': 'visible',
 					'opacity': 0//,
 					//'top': "-100px"
 				});
@@ -338,7 +336,7 @@ function gk_is_eSport(wrapper, contents, slides, textBlocks, which, squares, squ
 			}
 			 
 			if(wrapper.getElement('.gkIsTextTitle')) {
-				new Fx.Tween(wrapper.getElement('.gkIsTextTitle'), { transition: Fx.Transitions.Expo.easeIn }).start('opacity', 1);
+				wrapper.getElement('.gkIsTextTitle').fade('in');
 			}
 		} else {
 			var max = slides.length-1;
@@ -363,8 +361,7 @@ function gk_is_eSport(wrapper, contents, slides, textBlocks, which, squares, squ
 				slides[which].fade('in'); 
 				
 				if(wrapper.getElement('.gkIsTextTitle')) {
-					//new Fx.Tween(wrapper.getElements('.gkIsTextTitle')[which]).start($G['mode'], $G['baseTextY']);
-					new Fx.Tween(wrapper.getElements('.gkIsTextTitle', { transition: Fx.Transitions.Expo.easeIn })[which]).start('opacity', 1);
+					wrapper.getElements('.gkIsTextTitle')[which].fade('in');
 				}
 			} else {
 				//
@@ -412,8 +409,7 @@ function gk_is_eSport(wrapper, contents, slides, textBlocks, which, squares, squ
 											window.clearInterval(timerInner);
 											
 											if(wrapper.getElement('.gkIsTextTitle')) {
-												//new Fx.Tween(wrapper.getElements('.gkIsTextTitle')[which]).start($G['mode'], $G['baseTextY']);
-												new Fx.Tween(wrapper.getElements('.gkIsTextTitle', { transition: Fx.Transitions.Expo.easeIn })[which]).start('opacity', 1);
+												wrapper.getElements('.gkIsTextTitle')[which].fade('in');
 											}
 											
 											(function(){
@@ -433,8 +429,7 @@ function gk_is_eSport(wrapper, contents, slides, textBlocks, which, squares, squ
 			}
 			 
 			if(wrapper.getElement('.gkIsTextTitle')) {
-				//new Fx.Tween(wrapper.getElements('.gkIsTextTitle')[actual]).start($G['mode'], -100);
-				new Fx.Tween(wrapper.getElements('.gkIsTextTitle', { transition: Fx.Transitions.Expo.easeOut })[actual]).start('opacity', 0);
+				wrapper.getElements('.gkIsTextTitle')[actual].fade('out');
 			}
 		}
 	}

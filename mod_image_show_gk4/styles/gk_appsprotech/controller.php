@@ -3,7 +3,7 @@
 /**
 * GK Image Show - main PHP file
 * @package Joomla!
-* @Copyright (C) 2009-2011 Gavick.com
+* @Copyright (C) 2009-2012 Gavick.com
 * @ All rights reserved
 * @ Joomla! is Free Software
 * @ Released under GNU/GPL License : http://www.gnu.org/copyleft/gpl.html
@@ -17,7 +17,7 @@ require_once (dirname(__FILE__).DS.'class.image.php');
 // Model class loading
 require_once (dirname(__FILE__).DS.'model.php');
 
-class GKIS_gk_gamebox_Controller {
+class GKIS_gk_appsprotech_Controller {
 	// configuration array
 	private $config;
 	// module info
@@ -44,14 +44,14 @@ class GKIS_gk_gamebox_Controller {
 	// check the images
 	function checkImages() {
 		// basic images params		
-		$img_width = $this->config['config']->gk_gamebox->gk_gamebox_image_width;
-		$img_height = $this->config['config']->gk_gamebox->gk_gamebox_image_height;
-		$img_bg = $this->config['config']->gk_gamebox->gk_gamebox_image_bg;
-		$quality = $this->config['config']->gk_gamebox->gk_gamebox_quality;
+		$img_width = $this->config['config']->gk_appsprotech->gk_appsprotech_image_width;
+		$img_height = $this->config['config']->gk_appsprotech->gk_appsprotech_image_height;
+		$img_bg = $this->config['config']->gk_appsprotech->gk_appsprotech_image_bg;
+		$quality = $this->config['config']->gk_appsprotech->gk_appsprotech_quality;
 		// check the slides
 		foreach($this->config['image_show_data'] as $slide) {
 			$stretch = ($slide->stretch == 'nostretch') ? false : true;
-			GKIS_Gamebox_Image::createThumbnail($slide->image, $this->config, $img_width, $img_height, $img_bg, $stretch, $quality);	
+			GKIS_AppsProTech_Image::createThumbnail($slide->image, $this->config, $img_width, $img_height, $img_bg, $stretch, $quality);	
 		}
 	}
 	// get the articles data
@@ -60,20 +60,21 @@ class GKIS_gk_gamebox_Controller {
 		$ids = array();
         $idsK2 = array();
 		// generate the content of the array
+         
 		foreach($this->config['image_show_data'] as $slide) {
 			if($slide->type == 'article') {
 				array_push($ids, $slide->art_id);
 			}
-            if($slide->type == 'k2') {
+			if($slide->type == 'k2') {
 				array_push($idsK2, $slide->artK2_id);
 			}
 		}
 		// get the data
-		if(count($idsK2) > 0) {
-			$this->articlesK2 = GKIS_gk_gamebox_Model::getDataK2($idsK2);
-		}
 		if(count($ids) > 0) {
-			$this->articles = GKIS_gk_gamebox_Model::getData($ids);
+			$this->articles = GKIS_gk_appsprotech_Model::getData($ids);
+		}
+		if(count($idsK2) > 0) {
+			$this->articlesK2 = GKIS_gk_appsprotech_Model::getDataK2($idsK2);
 		}
 	}
 	// generate view
@@ -109,10 +110,10 @@ class GKIS_gk_gamebox_Controller {
 			$document->addStyleSheet($uri->root().'modules/mod_image_show_gk4/styles/'.$this->config['styles'].'/style.css' );
 		}
 		// add script fragment
-		$document->addScriptDeclaration('try {$Gavick;}catch(e){$Gavick = {};};$Gavick["gkIs-'.$this->config['module_id'].'"] = { "anim_speed": '.$this->config['config']->gk_gamebox->gk_gamebox_animation_speed.', "anim_interval": '.$this->config['config']->gk_gamebox->gk_gamebox_animation_interval.', "autoanim": '.$this->config['config']->gk_gamebox->gk_gamebox_autoanimation.', "anim_type": "'.$this->config['config']->gk_gamebox->gk_gamebox_animation_type.'", "slide_links": '.$this->config['config']->gk_gamebox->gk_gamebox_slide_links.' };');
+		$document->addScriptDeclaration('try {$Gavick;}catch(e){$Gavick = {};};$Gavick["gkIs-'.$this->config['module_id'].'"] = { "anim_speed": '.$this->config['config']->gk_appsprotech->gk_appsprotech_animation_speed.', "anim_interval": '.$this->config['config']->gk_appsprotech->gk_appsprotech_animation_interval.', "autoanim": '.$this->config['config']->gk_appsprotech->gk_appsprotech_autoanimation.', "slide_links": '.$this->config['config']->gk_appsprotech->gk_appsprotech_slide_links.' };');
 		// generate necessary variables
-		$width = $this->config['config']->gk_gamebox->gk_gamebox_image_width;
-		$height = $this->config['config']->gk_gamebox->gk_gamebox_image_height;
+		$width = $this->config['config']->gk_appsprotech->gk_appsprotech_image_width;
+		$height = $this->config['config']->gk_appsprotech->gk_appsprotech_image_height;
 		// load view
 		require(dirname(__FILE__).DS.'view.php');
 	}

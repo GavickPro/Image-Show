@@ -100,6 +100,7 @@ class GKIS_gk_black_and_white_Model {
 			 	$results[$item->id] = array(
 					'id' => $item->id,
 					'cid' => $item->cid,
+					'content' => $item->introtext,
 					'title' => stripslashes($item->title),
 					'link' => urldecode(JRoute::_(K2HelperRoute::getItemRoute($item->id.':'.urlencode($item->alias), $item->cid.':'.urlencode($item->cat_alias))))
 				);

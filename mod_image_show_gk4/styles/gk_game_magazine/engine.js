@@ -70,6 +70,15 @@ window.addEvent("load",function(){
 					if(wrapper.getElements(".gkIsTextItem")) {
 						textBlockEnabled = true;
 						contents = wrapper.getElements(".gkIsTextItem");
+						
+						wrapper.getElements(".gkIsTextItem").each(function(text, i) {
+							if(i == 0) {
+								text.setStyle('visibility', 'visible');
+							} else {
+								text.setStyle('visibility', 'hidden');
+							}
+						});
+						
 						$G['baseBottom'] = contents[0].getStyle('bottom').toInt();
 						$G['baseLeft'] = contents[0].getStyle('bottom').toInt();
 						contents.each(function(el, i) {
@@ -155,11 +164,9 @@ function gk_is_game_magazine_text_anim(wrapper, contents, actual, which, $G){
 		}).start(-600);
 	}
 	
-	new Fx.Tween(contents[actual],{
-		property:'opacity',
-		duration: $G['anim_speed']/2,
-		transition: Fx.Transitions.Expo.easeOut
-	}).start(0);
+	contents[actual].set('tween', { duration: $G['anim_speed']/2, transition: Fx.Transitions.Expo.easeOut });
+	contents[which].set('tween', { duration: $G['anim_speed']/2, transition: Fx.Transitions.Expo.easeOut });
+	contents[actual].fade('out');
 	
 	(function(){
 		if($G["anim_text_type"] == 'bottom') {
@@ -176,11 +183,7 @@ function gk_is_game_magazine_text_anim(wrapper, contents, actual, which, $G){
 			}).start($G['baseLeft']);
 		}
 		
-		new Fx.Tween(contents[which],{
-			property:'opacity',
-			duration: $G['anim_speed']/2,
-			transition: Fx.Transitions.Expo.easeIn
-		}).start(1);
+		contents[which].fade('in');
 	}).delay($G['anim_speed']/2);
 }
 //

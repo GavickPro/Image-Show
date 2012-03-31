@@ -101,6 +101,7 @@ class GKIS_gk_corporate2_Model {
 					'id' => $item->id,
 					'cid' => $item->cid,
 					'title' => stripslashes($item->title),
+					'introtext' => $item->introtext,
 					'link' => urldecode(JRoute::_(K2HelperRoute::getItemRoute($item->id.':'.urlencode($item->alias), $item->cid.':'.urlencode($item->cat_alias))))
 				);
 			}

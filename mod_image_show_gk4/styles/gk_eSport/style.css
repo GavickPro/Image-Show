@@ -46,6 +46,7 @@
 .gkIsWrapper-gk_eSport .gkIsImageAnimArea > div { -webkit-border-radius: 1000px; -moz-border-radius: 1000px; border-radius: 1000px; position: absolute; }
 
 /* text blocks */
+.gkIsWrapper-gk_eSport .gkIsTextTitle:first-child { visibility: visible; }
 .gkIsWrapper-gk_eSport .gkIsTextTitle { position: absolute; z-index: 100; height: 62px;
  width: auto; background: transparent url('images/is_bg_title.png') repeat 0 0; padding: 0 30px; text-transform: uppercase; visibility: hidden; right: 30px; }
 .gkIsWrapper-gk_eSport .gkIsTextTitle a { font-size: 30px; color: #fff; line-height: 62px; }

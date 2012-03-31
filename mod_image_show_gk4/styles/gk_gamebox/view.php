@@ -59,6 +59,7 @@ defined('_JEXEC') or die;
 		<?php 
 			
 			unset($title, $link);
+			
             if($this->config['image_show_data'][$i]->type == "k2"){
        	    $title = htmlspecialchars($this->articlesK2[$this->config['image_show_data'][$i]->artK2_id]["title"]);
             $link =  $this->articlesK2[$this->config['image_show_data'][$i]->artK2_id]["link"];
@@ -74,8 +75,8 @@ defined('_JEXEC') or die;
 			<span class="gkIsInfo">
 				<?php
                     if($this->config['image_show_data'][$i]->type == "k2"){
-                   	$gk_is_date = JHTML::_('date', $this->articlesK2[$this->config['image_show_data'][$i]->artK2_id]["date"], $this->config['config']->gk_sporter1->gk_sporter1_date_format);
-				    $gk_is_author = ($this->config['config']->gk_sporter1->gk_sporter1_author_name == 'username') ? $this->articlesK2[$this->config['image_show_data'][$i]->artK2_id]["username"] : $this->articlesK2[$this->config['image_show_data'][$i]->artK2_id]["name"];
+                   	$gk_is_date = JHTML::_('date', $this->articlesK2[$this->config['image_show_data'][$i]->artK2_id]["date"], $this->config['config']->gk_gamebox->gk_gamebox_date_format);
+				    $gk_is_author = ($this->config['config']->gk_gamebox->gk_gamebox_author_name == 'username') ? $this->articlesK2[$this->config['image_show_data'][$i]->artK2_id]["username"] : $this->articlesK2[$this->config['image_show_data'][$i]->artK2_id]["username"];
                     } else {
 					$gk_is_date = JHTML::_('date', $this->articles[$this->config['image_show_data'][$i]->art_id]["date"], $this->config['config']->gk_gamebox->gk_gamebox_date_format);
 					$gk_is_author =  $this->articles[$this->config['image_show_data'][$i]->art_id][$this->config['config']->gk_gamebox->gk_gamebox_author_name];

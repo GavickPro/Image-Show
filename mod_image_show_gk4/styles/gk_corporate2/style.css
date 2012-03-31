@@ -17,7 +17,7 @@
 .gkIsWrapper-gk_corporate2 .gkIsPrev,
 .gkIsWrapper-gk_corporate2 .gkIsNext { width:23px; height:46px; background:transparent url('images/arrows.png') no-repeat 0 0; position:absolute; cursor:pointer; margin:0; right:-35px; }
 .gkIsWrapper-gk_corporate2 .gkIsPrev div,
-.gkIsWrapper-gk_corporate2 .gkIsNext div { text-indent:-999em; width:23px; height:46px; background:transparent url('images/arrows.png') no-repeat 0 0; display:none; }
+.gkIsWrapper-gk_corporate2 .gkIsNext div { text-indent:-999em; width:23px; height:46px; background:transparent url('../images/arrows.png') no-repeat 0 0; display:none; }
 .gkIsWrapper-gk_corporate2 .gkIsPrev div { background-position:0 -46px!important; }
 .gkIsWrapper-gk_corporate2 .gkIsNext div { background-position:-23px -46px!important; }
 .gkIsWrapper-gk_corporate2 .gkIsPrev { right:inherit; left:-35px; }

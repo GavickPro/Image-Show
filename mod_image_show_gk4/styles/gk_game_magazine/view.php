@@ -42,6 +42,7 @@ $total_thumbs_width = $total_block_width - ($width + 20);
 				<?php 
 					// cleaning variables
 					unset($path, $link, $title);
+					
 					// creating slide path
 					$path = $uri->root().'modules/mod_image_show_gk4/cache/'.GKIS_GameMagazine_Image::translateName($this->config['image_show_data'][$i]->image, $this->config['module_id'], 'thumb_');
 					//
@@ -92,7 +93,7 @@ $total_thumbs_width = $total_block_width - ($width + 20);
 				<?php if($this->config['image_show_data'][$i]->published) : ?>
 					<?php 
 						// cleaning variables
-						unset($text, $title, $link, $exploded_text);
+						unset($text, $link);
 						//
 						$title = htmlentities(htmlspecialchars($this->config['image_show_data'][$i]->name), ENT_QUOTES, 'UTF-8', false);
 	                    
@@ -111,6 +112,8 @@ $total_thumbs_width = $total_block_width - ($width + 20);
 						<span class="gkIsTextBig"><?php echo substr($title, 0, $this->config['config']->gk_game_magazine->gk_game_magazine_title_chars_amount); ?></span>
 						<span class="gkIsTextSmall"><?php echo substr($text, 0, $this->config['config']->gk_game_magazine->gk_game_magazine_text_chars_amount); ?></span>
 					</a>
+                    
+                  
 				<?php endif; ?>
 			<?php endfor; ?>
 			<?php endif; ?>

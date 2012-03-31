@@ -88,7 +88,7 @@ class GKIS_gk_gamebox_Model {
 			`c`.`id` AS `id`,
 			`c`.`catid` AS `cid`,
 			`c`.`title` AS `title`,
-			`c`.`created` AS `date`,
+			`c`.`created` AS `dates`,
 			`c`.`introtext` AS `content`,
 			`u`.`username` AS `username`,
 			`u`.`name` AS `name`,
@@ -118,7 +118,7 @@ class GKIS_gk_gamebox_Model {
 					'cid' => $item->cid,
 					'title' => stripslashes($item->title),
 					'link' => urldecode(JRoute::_(K2HelperRoute::getItemRoute($item->id.':'.urlencode($item->alias), $item->cid.':'.urlencode($item->cat_alias)))),
-					'date' => $item->date,
+					'date' => $item->dates,
 					'content' => $item->content,
 					'username' => $item->username,
 					'name' => $item->name

@@ -76,7 +76,7 @@ class GKIS_gk_sporter1_Model {
     
     function getDataK2($ids) {
     	   
-       
+        require_once (JPATH_SITE.DS.'components'.DS.'com_k2'.DS.'helpers'.DS.'route.php'); 
 		// prepare an array
 		$results = array();
 		// prepare an query part

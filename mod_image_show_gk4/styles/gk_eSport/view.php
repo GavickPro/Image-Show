@@ -119,7 +119,7 @@ if($this->config['config']->gk_eSport->gk_eSport_thumbnails) {
 							if($this->config['image_show_data'][$i]->published) : 
 							
 							$path = $uri->root().'modules/mod_image_show_gk4/cache/'.GKIS_eSport_Image::translateName($this->config['image_show_data'][$i]->image, $this->config['module_id'], 'thumb_');
-							
+							unset($title);
 							if($this->config['image_show_data'][$i]->type == "k2"){
 							    $title = htmlspecialchars($this->articlesK2[$this->config['image_show_data'][$i]->artK2_id]["title"]);
 							} else {

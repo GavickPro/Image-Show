@@ -1,3 +1,2 @@
-- added new style gk_eSport
-- fixed problem with K2 items in gk_sporter1 style
-- styles upgraded to support MooTools 1.4.*
+- added new style gk_appsprotech
+- fixed problem with K2 items in few styles
