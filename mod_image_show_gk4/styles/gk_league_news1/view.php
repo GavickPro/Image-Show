@@ -74,7 +74,7 @@ defined('_JEXEC') or die;
 			        } else {
 			        	if($this->config['image_show_data'][$i]->type == "text") {
 			        		$title = htmlspecialchars($this->config['image_show_data'][$i]->name);
-			        		$desc = htmlspecialchars(strip_tags($this->config['image_show_data'][$i]->text));
+			        		$desc = htmlspecialchars(strip_tags($this->config['image_show_data'][$i]->content));
 			        		$link = $this->config['image_show_data'][$i]->url;	
 			        	} else {
 			        		$title = htmlspecialchars($this->articles[$this->config['image_show_data'][$i]->art_id]["title"]);

@@ -2,12 +2,12 @@
 <extension type="module" version="1.6.0" client="site" method="upgrade">
 	<name>Image Show GK4</name>
 	<author>GavickPro</author>
-	<creationDate>31/03/2012</creationDate>
+	<creationDate>07/05/2012</creationDate>
 	<copyright>Copyright (C) 2011-2012 GavickPro. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later</license>
 	<authorEmail>info@gavick.com</authorEmail>
 	<authorUrl>www.gavickpro.com</authorUrl>
-	<version>GK4 1.26</version>
+	<version>GK4 1.27</version>
 	<description><![CDATA[
 		<style type="text/css">
 			span.readonly { padding: 10px; font-family: Arial; font-size:13px !important; font-weight: normal !important; text-align: justify; color: #4d4d4d; line-height: 24px; }
