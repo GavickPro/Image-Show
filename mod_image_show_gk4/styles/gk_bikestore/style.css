@@ -65,7 +65,7 @@
 	bottom: auto;
 }
 .gkIsWrapper-gk_bikestore figure.active figcaption {
-	z-index: 4;
+	z-index: 100;
 }
 .gkIsWrapper-gk_bikestore figcaption h3 {
 	background: transparent url('images/pattern.png');

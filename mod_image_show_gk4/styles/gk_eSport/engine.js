@@ -64,7 +64,7 @@ window.addEvent("load",function(){
 			});
 				
 			if(process == imagesToLoad.length){
-				$clear(time);
+				clearTimeout(time);
 				loadedImages = process;
 			}
 		}).periodical(200);
@@ -73,7 +73,7 @@ window.addEvent("load",function(){
 			(function(){
 				var time_main = (function(){
 					if(loadedImages){
-						$clear(time_main);
+						clearTimeout(time_main);
 						preloader.removeClass('loading')
 						preloader.addClass('loaded');
 						// prepare an block area
@@ -111,8 +111,8 @@ window.addEvent("load",function(){
 		} else {
 			(function(){
 				var time_main = (function(){
-					if(loadedImages){
-						$clear(time_main);
+					if(loadedImages){;
+						clearTimeout(time_main);
 						preloader.removeClass('loading')
 						preloader.addClass('loaded');
 						// prepare an block area

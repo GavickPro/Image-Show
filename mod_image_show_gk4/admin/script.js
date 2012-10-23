@@ -12,9 +12,9 @@ window.addEvent("load",function(){
 	if(config == null || config == '') config = {};
 
 	// fix problem with the accordion height
-	document.id('IMAGE_SHOW_MANAGER-options').addEvent('click', function(){
+	$$('ul.nav a[href=#options-IMAGE_SHOW_MANAGER]').addEvent('click', function(){
 		(function(){ 
-            if(document.id('IMAGE_SHOW_MANAGER-options').hasClass('pane-toggler-down')) {
+            if($$('ul.nav a[href=#options-IMAGE_SHOW_MANAGER]').getParent().hasClass('active')) {
                 $$('.pane-slider').setStyle('height', 'auto'); 
             }
         }).delay(750);
@@ -416,6 +416,7 @@ window.addEvent("load",function(){
 	});
 	
 	(function() {
+		//SqueezeBox.initialize();
 		SqueezeBox.assign('.gk-modal', { parse: 'rel' });
 	}).delay(1500);
 	
@@ -474,34 +475,21 @@ window.addEvent("load",function(){
 	});
 	
 	// other form operations
-	$$('.input-pixels').each(function(el){el.getParent().innerHTML = el.getParent().innerHTML + "<span class=\"unit\">px</span>"});
-	$$('.input-percents').each(function(el){el.getParent().innerHTML = el.getParent().innerHTML + "<span class=\"unit\">%</span>"});
-	$$('.input-minutes').each(function(el){el.getParent().innerHTML = el.getParent().innerHTML + "<span class=\"unit\">minutes</span>"});
-	$$('.input-ms').each(function(el){el.getParent().innerHTML = el.getParent().innerHTML + "<span class=\"unit\">ms</span>"});
-	// switchers
-	$$('.gk_switch').each(function(el){
-		el.setStyle('display','none');
-		var style = (el.value == 1) ? 'on' : 'off';
-		var switcher = new Element('div',{'class' : 'switcher-'+style});
-		switcher.inject(el, 'after');
-		switcher.addEvent("click", function(){
-			if(el.value == 1){
-				switcher.setProperty('class','switcher-off');
-				el.value = 0;
-				el.fireEvent('change');
-			}else{
-				switcher.setProperty('class','switcher-on');
-				el.value = 1;
-				el.fireEvent('change');
-			}
-		});
-	});
+	/*$$('.input-px').each(function(el){ el.set('class', 'add-on'); el.getParent().innerHTML = "<div class=\"input-prepend\">" + el.getParent().innerHTML + "</div>"});
+	$$('.input-ms').each(function(el){el.set('class', 'add-on'); el.getParent().innerHTML = "<div class=\"input-prepend\">" + el.getParent().innerHTML + "</div>"});
+	$$('.input-percents').each(function(el){el.set('class', 'add-on'); el.getParent().innerHTML = "<div class=\"input-prepend\">" + el.getParent().innerHTML + "</div>"});
+	$$('.input-minutes').each(function(el){el.set('class', 'add-on'); el.getParent().innerHTML = "<div class=\"input-prepend\">" + el.getParent().innerHTML + "</div>"});*/
+	
+	document.id('gk_tab_manager').getParent().setStyle('margin-left', '5px');
+	document.id('gk_about_us').getParent().setStyle('margin-left', '15px');
+	document.id('options-IMAGE_SHOW_INTERFACE').getElement('.controls').setStyle('margin-left', '5px');
 	// help link
 	var link = new Element('a', { 'class' : 'gkHelpLink', 'href' : 'http://tools.gavick.com/image-show.html', 'target' : '_blank' })
-	link.inject($$('div.panel')[$$('div.panel').length-1].getElement('h3'), 'bottom');
+	link.inject($$('ul.nav li')[$$('ul.nav li').length-3].getElement('a'), 'bottom');
 	link.addEvent('click', function(e) { e.stopPropagation(); });
+	
 	//
-	document.id('IMAGE_SHOW_MANAGER-options').getParent().getElement('.panelform .adminformlist li').setStyle('border', 'none');
+	//document.id('IMAGE_SHOW_MANAGER-options').getParent().getElement('.panelform .adminformlist li').setStyle('border', 'none');
 });
 // function to generate the updates list
 function getUpdates() {

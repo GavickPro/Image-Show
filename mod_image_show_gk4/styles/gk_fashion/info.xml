@@ -10,7 +10,7 @@
 		<field type="text" name="image_width" label="Image width" desc="Slide image width in pixels" default="640" unit="px" />
 		<field type="text" name="image_height" label="Image height" desc="Slide image height in pixels" default="320" unit="px" />
 		<field type="text" name="image_bg" label="Image background color" desc="Slide image background as hexdecimal value" default="#000000" unit="" />	
-		<field type="text" name="quality" label="Image quality" desc="Quality of images (used in the JPG images) - percentage value between 0 and 100." default="95" unit="%" />
+		<field type="text" name="quality" label="Image quality" desc="Quality of images (used in the JPG images) - percentage value between 0 and 100." default="95" unit="percents" />
 		
 		
 		<field type="switch" name="show_title_block" label="Show title block" default="1" desc="You can enable showing block with slide titles." class="gk_switch" />

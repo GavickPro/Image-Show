@@ -24,7 +24,7 @@ window.addEvent("load",function(){
 	            el.getElement('a').destroy();
 	            newImg.setProperty("src",el.innerHTML);
 	            imagesToLoad.push(newImg);
-	            newImg.injectAfter(el);
+	            newImg.inject(el, 'after');
 	            el.destroy();
 	        });
 	        
@@ -35,7 +35,7 @@ window.addEvent("load",function(){
 	            });
 	            
 	            if(process == imagesToLoad.length){
-	                $clear(time);
+	                clearTimeout(time);
 	                loadedImages = process;
 	                (function(){
 	        			wrapper.getElement('.gkIsPreloader').fade('out');
@@ -45,7 +45,8 @@ window.addEvent("load",function(){
 	        
 	        var time_main = (function(){
 	            if(loadedImages){
-	                $clear(time_main);
+	                //$clear(time_main);
+	                clearTimeout(time_main);
 	                $G['actual_slide'] = 0;
 	                
 	
@@ -59,7 +60,7 @@ window.addEvent("load",function(){
 	                		
 	                		if(figcaption && figcaption.hasClass('top')) {
 	                			new Fx.Tween(figcaption, { duration: $G['anim_speed'] / 2}).start('top', -300, 52);
-	                		} else {
+	                		} else if(figcaption) {
 	                			new Fx.Tween(figcaption, { duration: $G['anim_speed'] / 2 }).start('bottom', -300, 52);
 	                		}
 	                		 
@@ -112,7 +113,7 @@ var gk_bikestore_animate = function($G, wrapper, imgPrev, imgNext) {
 	var figcaptionNext = imgNext.getElement('figcaption');
 	if(figcaptionNext && figcaptionNext.hasClass('top')) {
 		figcaptionNext.setStyle('top', -300);
-	} else {
+	} else if(figcaptionNext) {
 		figcaptionNext.setStyle('bottom', -300);
 	}
 	
@@ -123,7 +124,7 @@ var gk_bikestore_animate = function($G, wrapper, imgPrev, imgNext) {
 			var figcaption = imgNext.getElement('figcaption');
 			if(figcaption && figcaption.hasClass('top')) {
 				new Fx.Tween(figcaption, { duration: $G['anim_speed'] / 2}).start('top', 52);
-			} else {
+			} else if(figcaption) {
 				new Fx.Tween(figcaption, { duration: $G['anim_speed'] / 2 }).start('bottom', 52);
 			}
 			
@@ -149,7 +150,7 @@ var gk_bikestore_animate = function($G, wrapper, imgPrev, imgNext) {
 	var figcaptionPrev = imgPrev.getElement('figcaption');
 	if(figcaptionPrev && figcaptionPrev.hasClass('top')) {
 		new Fx.Tween(figcaptionPrev, { duration: $G['anim_speed'] / 2 }).start('top', -300);
-	} else {
+	} else if(figcaptionPrev) {
 		new Fx.Tween(figcaptionPrev, { duration: $G['anim_speed'] / 2 }).start('bottom', -300);
 	}
 

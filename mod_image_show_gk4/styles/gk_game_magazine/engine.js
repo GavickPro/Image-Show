@@ -44,7 +44,7 @@ window.addEvent("load",function(){
 					imagesToLoad.each(function(el,i){ if(el.complete) process++; });
 					
 					if(process == imagesToLoad.length){
-						$clear(time);
+						clearTimeout(time);
 						loadedImages = process;
 						(function(){
 							wrapper.getElement('.gkIsPreloader').fade('out');
@@ -55,8 +55,7 @@ window.addEvent("load",function(){
 	
 			var time_main = (function(){
 				if(loadedImages){
-					$clear(time_main);
-	
+					clearTimeout(time_main);
 					wrapper.getElements(".gkIsSlide").each(function(elmt,i){
 						slides[i] = elmt;
 						if($G['slide_links']){
@@ -65,7 +64,7 @@ window.addEvent("load",function(){
 						}
 					});
 	
-					slides.each(function(el,i){ if(i != 0) el.setOpacity(0); });
+					slides.each(function(el,i){ if(i != 0) el.setStyle('opacity', 0); });
 	
 					if(wrapper.getElements(".gkIsTextItem")) {
 						textBlockEnabled = true;

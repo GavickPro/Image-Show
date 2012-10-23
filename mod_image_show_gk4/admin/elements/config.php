@@ -6,6 +6,7 @@ jimport('joomla.form.formfield');
 jimport('joomla.filesystem.folder');
 jimport('joomla.filesystem.file');
 
+
 class JFormFieldConfig extends JFormField {
 	protected $type = 'Config';
 
@@ -14,6 +15,7 @@ class JFormFieldConfig extends JFormField {
 	}
 
 	protected function getInput() {
+		JHtml::_('behavior.modal', 'a.modal');
 		$catalog_path = JPATH_SITE.DS.'modules'.DS.'mod_image_show_gk4'.DS.'styles';
 		
 		$folders = JFolder::folders($catalog_path);
@@ -25,11 +27,11 @@ class JFormFieldConfig extends JFormField {
 			foreach($folders as $folder) {
 				$output = '';
 				// read XML file 
-				$xml = &JFactory::getXMLParser('Simple');
-				$result = $xml->loadFile($catalog_path.DS.$folder.DS.'info.xml');
+				
+				$xml=JFactory::getXML($catalog_path.DS.$folder.DS.'info.xml');
 				//
-				foreach($xml->document->config[0]->field as $field) {
-					$type = $field->attributes('type');
+				foreach($xml->config[0]->field as $field) {
+					$type = $field->attributes()->type;
 					
 					$output .= '<li>' . $this->generateField($type, $field, $folder) . '</li>';
 				}
@@ -46,32 +48,32 @@ class JFormFieldConfig extends JFormField {
 	}
 	//
 	protected function generateField($type, $field, $style) {
-		$id = $style . '_' . $field->attributes('name');
+		$id = $style . '_' . $field->attributes()->name;
 		
 		switch($type) {
 			case 'text': {
 			 		// 
-			 		$output = '<label id="'.$id.'-lbl" for="'.$id.'" class="hasTip" title="'.$field->attributes('desc').'">'.$field->attributes('label').'</label>';
+			 		$output = '<label id="'.$id.'-lbl" for="'.$id.'" class="hasTip" title="'.$field->attributes()->desc.'">'.$field->attributes()->label.'</label>';
 			 		
 			 		$unit_span = '';
-			 		if($field->attributes('unit')) {
-			 			$unit_span = '<span class="unit">'.$field->attributes('unit').'</span>';
+			 		if($field->attributes()->unit != '') {
+			 			$unit_span = '<span class="unit">'.$field->attributes()->unit.'</span>';
 			 		}
-			 		$output .= '<input type="text" id="'.$id.'" value="'.$field->attributes('default').'" class="field">' . $unit_span;
+			 		$output .= '<input type="text" id="'.$id.'" value="'.$field->attributes()->default.'" class="field">' . $unit_span;
 			 		// 
 			 		return $output;
 				}
 				break;
 			case 'switch': {
 					//
-					$output = '<label id="'.$id.'-lbl" for="'.$id.'" class="hasTip" title="'.$field->attributes('desc').'">'.$field->attributes('label').'</label>';
+					$output = '<label id="'.$id.'-lbl" for="'.$id.'" class="hasTip" title="'.$field->attributes()->desc.'">'.$field->attributes()->label.'</label>';
 					
-					$output .= '<select id="'.$id.'" class="field '.$field->attributes('class').'">';
+					$output .= '<select id="'.$id.'" class="input-medium field '.$field->attributes()->class.'">';
 					
 					$selected0 = '';
 					$selected1 = '';
 						
-					if($field->attributes('default') == 0) {
+					if($field->attributes()->default == 0) {
 						$selected0 = ' selected="selected"';
 					} else {
 						$selected1 = ' selected="selected"';
@@ -86,25 +88,25 @@ class JFormFieldConfig extends JFormField {
 				}
 				break;
 			case 'textarea': {
-			 		$output = '<label id="'.$id.'-lbl" for="'.$id.'" class="hasTip" title="'.$field->attributes('desc').'">'.$field->attributes('label').'</label>';
-			 		$output .= '<textarea id="'.$id.'" class="field '.$field->attributes('class').'" rows="'.$field->attributes('rows').'" cols="'.$field->attributes('cols').'"></textarea>';
+			 		$output = '<label id="'.$id.'-lbl" for="'.$id.'" class="hasTip" title="'.$field->attributes()->desc.'">'.$field->attributes()->label.'</label>';
+			 		$output .= '<textarea id="'.$id.'" class="field '.$field->attributes()->class.'" rows="'.$field->attributes()->rows.'" cols="'.$field->attributes()->cols.'"></textarea>';
 			 		
 			 		return $output;
 				}
 				break;
 			case 'select': {
-					$output = '<label id="'.$id.'-lbl" for="'.$id.'" class="hasTip" title="'.$field->attributes('desc').'">'.$field->attributes('label').'</label>';
+					$output = '<label id="'.$id.'-lbl" for="'.$id.'" class="hasTip" title="'.$field->attributes()->desc.'">'.$field->attributes()->label.'</label>';
 					
-					$output .= '<select id="'.$id.'" class="field '.$field->attributes('class').'">';
+					$output .= '<select id="'.$id.'" class="input-medium field '.$field->attributes()->class.'">';
 					
 					foreach($field->option as $option) {
 						$selected = '';
 						
-						if($option->attributes('value') == $field->attributes('value')) {
+						if($option->attributes()->value == $field->attributes()->value) {
 							$selected = ' selected="selected"';
 						}
 						
-						$output .= '<option value="'.$option->attributes('value').'" '.$selected.'>'.$option->data().'</option>';
+						$output .= '<option value="'.$option->attributes()->value.'" '.$selected.'>'.$option.'</option>';
 					}
 					
 					$output .= '</select>';
