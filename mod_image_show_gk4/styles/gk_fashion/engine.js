@@ -55,10 +55,11 @@ window.addEvent("load",function(){
                 });
                                 
                 $G['actual_slide'] = 0;
-                
-                (function() {
-                	gk_fashion_autoanimate($G, wrapper, 'next');
-                }).delay($G['anim_interval']);
+                if($G['autoanim']){	
+	                (function() {
+	                	gk_fashion_autoanimate($G, wrapper, 'next');
+	                }).delay($G['anim_interval']);
+	            }
                 // pagination
                 if(wrapper.getElement('ol')) {
                     wrapper.getElements('ol li').each(function(btn, i) {
