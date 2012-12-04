@@ -1,0 +1,146 @@
+/**
+* GK Image Show - CSS style
+* @package Joomla!
+* @Copyright (C) 2009-2011 Gavick.com
+* @ All rights reserved
+* @ Joomla! is Free Software
+* @ Released under GNU/GPL License : http://www.gnu.org/copyleft/gpl.html
+* @ version $Revision: GK4 1.0 $
+**/
+ 
+.gkIsWrapper-gk_publisher {
+	margin: 0;
+	overflow: hidden;
+	position: relative;
+}
+
+.gkIsWrapper-gk_publisher .gkIsPreloader {
+	background: #dc7037 url('images/loader.gif') no-repeat center center;
+	height: 100%;
+	position: absolute;
+	width: 100%;
+	z-index: 101;
+}
+
+.gkIsWrapper-gk_publisher figure {
+	left: 0;
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+}
+
+.gkIsWrapper-gk_publisher figure.active {
+	opacity: 1;
+	position: relative;
+	z-index: 3;
+}
+
+.gkIsWrapper-gk_publisher img {
+	display: block;
+	height: auto;
+	position: relative;
+	width: 100%;
+}
+
+.gkIsWrapper-gk_publisher figcaption {
+	background: #dc7037;
+	bottom: -100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+	left: 0;
+	padding: 25px 20px;
+	position: absolute;
+	width: 100%;
+	z-index: 2;
+	-webkit-transition: bottom 0.5s ease-out, top 0.5s ease-out;
+	-moz-transition: bottom 0.5s ease-out, top 0.5s ease-out;
+	-ms-transition: bottom 0.5s ease-out, top 0.5s ease-out;
+	-o-transition: bottom 0.5s ease-out, top 0.5s ease-out;
+	transition: bottom 0.5s ease-out, top 0.5s ease-out;
+}
+
+.gkIsWrapper-gk_publisher figcaption.top {
+	bottom: auto;
+	top: -100%;
+}
+
+.gkIsWrapper-gk_publisher figcaption.top.contains-pagination {
+	padding: 40px 20px 25px 20px;
+}
+
+.gkIsWrapper-gk_publisher figcaption.bottom.contains-pagination {
+	padding: 25px 20px 40px 20px;
+}
+
+.gkIsWrapper-gk_publisher figure.active figcaption {
+	bottom: 0%;
+	z-index: 4;
+}
+
+.gkIsWrapper-gk_publisher figure.active figcaption.top {
+	bottom: auto;
+	top: 0%;
+}
+
+.gkIsWrapper-gk_publisher figcaption h3 {
+	color: #fff;
+	font-size: 36px;
+	font-weight: 600;
+	line-height: 40px;
+	margin: 0;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.gkIsWrapper-gk_publisher figcaption p {
+	color: #fff;
+	font-size: 14px;
+	font-weight: 400;
+	margin: 0;
+	text-align: center;
+}
+
+.gkIsWrapper-gk_publisher figcaption a {
+	color: #fff;
+}
+
+.gkIsWrapper-gk_publisher figcaption a:active,
+.gkIsWrapper-gk_publisher figcaption a:focus,
+.gkIsWrapper-gk_publisher figcaption a:hover {
+	color: #eee;
+	color: rgba(255, 255, 255, 0.75);
+}
+
+.gkIsWrapper-gk_publisher ol {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	text-align: center;
+	top: 12px;
+	width: 100%;
+	z-index: 10;
+}
+
+.gkIsWrapper-gk_publisher ol.bottom {
+	top: auto;
+	bottom: 12px;
+}
+
+.gkIsWrapper-gk_publisher ol li {
+	background: #fff;
+	border-radius: 50%;
+	cursor: pointer;
+	display: inline-block;
+	height: 13px;
+	text-indent: -999px;
+	width: 13px;
+}
+
+.gkIsWrapper-gk_publisher ol li:hover,
+.gkIsWrapper-gk_publisher ol li.active {
+	background: #f6bc9d;
+}

@@ -1,5 +1,5 @@
 window.addEvent("load",function(){
-    $$(".gkIsWrapper-gk_fashion").each(function(el){
+    $$(".gkIsWrapper-gk_publisher").each(function(el){
         var elID = el.getProperty("id");
         var wrapper = $(elID);
         var $G = $Gavick[elID];
@@ -57,14 +57,14 @@ window.addEvent("load",function(){
                 $G['actual_slide'] = 0;
                 
                 (function() {
-                	gk_fashion_autoanimate($G, wrapper, 'next');
+                	gk_publisher_autoanimate($G, wrapper, 'next');
                 }).delay($G['anim_interval']);
                 // pagination
                 if(wrapper.getElement('ol')) {
                     wrapper.getElements('ol li').each(function(btn, i) {
                     	btn.addEvent('click', function() {
                     		if(i != $G['actual_slide']) {
-                    			gk_fashion_autoanimate($G, wrapper, 'next', i);
+                    			gk_publisher_autoanimate($G, wrapper, 'next', i);
                     		}		
                     	});
                     });
@@ -74,7 +74,7 @@ window.addEvent("load",function(){
     });
 });
 
-var gk_fashion_animate = function($G, wrapper, imgPrev, imgNext) {	
+var gk_publisher_animate = function($G, wrapper, imgPrev, imgNext) {	
 	imgPrev.set('tween', {
 		duration: $G['anim_speed'],
 		onComplete: function() {
@@ -90,7 +90,7 @@ var gk_fashion_animate = function($G, wrapper, imgPrev, imgNext) {
 			clearTimeout($G['animation_timer']);
 			
 			$G['animation_timer'] = setTimeout(function() {
-				gk_fashion_autoanimate($G, wrapper, 'next', null);
+				gk_publisher_autoanimate($G, wrapper, 'next', null);
 			},$G['anim_interval']);
 		} 
 	});
@@ -99,7 +99,7 @@ var gk_fashion_animate = function($G, wrapper, imgPrev, imgNext) {
 	imgNext.fade('in');
 }; 
 
-var gk_fashion_autoanimate = function($G, wrapper, dir, nextSlide) {
+var gk_publisher_autoanimate = function($G, wrapper, dir, nextSlide) {
 	var i = $G['actual_slide'];
 	var imgs = wrapper.getElements('figure');
 	var next = nextSlide;
@@ -108,7 +108,7 @@ var gk_fashion_autoanimate = function($G, wrapper, dir, nextSlide) {
 		next = (dir == 'next') ? ((i < imgs.length - 1) ? i+1 : 0) : ((i == 0) ? imgs.length - 1 : i - 1); // dir: next|prev
 	}
 	
-	gk_fashion_animate($G, wrapper, imgs[i], imgs[next]);
+	gk_publisher_animate($G, wrapper, imgs[i], imgs[next]);
 	$G['actual_slide'] = next;
 	wrapper.getElements('ol li').setProperty('class', '');
 	wrapper.getElements('ol li')[next].setProperty('class', 'active');
