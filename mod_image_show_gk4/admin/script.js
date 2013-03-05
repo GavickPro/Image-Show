@@ -482,10 +482,9 @@ window.addEvent("load",function(){
 	
 	document.id('gk_tab_manager').getParent().setStyle('margin-left', '5px');
 	document.id('gk_about_us').getParent().setStyle('margin-left', '15px');
-	document.id('options-IMAGE_SHOW_INTERFACE').getElement('.controls').setStyle('margin-left', '5px');
 	// help link
 	var link = new Element('a', { 'class' : 'gkHelpLink', 'href' : 'http://tools.gavick.com/image-show.html', 'target' : '_blank' })
-	link.inject($$('ul.nav li')[$$('ul.nav li').length-3].getElement('a'), 'bottom');
+	link.inject($$('ul.nav li')[$$('ul.nav li').length-2].getElement('a'), 'bottom');
 	link.addEvent('click', function(e) { e.stopPropagation(); });
 	
 	//

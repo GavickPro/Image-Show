@@ -143,6 +143,11 @@ span.unit {
 	margin: 0 0 3px -25px;
 }
 div.gk_tab_item a.btn { margin-right: 3px;}
+/* J! 3.0.2 fix */
+.module_style ul.adminformlist {
+	list-style: none;
+	margin-left: -140px;
+}
 /* Support for mobile */
 @media (max-width: 480px) {
 	.form-horizontal .controls { clear: both!important; }
