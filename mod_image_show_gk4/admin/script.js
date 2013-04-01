@@ -482,8 +482,12 @@ window.addEvent("load",function(){
 	
 	document.id('gk_tab_manager').getParent().setStyle('margin-left', '5px');
 	document.id('gk_about_us').getParent().setStyle('margin-left', '15px');
+	//document.id('options-IMAGE_SHOW_INTERFACE').getElement('.controls').setStyle('margin-left', '5px');
+	document.id('moduleOptions').getElement('.module_style').getParent().setStyle('margin-left', '5px');
+	
+	
 	// help link
-	var link = new Element('a', { 'class' : 'gkHelpLink', 'href' : 'http://tools.gavick.com/image-show.html', 'target' : '_blank' })
+	var link = new Element('a', { 'class' : 'gkHelpLink', 'href' : 'https://www.gavick.com/image-show-gk4.html', 'target' : '_blank' })
 	link.inject($$('ul.nav li')[$$('ul.nav li').length-2].getElement('a'), 'bottom');
 	link.addEvent('click', function(e) { e.stopPropagation(); });
 	
@@ -493,7 +497,7 @@ window.addEvent("load",function(){
 // function to generate the updates list
 function getUpdates() {
 	document.id('jform_params_module_updates-lbl').destroy(); // remove unnecesary label
-	var update_url = 'https://www.gavick.com/updates.raw?task=json&tmpl=component&query=product&product=mod_image_show_gk4_j30';
+	var update_url = 'https://www.gavick.com/updates.raw?task=json&tmpl=component&query=product&product=mod_image_show_gk4_j16';
 	var update_div = document.id('gk_module_updates');
 	update_div.innerHTML = '<div id="gk_update_div"><span id="gk_loader"></span>Loading update data from GavicPro Update service...</div>';
 	

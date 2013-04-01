@@ -42,6 +42,10 @@ fieldset.panelform .desc { font-size: 11px; font-weight: normal; width: auto; pa
 .gk_tab_editor_scroll label,
 .module_style label,
 .gk_tab_add label { color: #333; font-size: 13px; line-height: 18px; font-weight: normal; text-align: left; min-width: 160px !important; max-width: 160px !important; display: inline-block}
+.module_style ul{ list-style: none!important}
+.module_style ul li { margin: 5px 0 }
+.module_style .chzn-container { display: none!important; }
+.module_style select { display: inline-block!important }
 .gk_tab_editor_scroll textarea,
 .gk_tab_add textarea { min-height: 100px; }
 .gk_tab_editor_scroll .gk_tab_edit_content_module,
@@ -143,11 +147,6 @@ span.unit {
 	margin: 0 0 3px -25px;
 }
 div.gk_tab_item a.btn { margin-right: 3px;}
-/* J! 3.0.2 fix */
-.module_style ul.adminformlist {
-	list-style: none;
-	margin-left: -140px;
-}
 /* Support for mobile */
 @media (max-width: 480px) {
 	.form-horizontal .controls { clear: both!important; }
