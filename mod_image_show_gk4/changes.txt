@@ -1,2 +1,0 @@
-- added new style gk_appsprotech
-- fixed problem with K2 items in few styles

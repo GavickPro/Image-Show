@@ -167,12 +167,12 @@ function gk_is_appsprotech_anim(wrapper, slides, which, $G){
 				txts[actual].removeClass('active');
 			}
 			
-			//(function() {
+			(function() {
 				txts[which].fade('in');
 				if(!txts[which].hasClass('active')) {
 					txts[which].addClass('active');
 				}
-			//}).delay($G['anim_speed'] + 200);
+			}).delay($G['anim_speed'] + 200);
 		}
 				
 		if(wrapper.getElement('.gkIsPagination')) {
