@@ -1,0 +1,161 @@
+
+/**
+* GK Image Show - CSS style
+* @package Joomla!
+* @Copyright (C) 2009-2011 Gavick.com
+* @ All rights reserved
+* @ Joomla! is Free Software
+* @ Released under GNU/GPL License : http://www.gnu.org/copyleft/gpl.html
+* @ version $Revision: GK4 1.0 $
+**/
+ 
+
+.gkIsWrapper-gk_storebox {
+	margin: 0;
+	min-height: 400px;
+	position: relative;
+}
+
+.gkIsWrapper-gk_storebox .gkIsPreloader {
+	background: transparent url('images/loader.gif') no-repeat center center;
+	height: 100%;
+	position: absolute;
+	width: 100%;
+	z-index: 101;
+}
+
+.gkIsWrapper-gk_storebox .gkIsOverlay {
+	background: transparent url('images/header_gradient.png') repeat-x 0 0;
+	height: 100%;
+	position: absolute;
+	width: 100%;
+	z-index: 100;
+}
+
+.gkIsWrapper-gk_storebox figure {
+	left: 0;
+	top: 0;
+	opacity: 0;
+	position: absolute;
+	overflow: hidden;
+	width: 100%;
+	z-index: 1;
+}
+
+.gkIsWrapper-gk_storebox.loaded .gkIsButtons {
+	opacity: 1;
+}
+
+.gkIsWrapper-gk_storebox figure.animated {
+	z-index: 2;
+}
+
+.gkIsWrapper-gk_storebox.loaded figure.animated {
+	opacity: 1;
+}
+
+.gkIsWrapper-gk_storebox figure.active {
+	position: relative;
+	z-index: 3;
+}
+
+.gkIsWrapper-gk_storebox img {
+	display: block;
+	height: auto;
+	position: relative;
+	width: 100%;
+}
+
+.gkIsWrapper-gk_storebox figcaption {
+	margin-top: 50px;
+	padding: 5px 12px;
+	position: absolute;
+	z-index: 1;
+}
+
+.gkIsWrapper-gk_storebox figure.active figcaption {
+	z-index: 101;
+}
+
+.gkIsWrapper-gk_storebox figcaption h1,
+.gkIsWrapper-gk_storebox figcaption h2 {
+	color: inherit;
+}
+
+.gkIsWrapper-gk_storebox figcaption h1 {
+	font-size: 47px;
+	font-weight: bold;
+	line-height: 1.1;
+	margin: 0;
+	padding: 0;
+	text-transform: uppercase;
+}
+
+.gkIsWrapper-gk_storebox figcaption h2 {
+	font-size: 32px;
+	line-height: 1.1;
+	margin: 0;
+	padding: 0;
+}
+
+.gkIsWrapper-gk_storebox .gkIsPrev,
+.gkIsWrapper-gk_storebox .gkIsNext {
+	margin-top: -25px;
+	opacity: 0;
+	position: absolute;
+	text-indent: -9999px;
+	top: 45%;
+	-webkit-transform: scale(0);
+	-moz-transform: scale(0);
+	-ms-transform: scale(0);
+	-o-transform: scale(0);
+	transform: scale(0);
+	-webkit-transition: all .3s ease-out;
+	-moz-transition: all .3s ease-out;
+	-ms-transition: all .3s ease-out;
+	-o-transition: all .3s ease-out;
+	transition: all .3s ease-out;
+	z-index: 100;
+}
+
+.gkIsWrapper-gk_storebox .gkIsPrev > span,
+.gkIsWrapper-gk_storebox .gkIsNext > span {
+	background: transparent url('images/is_arrows.png') no-repeat 0 50%;
+	display: block;
+	height: 70px;
+	text-indent: -9999px;
+	width: 38px;
+}
+
+.gkIsWrapper-gk_storebox.hover .gkIsPrev {
+	left: 50px;
+	padding-right: 100px;
+}
+
+.gkIsWrapper-gk_storebox.hover .gkIsNext {
+	padding-left: 100px;
+	right: 50px;
+}
+
+.gkIsWrapper-gk_storebox .gkIsNext > span {
+	background-position: -38px 0;
+}
+
+.gkIsWrapper-gk_storebox .gkIsPrev {
+	left: 100px;
+}
+
+.gkIsWrapper-gk_storebox .gkIsNext {
+	padding: 9px 0 0 18px;
+	right: 100px;
+}
+
+.gkIsWrapper-gk_storebox.hover .gkIsPrev,
+.gkIsWrapper-gk_storebox.hover .gkIsNext {
+	opacity: 1;
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-ms-transform: scale(1);
+	-o-transform: scale(1);
+	transform: scale(1);
+}
