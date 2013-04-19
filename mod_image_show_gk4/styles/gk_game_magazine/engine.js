@@ -67,7 +67,7 @@ window.addEvent("load",function(){
 	
 					slides.each(function(el,i){ if(i != 0) el.setOpacity(0); });
 	
-					if(wrapper.getElements(".gkIsTextItem")) {
+					if(wrapper.getElements(".gkIsTextItem").length > 0) {
 						textBlockEnabled = true;
 						contents = wrapper.getElements(".gkIsTextItem");
 						
