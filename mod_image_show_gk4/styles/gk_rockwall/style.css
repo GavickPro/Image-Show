@@ -1,0 +1,156 @@
+
+/**
+* GK Image Show - CSS style
+* @package Joomla!
+* @Copyright (C) 2009-2013 Gavick.com
+* @ All rights reserved
+* @ Joomla! is Free Software
+* @ Released under GNU/GPL License : http://www.gnu.org/copyleft/gpl.html
+* @ version $Revision: GK4 1.0 $
+**/
+ 
+
+.gkIsWrapper-gk_rockwall {
+	margin: 0;
+	min-height: 200px;
+	position: relative;
+}
+
+.gkIsWrapper-gk_rockwall .gkIsPreloader {
+	background: #fff url('images/loader.gif') no-repeat center center;
+	height: 100%;
+	position: absolute;
+	text-indent: -9999px;
+	width: 100%;
+	z-index: 101;
+}
+
+.gkIsWrapper-gk_rockwall figure {
+	left: 0;
+	top: 0;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	position: absolute;
+	overflow: hidden;
+	width: 100%;
+	z-index: 1;
+}
+
+.gkIsWrapper-gk_rockwall.loaded .gkIsButtons {
+	opacity: 1;
+	filter: alpha(opacity=100);
+}
+
+.gkIsWrapper-gk_rockwall figure.animated {
+	z-index: 2;
+}
+
+.gkIsWrapper-gk_rockwall.loaded figure.animated {
+	opacity: 1;
+	filter: alpha(opacity=100);
+}
+
+.gkIsWrapper-gk_rockwall .active figcaption {
+	filter: alpha(opacity=100);
+}
+
+.gkIsWrapper-gk_rockwall figure.active {
+	position: relative;
+	z-index: 3;
+}
+
+.gkIsWrapper-gk_rockwall img {
+	display: block;
+	height: auto;
+	position: relative;
+	width: 100%;
+}
+
+.gkIsWrapper-gk_rockwall figcaption {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	filter: alpha(opacity=0);
+	height: 100%;
+	left: -50%;
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	z-index: 1;
+}
+
+.gkIsWrapper-gk_rockwall[data-textpos="right"] figcaption {
+	left: auto;
+	right: -50%;
+}
+
+.gkIsWrapper-gk_rockwall figcaption a.button {
+	background: #2AA4E1;
+	background-image: linear-gradient(bottom, #1162B3 0%, #2AA4E1 99%);
+	background-image: -moz-linear-gradient(bottom, #1162B3 0%, #2AA4E1 99%);
+	background-image: -webkit-linear-gradient(bottom, #1162B3 0%, #2AA4E1 99%);
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1162B3), color-stop(0.99, #2AA4E1));
+	margin: 30px 0 0 0;
+	text-transform: uppercase;
+}
+
+.gkIsWrapper-gk_rockwall figcaption a.button:active,
+.gkIsWrapper-gk_rockwall figcaption a.button:focus,
+.gkIsWrapper-gk_rockwall figcaption a.button:hover {
+	background: #747474;
+	background-image: linear-gradient(bottom, #4A4A4A 0%, #747474 99%);
+	background-image: -moz-linear-gradient(bottom, #4A4A4A 0%, #747474 99%);
+	background-image: -webkit-linear-gradient(bottom, #4A4A4A 0%, #747474 99%);
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #4A4A4A), color-stop(0.99, #747474));
+}
+
+.gkIsWrapper-gk_rockwall figure.active figcaption {
+	z-index: 101;
+}
+
+.gkIsWrapper-gk_rockwall figcaption h2 {
+	color: inherit;
+	font-size: 66px;
+	font-weight: 600;
+	line-height: 60px;
+	margin: 0;
+	padding: 0;
+	text-transform: lowercase 
+}
+
+.gkIsWrapper-gk_rockwall .gkIsPagination {
+	bottom: 22px;
+	position: absolute;
+	right: 32px;	
+	z-index: 10;
+}
+
+.gkIsWrapper-gk_rockwall[data-textpos="right"] .gkIsPagination {
+	left: 32px;
+	right: auto;
+}
+
+.gkIsWrapper-gk_rockwall .gkIsPagination li {
+	background: #717171;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+	float: left;
+	height: 10px;
+	margin: 0 0 0 5px;
+	text-indent: -9999px;
+	-webkit-transition: all .3s ease-out;
+	-moz-transition: all .3s ease-out;
+	-ms-transition: all .3s ease-out;
+	-o-transition: all .3s ease-out;
+	transition: all .3s ease-out;
+	width: 10px;
+}
+
+.gkIsWrapper-gk_rockwall .gkIsPagination li.active,
+.gkIsWrapper-gk_rockwall .gkIsPagination li:active
+.gkIsWrapper-gk_rockwall .gkIsPagination li:focus,
+.gkIsWrapper-gk_rockwall .gkIsPagination li:hover {
+	background: #fff;
+}
