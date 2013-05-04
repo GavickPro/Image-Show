@@ -66,6 +66,10 @@
 			</fieldset>
 			<!-- advanced -->
 			<fieldset name="IMAGE_SHOW_ADVANCED">
+				<field name="generate_thumbnails" type="list" class="gk_switch" default="1" label="MOD_IMAGE_SHOW_GENERATE_THUMBNAILS" description="MOD_IMAGE_SHOW_GENERATE_THUMBNAILS_DESC">
+				        <option value="0">MOD_IMAGE_SHOW_DISABLED</option>
+				        <option value="1">MOD_IMAGE_SHOW_ENABLED</option>
+				</field>
 				<field name="use_style_css" type="list" class="gk_switch" default="1" label="MOD_IMAGE_SHOW_USE_STYLE_CSS" description="MOD_IMAGE_SHOW_USE_STYLE_CSS_DESC">
 				        <option value="0">MOD_IMAGE_SHOW_DISABLED</option>
 				        <option value="1">MOD_IMAGE_SHOW_ENABLED</option>
