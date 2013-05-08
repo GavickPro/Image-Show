@@ -38,6 +38,7 @@ class GK4ImageShowHelper {
 		$this->config['image_show_data'] = json_decode($this->config['image_show_data']);
 		$this->config['config'] = json_decode($this->config['config']);
 		// advanced
+		$this->config['generate_thumbnails'] = $params->get('generate_thumbnails', '1');
 		$this->config['use_style_css'] = $params->get('use_style_css', 1);
 	}
 	// function to render module code
