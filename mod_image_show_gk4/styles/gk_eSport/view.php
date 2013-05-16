@@ -68,8 +68,14 @@ if($this->config['config']->gk_eSport->gk_eSport_thumbnails) {
 					   $link = ($this->config['image_show_data'][$i]->type == "text") ? $this->config['image_show_data'][$i]->url : $this->articles[$this->config['image_show_data'][$i]->art_id]["link"];	
 					   $link = str_replace('&', '&amp;', $link);
                     }
-		            // creating slide path
-				    $path = $uri->root().'modules/mod_image_show_gk4/cache/'.GKIS_eSport_Image::translateName($this->config['image_show_data'][$i]->image, $this->config['module_id']);
+		            // creating slide path			    
+				    $path = '';
+				    // check if the slide have to be generated or not
+				    if($this->config['generate_thumbnails'] == 1) {
+				    	$path = $uri->root().'modules/mod_image_show_gk4/cache/'.GKIS_eSport_Image::translateName($this->config['image_show_data'][$i]->image, $this->config['module_id']);
+				    } else {
+				    	$path = $this->config['image_show_data'][$i]->image;
+				    }
 					
 				?>
 				

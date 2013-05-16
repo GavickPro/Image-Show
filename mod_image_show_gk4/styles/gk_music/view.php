@@ -62,7 +62,14 @@ for($i = 0; $i < count($this->config['image_show_data']); $i++) {
 				
 				unset($path, $title, $link, $date);
                 // creating slide path
-				$path = $uri->root().'modules/mod_image_show_gk4/cache/'.GKIS_Music_Image::translateName($this->config['image_show_data'][$i]->image, $this->config['module_id']);
+				$path = '';
+				// check if the slide have to be generated or not
+				if($this->config['generate_thumbnails'] == 1) {
+					$path = $uri->root().'modules/mod_image_show_gk4/cache/'.GKIS_Music_Image::translateName($this->config['image_show_data'][$i]->image, $this->config['module_id']);
+				} else {
+					$path = $this->config['image_show_data'][$i]->image;
+				}
+				
                 //
                 if($this->config['image_show_data'][$i]->type == "k2"){
                    	$title = htmlspecialchars($this->articlesK2[$this->config['image_show_data'][$i]->artK2_id]["title"]);

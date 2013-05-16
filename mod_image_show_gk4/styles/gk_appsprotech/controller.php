@@ -43,15 +43,18 @@ class GKIS_gk_appsprotech_Controller {
 	}
 	// check the images
 	function checkImages() {
-		// basic images params		
-		$img_width = $this->config['config']->gk_appsprotech->gk_appsprotech_image_width;
-		$img_height = $this->config['config']->gk_appsprotech->gk_appsprotech_image_height;
-		$img_bg = $this->config['config']->gk_appsprotech->gk_appsprotech_image_bg;
-		$quality = $this->config['config']->gk_appsprotech->gk_appsprotech_quality;
-		// check the slides
-		foreach($this->config['image_show_data'] as $slide) {
-			$stretch = ($slide->stretch == 'nostretch') ? false : true;
-			GKIS_AppsProTech_Image::createThumbnail($slide->image, $this->config, $img_width, $img_height, $img_bg, $stretch, $quality);	
+		// if the thumbnail generation is enabled
+		if($this->config['generate_thumbnails'] == 1) {
+			// basic images params		
+			$img_width = $this->config['config']->gk_appsprotech->gk_appsprotech_image_width;
+			$img_height = $this->config['config']->gk_appsprotech->gk_appsprotech_image_height;
+			$img_bg = $this->config['config']->gk_appsprotech->gk_appsprotech_image_bg;
+			$quality = $this->config['config']->gk_appsprotech->gk_appsprotech_quality;
+			// check the slides
+			foreach($this->config['image_show_data'] as $slide) {
+				$stretch = ($slide->stretch == 'nostretch') ? false : true;
+				GKIS_AppsProTech_Image::createThumbnail($slide->image, $this->config, $img_width, $img_height, $img_bg, $stretch, $quality);	
+			}
 		}
 	}
 	// get the articles data

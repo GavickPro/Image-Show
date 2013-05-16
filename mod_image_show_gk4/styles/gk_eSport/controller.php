@@ -42,15 +42,18 @@ class GKIS_gk_eSport_Controller {
 		$this->generateView();
 	}
 	// check the images
-	function checkImages() {
-		// basic images params		
-		$img_bg = $this->config['config']->gk_eSport->gk_eSport_image_bg;
-		$quality = $this->config['config']->gk_eSport->gk_eSport_quality;
-		// check the slides
-		foreach($this->config['image_show_data'] as $slide) {
-			$stretch = ($slide->stretch == 'nostretch') ? false : true;
-			GKIS_eSport_Image::createThumbnail($slide->image, $this->config, $this->config['config']->gk_eSport->gk_eSport_image_w, $this->config['config']->gk_eSport->gk_eSport_image_h, $img_bg, $stretch, $quality);
-			GKIS_eSport_Image::createThumbnail($slide->image, $this->config, $this->config['config']->gk_eSport->gk_eSport_thumb_w, $this->config['config']->gk_eSport->gk_eSport_thumb_h, $img_bg, $stretch, $quality, 'thumb_');	
+	function checkImages() {	
+		// if the thumbnail generation is enabled
+		if($this->config['generate_thumbnails'] == 1) {
+			// basic images params
+			$img_bg = $this->config['config']->gk_eSport->gk_eSport_image_bg;
+			$quality = $this->config['config']->gk_eSport->gk_eSport_quality;
+			// check the slides
+			foreach($this->config['image_show_data'] as $slide) {
+				$stretch = ($slide->stretch == 'nostretch') ? false : true;
+				GKIS_eSport_Image::createThumbnail($slide->image, $this->config, $this->config['config']->gk_eSport->gk_eSport_image_w, $this->config['config']->gk_eSport->gk_eSport_image_h, $img_bg, $stretch, $quality);
+				GKIS_eSport_Image::createThumbnail($slide->image, $this->config, $this->config['config']->gk_eSport->gk_eSport_thumb_w, $this->config['config']->gk_eSport->gk_eSport_thumb_h, $img_bg, $stretch, $quality, 'thumb_');	
+			}
 		}
 	}
 	// get the articles data

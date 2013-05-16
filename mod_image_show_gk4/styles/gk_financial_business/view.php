@@ -33,8 +33,14 @@ defined('_JEXEC') or die;
 	                   // creating slide link
 					   $link = ($this->config['image_show_data'][$i]->type == "text") ? $this->config['image_show_data'][$i]->url : $this->articles[$this->config['image_show_data'][$i]->art_id]["link"];	
 					}
-		           // creating slide path
-					$path = $uri->root().'modules/mod_image_show_gk4/cache/'.GKIS_FinancialBusiness_Image::translateName($this->config['image_show_data'][$i]->image, $this->config['module_id']);
+		            // creating slide path					
+					$path = '';
+					// check if the slide have to be generated or not
+					if($this->config['generate_thumbnails'] == 1) {
+						$path = $uri->root().'modules/mod_image_show_gk4/cache/'.GKIS_FinancialBusiness_Image::translateName($this->config['image_show_data'][$i]->image, $this->config['module_id']);
+					} else {
+						$path = $this->config['image_show_data'][$i]->image;
+					}
 					
 				?>
 				

@@ -43,13 +43,16 @@ class GKIS_gk_the_real_design_Controller {
 	}
 	// check the images
 	function checkImages() {
-		// basic images params		
-		$img_bg = $this->config['config']->gk_the_real_design->gk_the_real_design_image_bg;
-		$quality = $this->config['config']->gk_the_real_design->gk_the_real_design_quality;
-		// check the slides
-		foreach($this->config['image_show_data'] as $slide) {
-			$stretch = ($slide->stretch == 'nostretch') ? false : true;
-			GKIS_The_real_design_Image::createThumbnail($slide->image, $this->config, 0, 0, $img_bg, $stretch, $quality);	
+		// if the thumbnail generation is enabled
+		if($this->config['generate_thumbnails'] == 1) {
+			// basic images params		
+			$img_bg = $this->config['config']->gk_the_real_design->gk_the_real_design_image_bg;
+			$quality = $this->config['config']->gk_the_real_design->gk_the_real_design_quality;
+			// check the slides
+			foreach($this->config['image_show_data'] as $slide) {
+				$stretch = ($slide->stretch == 'nostretch') ? false : true;
+				GKIS_The_real_design_Image::createThumbnail($slide->image, $this->config, 0, 0, $img_bg, $stretch, $quality);	
+			}
 		}
 	}
 	// get the articles data

@@ -43,8 +43,14 @@ $total_thumbs_width = $total_block_width - ($width + 20);
 					// cleaning variables
 					unset($path, $link, $title);
 					
-					// creating slide path
-					$path = $uri->root().'modules/mod_image_show_gk4/cache/'.GKIS_GameMagazine_Image::translateName($this->config['image_show_data'][$i]->image, $this->config['module_id'], 'thumb_');
+					// creating slide path					
+					$path = '';
+					// check if the slide have to be generated or not
+					if($this->config['generate_thumbnails'] == 1) {
+						$path = $uri->root().'modules/mod_image_show_gk4/cache/'.GKIS_GameMagazine_Image::translateName($this->config['image_show_data'][$i]->image, $this->config['module_id'], 'thumb_');
+					} else {
+						$path = $this->config['image_show_data'][$i]->image;
+					}
 					//
 					if($this->config['image_show_data'][$i]->type == "k2") {
                     	$link =  $this->articlesK2[$this->config['image_show_data'][$i]->artK2_id]["link"];
