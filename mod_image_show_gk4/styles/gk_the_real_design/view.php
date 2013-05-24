@@ -19,7 +19,7 @@ defined('_JEXEC') or die;
 	<div class="gkHeaderBg" style="height: <?php echo $this->config['config']->gk_the_real_design->gk_the_real_design_module_height; ?>px;">
 		<div class="gkWrap">	
 			<div class="gkIsPreloader">
-				<span><?php echo JText::_('TPL_GK_LANG_IS_LOADING'); ?></span>
+				<span><?php echo JText::_('MOD_IMAGE_SHOW_THE_REAL_DESIGN_IS_LOADING'); ?></span>
 			</div>
 			
 			<div class="gkIsImage" style="height: <?php echo $this->config['config']->gk_the_real_design->gk_the_real_design_module_height; ?>px;">

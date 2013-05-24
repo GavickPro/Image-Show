@@ -463,7 +463,20 @@ window.addEvent("load",function(){
 	$$('.module_style').setStyle('display', 'none');
 	document.id('module_style_' + document.id('jform_params_module_style').get('value')).setStyle('display', 'block');
 	
+	// initialize thumbnails switcher
+	if(document.id('jform_params_module_style').get('value') == 'gk_eSport') {
+		document.id('jform_params_generate_thumbnails').getParent().setStyle('display', 'none');;
+	} else {
+		document.id('jform_params_generate_thumbnails').getParent().setStyle('display', 'block');
+	}
+	
 	document.id('jform_params_module_style').addEvent('change', function() {
+		// hide generate thumbnails on/off switcher
+		if(document.id('jform_params_module_style').get('value') == 'gk_eSport') {
+			document.id('jform_params_generate_thumbnails').getParent().setStyle('display', 'none');;
+		} else {
+			document.id('jform_params_generate_thumbnails').getParent().setStyle('display', 'block');
+		}
 		$$('.module_style').setStyle('display', 'none');
 		document.id('module_style_' + document.id('jform_params_module_style').get('value')).setStyle('display', 'block');
 	});

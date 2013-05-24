@@ -41,7 +41,7 @@ jimport('joomla.utilities.string');
 			if($this->config['generate_thumbnails'] == 1) {
 				$path = $uri->root().'modules/mod_image_show_gk4/cache/'.GKIS_Publisher_Image::translateName($slide->image, $this->config['module_id']);
 			} else {
-				$path = $this->config['image_show_data'][$i]->image;
+				$path = $this->config['image_show_data'][$x]->image;
 			}
 			
             if($slide->type == "k2"){
@@ -59,7 +59,6 @@ jimport('joomla.utilities.string');
 		?>
 		<figure<?php echo !$firstFlag ? ' class="active"' : ''; ?>>
 			<div class="gkIsSlide" style="z-index: <?php echo $x+1; ?>;" title="<?php echo $title; ?>"><?php echo $path; ?><a href="<?php echo $link; ?>">link</a></div>
-			
 			<?php if($this->config['config']->gk_publisher->gk_publisher_show_content_block) : ?>	
 			<?php 
 				$additional_class = '';

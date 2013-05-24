@@ -47,7 +47,7 @@ if($this->config['config']->gk_eSport->gk_eSport_thumbnails) {
 
 <div id="gkIs-<?php echo $this->config['module_id'];?>" class="gkIsWrapper-gk_eSport<?php echo ' ' . $this->config['config']->gk_eSport->gk_eSport_thumbnails_position; ?><?php echo ' ' . $this->config['config']->gk_eSport->gk_eSport_anim_type; ?>">	
 	<div class="gkIsPreloader">
-		<span><?php echo JText::_('TPL_GK_LANG_IS_LOADING'); ?></span>
+		<span><?php echo JText::_('MOD_IMAGE_SHOW_ESPORT_IS_LOADING'); ?></span>
 	</div>
 	
 	<div class="gkIsImage">
@@ -70,12 +70,8 @@ if($this->config['config']->gk_eSport->gk_eSport_thumbnails) {
                     }
 		            // creating slide path			    
 				    $path = '';
-				    // check if the slide have to be generated or not
-				    if($this->config['generate_thumbnails'] == 1) {
-				    	$path = $uri->root().'modules/mod_image_show_gk4/cache/'.GKIS_eSport_Image::translateName($this->config['image_show_data'][$i]->image, $this->config['module_id']);
-				    } else {
-				    	$path = $this->config['image_show_data'][$i]->image;
-				    }
+			    	$path = $uri->root().'modules/mod_image_show_gk4/cache/'.GKIS_eSport_Image::translateName($this->config['image_show_data'][$i]->image, $this->config['module_id']);
+				   
 					
 				?>
 				

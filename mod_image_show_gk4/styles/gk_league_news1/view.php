@@ -54,7 +54,7 @@ defined('_JEXEC') or die;
 			</div>
 			<?php endif; ?>
 		<?php endfor; ?>
-		<a href="#" class="gkIsMoreNews"><?php echo JText::_('TPL_GK_LANG_IS_MORE_NEWS'); ?></a>
+		<a href="#" class="gkIsMoreNews"><?php echo JText::_('MOD_IMAGE_SHOW_LEAGUE_NEWS_MORE_NEWS'); ?></a>
 	</div>
 	
 	<div class="gkMoreNews">
