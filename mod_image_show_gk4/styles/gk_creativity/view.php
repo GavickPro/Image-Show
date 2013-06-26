@@ -123,6 +123,7 @@ jimport('joomla.utilities.string');
 				}
 				
 				// slide iterator
+				$num = 0;
 			?>
 			<div 
 				class="gkIsSlide figure slide<?php echo ++$num; ?>"
