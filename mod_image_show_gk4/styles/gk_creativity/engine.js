@@ -248,3 +248,18 @@ var gk_creativity_autoanimate = function($G, wrapper, dir, next) {
 	gk_creativity_animate($G, wrapper, imgs[i], imgs[next], i, next);
 	$G['actual_slide'] = next;
 };
+
+document.addEvent('keyup', function(e){
+    switch(e.key) {
+        case 'left': // left key
+        	document.getElement('.gkIsPrevBtn').fireEvent('click');
+        break;
+        
+        case 'right': // right key
+        	document.getElement('.gkIsNextBtn').fireEvent('click');
+        break;
+        
+        default: 
+        	return;
+    }
+});
