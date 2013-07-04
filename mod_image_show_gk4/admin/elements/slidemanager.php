@@ -42,7 +42,7 @@ class JFormFieldSlidemanager extends JFormField {
         	// label
         	$form_image .= '<p><label'.$form_image_tooltip.'>'.JText::_('MOD_IMAGE_SHOW_GK4_IMAGE_TYPE').'</label>';
         	// The text field.
-        	$form_image .= '<input type="text" name="jform[params][img]" id="jform_params_img" value="" readonly="readonly" class="gk_tab_'.$type.'_image" />';
+        	$form_image .= '<input type="text" name="jform[params][img]" id="jform_params_img" value="" class="gk_tab_'.$type.'_image" />';
         	// The button.
         	$form_image .= '<a class="btn gk-modal modal-media" title="'.JText::_('JSELECT').'" href="index.php?option=com_media&view=images&tmpl=component&asset=com_modules&author=&fieldid=jform_params_img&folder=" rel="{handler: \'iframe\', size: {x: 800, y: 500}}">'.JText::_('JSELECT').'</a>';
 
@@ -52,7 +52,7 @@ class JFormFieldSlidemanager extends JFormField {
         	// label
         	$form_image .= '<p><label'.$form_image_tooltip.'>'.JText::_('MOD_IMAGE_SHOW_GK4_IMAGE_TYPE').'</label>';
         	// The text field.
-        	$form_image .= '<input type="text" name="jform_params_edit_img" id="jform_params_edit_img" value="" readonly="readonly" class="gk_tab_'.$type.'_image" />';
+        	$form_image .= '<input type="text" name="jform_params_edit_img" id="jform_params_edit_img" value="" class="gk_tab_'.$type.'_image" />';
         	// The button.
         	$form_image .= '<a class="btn gk-modal modal-media" title="'.JText::_('JSELECT').'" href="index.php?option=com_media&view=images&tmpl=component&asset=&author=&fieldid=jform_params_edit_img&folder=" rel="{handler: \'iframe\', size: {x: 800, y: 500}}">'.JText::_('JSELECT').'</a>';
         	

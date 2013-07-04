@@ -1,0 +1,323 @@
+
+/**
+* GK Image Show - CSS style
+* @package Joomla!
+* @Copyright (C) 2009-2013 Gavick.com
+* @ All rights reserved
+* @ Joomla! is Free Software
+* @ Released under GNU/GPL License : http://www.gnu.org/copyleft/gpl.html
+* @ version $Revision: GK4 1.0 $
+**/
+ 
+.gkIsWrapper-gk_bluap {
+	margin: 0;
+	min-height: 200px;
+	margin: 0 90px;
+	position: relative;
+}
+
+.gkIsWrapper-gk_bluap .gkIsPreloader {
+	background: transparent;
+	height: 100%;
+	position: absolute;
+	text-indent: -9999px;
+	width: 100%;
+	z-index: 101;
+}
+
+.gkIsWrapper-gk_bluap .gkIsPreloader span {
+	-webkit-animation-duration: .5s;
+	   -moz-animation-duration: .5s;
+	        animation-duration: .5s;
+	-webkit-animation-iteration-count: infinite;
+	   -moz-animation-iteration-count: infinite;
+	        animation-iteration-count: infinite;
+	-webkit-animation-name: gkIsLoader;
+	   -moz-animation-name: gkIsLoader;
+	        animation-name: gkIsLoader;
+    -webkit-animation-timing-function: linear;
+       -moz-animation-timing-function: linear;
+            animation-timing-function: linear;
+	background: #fff;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	height: 16px;
+	left: 50%;
+	margin: -8px 0 0 -8px;
+	position: absolute;
+	text-indent: -9999px;
+	top: 50%;
+	-webkit-transform: scale(1.0);
+	-moz-transform: scale(1.0);
+	-ms-transform: scale(1.0);
+	-o-transform: scale(1.0);
+	transform: scale(1.0);
+	width: 16px;
+}
+
+.gkIsWrapper-gk_bluap .figure {
+	left: 0;
+	top: 0;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	position: absolute;
+	width: 100%;
+	z-index: 1;
+}
+
+.gkIsWrapper-gk_bluap .figure:after {
+	clear: both;
+	content: "";
+	display: table;
+}
+
+.gkIsWrapper-gk_bluap.loaded .gkIsButtons {
+	opacity: 1;
+	filter: alpha(opacity=100);
+}
+
+.gkIsWrapper-gk_bluap .figure.animated {
+	z-index: 2;
+}
+
+.gkIsWrapper-gk_bluap.loaded .figure.animated {
+	opacity: 1;
+	filter: alpha(opacity=100);
+}
+
+.gkIsWrapper-gk_bluap .active .figcaption {
+	filter: alpha(opacity=100);
+}
+
+.gkIsWrapper-gk_bluap .figure.active {
+	position: relative;
+	z-index: 3;
+}
+
+.gkIsWrapper-gk_bluap img {
+	display: block;
+	height: auto;
+	position: relative;
+	max-width: 100%;
+	top: 200px;
+	-webkit-transition: all .5s ease-out;
+	-moz-transition: all .5s ease-out;
+	-ms-transition: all .5s ease-out;
+	-o-transition: all .5s ease-out;
+	transition: all .5s ease-out;
+}
+
+.gkIsWrapper-gk_bluap .active img,
+.gkIsWrapper-gk_bluap .animated img {
+	top: 0;
+}
+
+.gkIsWrapper-gk_bluap .figcaption {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	filter: alpha(opacity=0);
+	height: 100%;
+	left: -20%;
+	opacity: 0;
+	padding: 0 30px 0 0;
+	position: absolute;
+	top: 0;
+	z-index: 1;
+}
+
+.gkIsWrapper-gk_bluap[data-textpos="right"] .figcaption {
+	left: auto;
+	padding: 0 0 0 30px;
+	right: -20%;
+}
+
+.gkIsWrapper-gk_bluap .figcaption a.button {
+	background: #e74c3c;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	color: #fff;
+	display: inline-block;
+	float: left;
+	font-size: 20px;
+	height: 50px;
+	line-height: 51px;
+	margin: 32px auto 20px auto;
+	padding: 0 35px;
+	text-transform: none;
+}
+
+.gkIsWrapper-gk_bluap .figcaption a.button i[class^="icon-"] {
+	color: #fff;
+	float: left;
+	font-size: 46px;
+	line-height: 1.1;
+	margin-right: 15px;
+	margin-left: -20px;
+}
+
+.gkIsWrapper-gk_bluap .figcaption a.button:active,
+.gkIsWrapper-gk_bluap .figcaption a.button:focus,
+.gkIsWrapper-gk_bluap .figcaption a.button:hover {
+	background: #222;
+}
+
+.gkIsWrapper-gk_bluap .figure.active .figcaption {
+	z-index: 101;
+}
+
+.gkIsWrapper-gk_bluap .figcaption h2 {
+	color: #fff;
+	font-size: 40px;
+	font-weight: 300;
+	line-height: 54px;
+	margin: 60px 0 20px 0;
+	padding: 0;
+}
+
+.gkIsWrapper-gk_bluap .figcaption p {
+	color: #fff;
+	font-size: 20px;
+	font-weight: 300;
+	line-height: 1.2;
+	padding: 10px 0;
+}
+
+.gkIsWrapper-gk_bluap .figcaption u {
+	clear: both;
+	color: #fff;
+	display: block;
+	float: left;
+	font-style: italic;
+	font-weight: 300;
+	line-height: 1.0;
+	margin: 5px 0 0 0;
+}
+
+.gkIsWrapper-gk_bluap .gkIsPagination {
+	bottom: 0px;
+	left: 0;
+	opacity: 0; filter: alpha(opacity=0);
+	position: absolute;
+	-webkit-transition: all .3s ease-out;
+	-moz-transition: all .3s ease-out;
+	-ms-transition: all .3s ease-out;
+	-o-transition: all .3s ease-out;
+	transition: all .3s ease-out;
+	z-index: 10;
+}
+
+.gkIsWrapper-gk_bluap.loaded .gkIsPagination {
+	bottom: 25px;
+	opacity: 1; filter: alpha(opacity=100);
+}
+
+.gkIsWrapper-gk_bluap[data-textpos="right"] .gkIsPagination {
+	left: auto;
+	right: 0;
+}
+
+.gkIsWrapper-gk_bluap .figcaption {
+	float: left;
+}
+
+.gkIsWrapper-gk_bluap .figure > div:first-child {
+	overflow: hidden;
+}
+
+.gkIsWrapper-gk_bluap .figure > div:first-child,
+.gkIsWrapper-gk_bluap .figure > div:first-child img {
+	float: right;
+}
+
+.gkIsWrapper-gk_bluap[data-textpos="right"] .figcaption {
+	float: right;
+}
+
+.gkIsWrapper-gk_bluap[data-textpos="right"] .figure > div:first-child,
+.gkIsWrapper-gk_bluap[data-textpos="right"] .figure > div:first-child img {
+	float: left;
+}
+
+.gkIsWrapper-gk_bluap .gkIsPagination li {
+	background: #fff;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+	float: left;
+	height: 10px;
+	margin: 0 0 0 5px;
+	padding: 0;
+	text-indent: -9999px;
+	-webkit-transition: all .3s ease-out;
+	-moz-transition: all .3s ease-out;
+	-ms-transition: all .3s ease-out;
+	-o-transition: all .3s ease-out;
+	transition: all .3s ease-out;
+	width: 10px;
+}
+
+.gkIsWrapper-gk_bluap .gkIsPagination li.active,
+.gkIsWrapper-gk_bluap .gkIsPagination li:active
+.gkIsWrapper-gk_bluap .gkIsPagination li:focus,
+.gkIsWrapper-gk_bluap .gkIsPagination li:hover {
+	background: #e74c3c;
+}
+
+/* Loader */
+@-webkit-keyframes gkIsLoader {
+	from, to {
+		-webkit-transform: scale(0.8);
+		-moz-transform: scale(0.8);
+		-ms-transform: scale(0.8);
+		-o-transform: scale(0.8);
+		transform: scale(0.8);
+	}
+	
+	50% {
+		-webkit-transform: scale(1.2);
+		-moz-transform: scale(1.2);
+		-ms-transform: scale(1.2);
+		-o-transform: scale(1.2);
+		transform: scale(1.2);
+	}
+}
+
+@-moz-keyframes gkIsLoader {
+	from, to {
+		-webkit-transform: scale(0.8);
+		-moz-transform: scale(0.8);
+		-ms-transform: scale(0.8);
+		-o-transform: scale(0.8);
+		transform: scale(0.8);
+	}
+	
+	50% {
+		-webkit-transform: scale(1.2);
+		-moz-transform: scale(1.2);
+		-ms-transform: scale(1.2);
+		-o-transform: scale(1.2);
+		transform: scale(1.2);
+	}
+}
+
+@keyframes gkIsLoader {
+	from, to {
+		-webkit-transform: scale(0.8);
+		-moz-transform: scale(0.8);
+		-ms-transform: scale(0.8);
+		-o-transform: scale(0.8);
+		transform: scale(0.8);
+	}
+	
+	50% {
+		-webkit-transform: scale(1.2);
+		-moz-transform: scale(1.2);
+		-ms-transform: scale(1.2);
+		-o-transform: scale(1.2);
+		transform: scale(1.2);
+	}
+}
