@@ -12,9 +12,9 @@ window.addEvent("load",function(){
 	if(config == null || config == '') config = {};
 
 	// fix problem with the accordion height
-	$$('ul.nav a[href=#options-IMAGE_SHOW_MANAGER]').addEvent('click', function(){
+	document.id('IMAGE_SHOW_MANAGER-options').addEvent('click', function(){
 		(function(){ 
-            if($$('ul.nav a[href=#options-IMAGE_SHOW_MANAGER]').getParent().hasClass('active')) {
+            if(document.id('IMAGE_SHOW_MANAGER-options').hasClass('pane-toggler-down')) {
                 $$('.pane-slider').setStyle('height', 'auto'); 
             }
         }).delay(750);
@@ -151,7 +151,7 @@ window.addEvent("load",function(){
 		item.getElement('.gk_tab_edit_stretch').set('value', stretch);
 		item.getElement('.gk_tab_edit_content_access').set('value', access);
 		item.getElement('.gk_tab_edit_published').set('value', published);
-		item.getElement('.gk_tab_edit_content').innerHTML = htmlspecialchars_decode(content);
+		item.getElement('.gk_tab_edit_content').innerHTML = content;
 		item.getElement('.gk_tab_edit_url').set('value', url);
 		item.getElement('.jform_request_edit_art').set('value', art_id);
         item.getElement('.jform_request_edit_artK2').set('value', artK2_id);
@@ -291,7 +291,7 @@ window.addEvent("load",function(){
 				"stretch" : stretch,
 				"access" : access,
 				"published" : published,
-				"content" : htmlspecialchars(content),
+				"content" : content,
 				"url" : url,
 				"art_id" : art_id,
 				"art_title" : art_title,
@@ -369,7 +369,7 @@ window.addEvent("load",function(){
 				"stretch" : stretch,
 				"access" : access,
 				"published" : published,
-				"content" : htmlspecialchars(content),
+				"content" : content,
 				"url" : url,
 				"art_id" : art_id,
 				"art_title" : art_title,
@@ -416,7 +416,6 @@ window.addEvent("load",function(){
 	});
 	
 	(function() {
-		//SqueezeBox.initialize();
 		SqueezeBox.assign('.gk-modal', { parse: 'rel' });
 	}).delay(1500);
 	
@@ -464,7 +463,20 @@ window.addEvent("load",function(){
 	$$('.module_style').setStyle('display', 'none');
 	document.id('module_style_' + document.id('jform_params_module_style').get('value')).setStyle('display', 'block');
 	
+	// initialize thumbnails switcher
+	if(document.id('jform_params_module_style').get('value') == 'gk_eSport') {
+		document.id('jform_params_generate_thumbnails').getParent().setStyle('display', 'none');;
+	} else {
+		document.id('jform_params_generate_thumbnails').getParent().setStyle('display', 'block');
+	}
+	
 	document.id('jform_params_module_style').addEvent('change', function() {
+		// hide generate thumbnails on/off switcher
+		if(document.id('jform_params_module_style').get('value') == 'gk_eSport') {
+			document.id('jform_params_generate_thumbnails').getParent().setStyle('display', 'none');;
+		} else {
+			document.id('jform_params_generate_thumbnails').getParent().setStyle('display', 'block');
+		}
 		$$('.module_style').setStyle('display', 'none');
 		document.id('module_style_' + document.id('jform_params_module_style').get('value')).setStyle('display', 'block');
 	});
@@ -475,24 +487,34 @@ window.addEvent("load",function(){
 	});
 	
 	// other form operations
-	/*$$('.input-px').each(function(el){ el.set('class', 'add-on'); el.getParent().innerHTML = "<div class=\"input-prepend\">" + el.getParent().innerHTML + "</div>"});
-	$$('.input-ms').each(function(el){el.set('class', 'add-on'); el.getParent().innerHTML = "<div class=\"input-prepend\">" + el.getParent().innerHTML + "</div>"});
-	$$('.input-percents').each(function(el){el.set('class', 'add-on'); el.getParent().innerHTML = "<div class=\"input-prepend\">" + el.getParent().innerHTML + "</div>"});
-	$$('.input-minutes').each(function(el){el.set('class', 'add-on'); el.getParent().innerHTML = "<div class=\"input-prepend\">" + el.getParent().innerHTML + "</div>"});*/
-	
-	document.id('gk_tab_manager').getParent().setStyle('margin-left', '5px');
-	document.id('gk_about_us').getParent().setStyle('margin-left', '15px');
-	//document.id('options-IMAGE_SHOW_INTERFACE').getElement('.controls').setStyle('margin-left', '5px');
-	document.id('moduleOptions').getElement('.module_style').getParent().setStyle('margin-left', '5px');
-	
-	
+	$$('.input-pixels').each(function(el){el.getParent().innerHTML = el.getParent().innerHTML + "<span class=\"unit\">px</span>"});
+	$$('.input-percents').each(function(el){el.getParent().innerHTML = el.getParent().innerHTML + "<span class=\"unit\">%</span>"});
+	$$('.input-minutes').each(function(el){el.getParent().innerHTML = el.getParent().innerHTML + "<span class=\"unit\">minutes</span>"});
+	$$('.input-ms').each(function(el){el.getParent().innerHTML = el.getParent().innerHTML + "<span class=\"unit\">ms</span>"});
+	// switchers
+	$$('.gk_switch').each(function(el){
+		el.setStyle('display','none');
+		var style = (el.value == 1) ? 'on' : 'off';
+		var switcher = new Element('div',{'class' : 'switcher-'+style});
+		switcher.inject(el, 'after');
+		switcher.addEvent("click", function(){
+			if(el.value == 1){
+				switcher.setProperty('class','switcher-off');
+				el.value = 0;
+				el.fireEvent('change');
+			}else{
+				switcher.setProperty('class','switcher-on');
+				el.value = 1;
+				el.fireEvent('change');
+			}
+		});
+	});
 	// help link
-	var link = new Element('a', { 'class' : 'gkHelpLink', 'href' : 'https://www.gavick.com/image-show-gk4.html', 'target' : '_blank' })
-	link.inject($$('ul.nav li')[$$('ul.nav li').length-2].getElement('a'), 'bottom');
+	var link = new Element('a', { 'class' : 'gkHelpLink', 'href' : 'http://tools.gavick.com/image-show.html', 'target' : '_blank' })
+	link.inject($$('div.panel')[$$('div.panel').length-1].getElement('h3'), 'bottom');
 	link.addEvent('click', function(e) { e.stopPropagation(); });
-	
 	//
-	//document.id('IMAGE_SHOW_MANAGER-options').getParent().getElement('.panelform .adminformlist li').setStyle('border', 'none');
+	document.id('IMAGE_SHOW_MANAGER-options').getParent().getElement('.panelform .adminformlist li').setStyle('border', 'none');
 });
 // function to generate the updates list
 function getUpdates() {
@@ -512,16 +534,4 @@ function getUpdates() {
 			if(update_div.innerHTML == '<ul class="gk_updates"></ul>') update_div.innerHTML = '<p>There is no available updates for this module</p>';	
 		}
 	});
-}
-// encode chars
-function htmlspecialchars(string) {
-    string = string.toString();
-    string = string.replace(/&/g, '[ampersand]').replace(/</g, '[leftbracket]').replace(/>/g, '[rightbracket]');
-    return string;
-}
-// decode chars
-function htmlspecialchars_decode(string) {
-	string = string.toString();
-	string = string.replace(/\[ampersand\]/g, '&').replace(/\[leftbracket\]/g, '<').replace(/\[rightbracket\]/g, '>');
-	return string;
 }
