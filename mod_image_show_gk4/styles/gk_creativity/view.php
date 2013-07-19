@@ -15,6 +15,10 @@ defined('_JEXEC') or die;
 
 jimport('joomla.utilities.string');
 
+if($this->config['random_slides']) {
+	shuffle($this->config['image_show_data']);
+}
+
 ?>
 <div class="gkIsWrapperFixed">
 	<div id="gkIs-<?php echo $this->config['module_id'];?>" class="gkIsWrapper-gk_creativity notloaded" data-bganim="<?php echo $this->config['config']->gk_creativity->gk_creativity_bganim; ?>">
