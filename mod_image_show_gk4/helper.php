@@ -27,8 +27,7 @@ class GK4ImageShowHelper {
 		// init the module info
 		$this->module = $module;
 		// basic settings
-		$this->config['automatic_module_id'] = $params->get('automatic_module_id', 1); //
-		$this->config['module_id'] = ($this->config['automatic_module_id'] == 1) ? 'gk-is-' . $module->id : $params->get('module_id', 'gk-is-1'); //
+		$this->config['module_id'] = (trim($params->get('module_id', '')) == '') ? 'gk-is-' . $module->id : $params->get('module_id', ''); //
 		$this->config['styles'] = $params->get('module_style', 'gk_coffe');
 		// get the JSON slides and config data
 		$this->config['image_show_data'] = $params->get('image_show_data', '[]');
