@@ -82,10 +82,6 @@
 				        <option value="1">MOD_IMAGE_SHOW_ENABLED</option>
 				</field>
 			</fieldset>
-			<!-- updates -->
-			<fieldset name="IMAGE_SHOW_UPDATES" addfieldpath="/modules/mod_image_show_gk4/admin/elements">
-			    <field type="update" name="module_updates" /> 
-			</fieldset>
 			<!-- about us -->
 			<fieldset name="IMAGE_SHOW_ABOUT_US" addfieldpath="/modules/mod_image_show_gk4/admin/elements">
 			    <field type="about" name="about_us" /> 
