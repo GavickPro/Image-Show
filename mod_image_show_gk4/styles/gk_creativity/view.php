@@ -122,19 +122,18 @@ jimport('joomla.utilities.string');
 					$link_text = JText::_('MOD_IMAGE_SHOW_CREATIVITY_READMORE');
 				}
 				
-				// slide iterator
-				$num = 0;
 			?>
 			<div 
-				class="gkIsSlide figure slide<?php echo ++$num; ?>"
+				class="gkIsSlide figure"
 				<?php if(preg_match('@^#[0-9a-fA-F]{3,6}$@mi', $path) == 0) : ?>
-				 style="background-image: url('<?php echo $path; ?>');" 
+				 style="background-image: url('<?php echo $path; ?>'); filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<?php echo JURI::root().$path; ?>'}, sizingMethod='scale');
+				 -ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<?php echo JURI::root().$path; ?>'}, sizingMethod='scale');" 
 				<?php else : ?>
 				 style="background-color: <?php echo $path; ?>;" 
 				<?php endif; ?>
 				data-link="<?php echo $link; ?>" 
 			>	
-				<div class="figcaption slide<?php echo $num; ?>">
+				<div class="figcaption">
 					<div>
 						<h2 data-anim="<?php echo $title_anim; ?>"><?php echo $title; ?></h2>
 						<h1 data-anim="<?php echo $content_anim; ?>"><?php echo $content; ?></h1>
