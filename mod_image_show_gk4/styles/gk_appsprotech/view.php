@@ -13,11 +13,13 @@
 // no direct access
 defined('_JEXEC') or die;
 // substr function to use mb_* function if exists.
-function gk_substr($text, $start, $limit) {
-	if(function_exists('mb_substr')) {
-		return mb_substr($text, $start, $limit);	
-	} else {
-		return substr($text, $start, $limit);
+if(function_exists('gk_substr')) {
+	function gk_substr($text, $start, $limit) {
+		if(function_exists('mb_substr')) {
+			return mb_substr($text, $start, $limit);	
+		} else {
+			return substr($text, $start, $limit);
+		}
 	}
 }
 
