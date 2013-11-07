@@ -10,7 +10,12 @@ window.addEvent("load",function(){
 	if(tabs == null || tabs == '') tabs = [];
 	var config = JSON.decode(document.id('jform_params_config').innerHTML);
 	if(config == null || config == '') config = {};
-
+	
+	// check Joomla! version and add suffix
+	if((jQuery('#gk_about_us').data('jversion')).substr(0,3) == '3.2') {
+		jQuery('#module-form').addClass('j32');
+	}
+	
 	// fix problem with the accordion height
 	$$('ul.nav a[href=#options-IMAGE_SHOW_MANAGER]').addEvent('click', function(){
 		(function(){ 
