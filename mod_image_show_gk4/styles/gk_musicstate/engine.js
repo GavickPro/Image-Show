@@ -37,10 +37,15 @@ window.addEvent("load",function(){
 	                	var newImgLayer = new Element('div',{
 	                	    "title": elm.getProperty('title'),
 	                	    "class": 'gkIsSlide',
-	                	    "style": 'z-index: ' + elm.getStyle('z-index') + '; background-image: url(\''+elm.getProperty('src')+'\')'
+	                	    "style": 'z-index: ' + elm.getProperty('data-zindex') + '; background-image: url(\''+elm.getProperty('src')+'\')'
 	                	});
 	                	
 	                	newImgLayer.inject(wrap, 'top');
+	                	
+	                	if(i > 0) {
+	                		newImgLayer.getParent().setStyle('opacity', 0);
+	                	}
+	                	
 	                	elm.inject(newImgLayer, 'bottom');
 	                }
 	            });
@@ -179,7 +184,7 @@ var gk_musicstate_animate = function($G, wrapper, imgPrev, imgNext) {
 		duration: $G['anim_speed'],
 		onComplete: function() {
 			imgPrev.setProperty('class', '');
-			imgPrev.setStyle('opacity', 1);
+			//imgPrev.setStyle('opacity', 1);
 			
 			imgNext.setProperty('class', 'active');
 			if($G['autoanim'] == 1) {
