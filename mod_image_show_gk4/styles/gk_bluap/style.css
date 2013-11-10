@@ -1,3 +1,4 @@
+
 /**
 * GK Image Show - CSS style
 * @package Joomla!
@@ -90,8 +91,6 @@
 }
 
 .gkIsWrapper-gk_bluap .figure.active {
-	opacity: 1;
-	filter: alpha(opacity=100);
 	position: relative;
 	z-index: 3;
 }
