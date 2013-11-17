@@ -488,7 +488,9 @@ window.addEvent("load",function(){
 	document.id('gk_tab_manager').getParent().setStyle('margin-left', '5px');
 	document.id('gk_about_us').getParent().setStyle('margin-left', '15px');
 	//document.id('options-IMAGE_SHOW_INTERFACE').getElement('.controls').setStyle('margin-left', '5px');
+	if(!document.id('module-form').hasClass('j32')) {
 	document.id('moduleOptions').getElement('.module_style').getParent().setStyle('margin-left', '5px');
+	}
 	
 	
 	// help link
