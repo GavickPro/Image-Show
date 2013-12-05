@@ -33,8 +33,9 @@ jimport('joomla.utilities.string');
 						$path = $this->config['image_show_data'][$i]->image;
 					}
 				} else {
-					$path = $this->config['image_show_data'][$i]->image;
-				}    
+					$path = $uri->root();
+					$path .= $slide->image;
+				}   
 	            //
 	            // creating slide title
 	            //

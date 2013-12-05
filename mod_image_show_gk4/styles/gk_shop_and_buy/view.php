@@ -51,7 +51,8 @@ for($y = 0; $y < count($this->config['image_show_data']); $y++) {
 			if($this->config['generate_thumbnails'] == 1) {
 				$path = $uri->root().'modules/mod_image_show_gk4/cache/'.GKIS_Shop_and_Buy_Image::translateName($slide->image, $this->config['module_id']);
 			} else {
-				$path = $this->config['image_show_data'][$i]->image;
+				$path = $uri->root();
+				$path .= $slide->image;
 			}
 			
 	        if($slide->type == "k2"){
