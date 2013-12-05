@@ -64,7 +64,7 @@ jimport('joomla.utilities.string');
 				$link_text = JText::_('MOD_IMAGE_SHOW_ROCKWALL_READMORE');
 			}
 		?>
-		<div class="figure" data-url="<?php echo $path; ?>" data-link="<?php echo $link; ?>" data-zindex="<?php echo $i+1; ?>" data-title="<?php echo $title; ?>" data-img-width="<?php echo 100 - $this->config['config']->gk_bluap->gk_bluap_text_block_width; ?>">
+		<div class="figure" data-url="<?php echo $path; ?>" data-link="<?php echo $link; ?>" data-zindex="<?php echo $i+1; ?>" data-title="<?php echo strip_tags($title); ?>" data-img-width="<?php echo 100 - $this->config['config']->gk_bluap->gk_bluap_text_block_width; ?>">
 			<div class="figure-img" style="width: <?php echo 100 - $this->config['config']->gk_bluap->gk_bluap_text_block_width; ?>%;"></div>
 			<div class="figcaption" <?php echo ' style="width: '.$this->config['config']->gk_bluap->gk_bluap_text_block_width.'%;"'; ?>>
 				<h2><?php echo $title; ?></h2>
