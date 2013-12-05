@@ -60,6 +60,8 @@ for($y = 0; $y < count($this->config['image_show_data']); $y++) {
 				// creating slide link
 				$link = ($slide->type == "text") ? $slide->url : $this->articles[$slide->art_id]["link"];	
 			}
+			
+			$text = str_replace(array('[ampersand]', '[leftbracket]', '[rightbracket]'), array('&', '<', '>'), $text);
 		?>
 		
 		<div class="figure<?php echo $x == 0 ? ' active': ''; ?>">

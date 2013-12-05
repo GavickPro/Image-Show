@@ -37,6 +37,7 @@ jimport('joomla.utilities.string');
 			$title = preg_replace('/__(.*?)__/i', '<strong>${1}</strong>', $title);
 			// creating slide content
 			$content = ($this->config['image_show_data'][$i]->type == "text") ? $this->config['image_show_data'][$i]->content : 'Only the text slides can be used';
+			$content = str_replace(array('[ampersand]', '[leftbracket]', '[rightbracket]'), array('&', '<', '>'), $content);
 			$content_sub = false;
 			$subcontent_match_text = array();
 			if(preg_match('/__(.*?)__/mis', $content, $subcontent_match_text) == 1) {
