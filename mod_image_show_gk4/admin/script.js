@@ -104,7 +104,7 @@ window.addEvent("load",function(){
 		add_form.getElement('.gk_tab_add_stretch').set('value', 'nostretch');
 		add_form.getElement('.gk_tab_add_content_access').set('value', 'public');
 		add_form.getElement('.gk_tab_add_published').set('value', '1');
-		add_form.getElement('.gk_tab_add_content').set('value') = '';
+		add_form.getElement('.gk_tab_add_content').set('value', '');
 		add_form.getElement('.gk_tab_add_url').set('value', '');
 		add_form.getElement('#jform_request_art_name').set('value', '');
 		add_form.getElement('#jform_request_art_add').set('value', '');
