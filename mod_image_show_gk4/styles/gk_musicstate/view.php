@@ -39,7 +39,8 @@ for($i = 0; $i < count($this->config['image_show_data']); $i++) {
 			if($this->config['generate_thumbnails'] == 1) {
 				$path = $uri->root().'modules/mod_image_show_gk4/cache/'.GKIS_MusicState_Image::translateName($this->config['image_show_data'][$i]->image, $this->config['module_id']);
 			} else {
-				$path = $this->config['image_show_data'][$i]->image;
+				$path = $uri->root();
+        		$path .= $slide->image;
 			}
 			$content = '';
 			
@@ -58,6 +59,7 @@ for($i = 0; $i < count($this->config['image_show_data']); $i++) {
 				$title = htmlspecialchars(($this->config['image_show_data'][$i]->type == "text") ? $this->config['image_show_data'][$i]->name : $this->articles[$this->config['image_show_data'][$i]->art_id]["title"]);
 				// creating slie content
 				$content = ($this->config['image_show_data'][$i]->type == "text") ? $this->config['image_show_data'][$i]->content : $title;
+				$content = str_replace(array('[ampersand]', '[leftbracket]', '[rightbracket]'), array('&', '<', '>'), $content);
 				// creating slide link
 				$link = ($this->config['image_show_data'][$i]->type == "text") ? $this->config['image_show_data'][$i]->url : $this->articles[$this->config['image_show_data'][$i]->art_id]["link"];	
 			}

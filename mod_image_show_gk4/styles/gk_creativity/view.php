@@ -33,7 +33,8 @@ jimport('joomla.utilities.string');
 						$path = $this->config['image_show_data'][$i]->image;
 					}
 				} else {
-					$path = $this->config['image_show_data'][$i]->image;
+					$path = $uri->root();
+             		$path .= $slide->image;
 				}    
 	            //
 	            // creating slide title
@@ -122,6 +123,8 @@ jimport('joomla.utilities.string');
 					$link_text = JText::_('MOD_IMAGE_SHOW_CREATIVITY_READMORE');
 				}
 				
+				$content = str_replace(array('[ampersand]', '[leftbracket]', '[rightbracket]'), array('&', '<', '>'), $content);
+
 				// slide iterator
 				$num = 0;
 			?>

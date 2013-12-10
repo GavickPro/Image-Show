@@ -35,8 +35,15 @@ jimport('joomla.utilities.string');
 		<?php 
 			
 			unset($path, $title, $link);
-			// creating slide path
-			$path = $uri->root().'modules/mod_image_show_gk4/cache/'.GKIS_Publisher_Image::translateName($slide->image, $this->config['module_id']);
+            // creating slide path                        
+            $path = '';
+            // check if the slide have to be generated or not
+            if($this->config['generate_thumbnails'] == 1) {
+                    $path = $uri->root().'modules/mod_image_show_gk4/cache/'.GKIS_Publisher_Image::translateName($slide->image, $this->config['module_id']);
+            } else {
+                    $path = $uri->root();
+                    $path .= $slide->image;
+            }
 			
             if($slide->type == "k2"){
               	$title = htmlspecialchars($this->articlesK2[$slide->artK2_id]["title"]);

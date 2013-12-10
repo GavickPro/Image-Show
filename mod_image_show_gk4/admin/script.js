@@ -109,7 +109,7 @@ window.addEvent("load",function(){
 		add_form.getElement('.gk_tab_add_stretch').set('value', 'nostretch');
 		add_form.getElement('.gk_tab_add_content_access').set('value', 'public');
 		add_form.getElement('.gk_tab_add_published').set('value', '1');
-		add_form.getElement('.gk_tab_add_content').innerHTML = '';
+		add_form.getElement('.gk_tab_add_content').set('value', '');
 		add_form.getElement('.gk_tab_add_url').set('value', '');
 		add_form.getElement('#jform_request_art_name').set('value', '');
 		add_form.getElement('#jform_request_art_add').set('value', '');
@@ -156,7 +156,7 @@ window.addEvent("load",function(){
 		item.getElement('.gk_tab_edit_stretch').set('value', stretch);
 		item.getElement('.gk_tab_edit_content_access').set('value', access);
 		item.getElement('.gk_tab_edit_published').set('value', published);
-		item.getElement('.gk_tab_edit_content').innerHTML = htmlspecialchars_decode(content);
+		item.getElement('.gk_tab_edit_content').set('value', htmlspecialchars_decode(content));
 		item.getElement('.gk_tab_edit_url').set('value', url);
 		item.getElement('.jform_request_edit_art').set('value', art_id);
         item.getElement('.jform_request_edit_artK2').set('value', artK2_id);

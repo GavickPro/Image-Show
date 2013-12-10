@@ -26,9 +26,15 @@ jimport('joomla.utilities.string');
 		<?php 
 			
 			unset($path, $title, $link, $content);
-			// creating slide path
-			$path = $uri->root().'modules/mod_image_show_gk4/cache/'.GKIS_Storebox_Image::translateName($this->config['image_show_data'][$i]->image, $this->config['module_id']);
-			$content = '';
+            // creating slide path
+            $path = '';
+            // check if the slide have to be generated or not
+            if($this->config['generate_thumbnails'] == 1) {
+                    $path = $uri->root().'modules/mod_image_show_gk4/cache/'.GKIS_Storebox_Image::translateName($this->config['image_show_data'][$i]->image, $this->config['module_id']);
+            } else {
+                    $path = $uri->root();
+                    $path .= $slide->image;
+            }
 			
             if($this->config['image_show_data'][$i]->type == "k2"){
               	if(isset($this->articlesK2[$this->config['image_show_data'][$i]->artK2_id])) {

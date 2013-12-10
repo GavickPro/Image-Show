@@ -30,13 +30,15 @@ jimport('joomla.utilities.string');
 			if($this->config['generate_thumbnails'] == 1) {
 				$path = $uri->root().'modules/mod_image_show_gk4/cache/'.GKIS_Bluap_Image::translateName($this->config['image_show_data'][$i]->image, $this->config['module_id']);
 			} else {
-				$path = $this->config['image_show_data'][$i]->image;
+				$path = $uri->root();
+             	$path .= $slide->image;
 			}
             // creating slide title
 			$title = htmlspecialchars(($this->config['image_show_data'][$i]->type == "text") ? $this->config['image_show_data'][$i]->name : 'Only the text slides can be used');
 			$title = preg_replace('/__(.*?)__/i', '<strong>${1}</strong>', $title);
 			// creating slide content
 			$content = ($this->config['image_show_data'][$i]->type == "text") ? $this->config['image_show_data'][$i]->content : 'Only the text slides can be used';
+			$content = str_replace(array('[ampersand]', '[leftbracket]', '[rightbracket]'), array('&', '<', '>'), $content);
 			$content_sub = false;
 			$subcontent_match_text = array();
 			if(preg_match('/__(.*?)__/mis', $content, $subcontent_match_text) == 1) {
@@ -64,7 +66,7 @@ jimport('joomla.utilities.string');
 				$link_text = JText::_('MOD_IMAGE_SHOW_ROCKWALL_READMORE');
 			}
 		?>
-		<div class="figure" data-url="<?php echo $path; ?>" data-link="<?php echo $link; ?>" data-zindex="<?php echo $i+1; ?>" data-title="<?php echo $title; ?>" data-img-width="<?php echo 100 - $this->config['config']->gk_bluap->gk_bluap_text_block_width; ?>">
+		<div class="figure" data-url="<?php echo $path; ?>" data-link="<?php echo $link; ?>" data-zindex="<?php echo $i+1; ?>" data-title="<?php echo strip_tags($title); ?>" data-img-width="<?php echo 100 - $this->config['config']->gk_bluap->gk_bluap_text_block_width; ?>">
 			<div class="figure-img" style="width: <?php echo 100 - $this->config['config']->gk_bluap->gk_bluap_text_block_width; ?>%;"></div>
 			<div class="figcaption" <?php echo ' style="width: '.$this->config['config']->gk_bluap->gk_bluap_text_block_width.'%;"'; ?>>
 				<h2><?php echo $title; ?></h2>
