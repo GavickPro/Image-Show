@@ -46,13 +46,14 @@ for($y = 0; $y < count($this->config['image_show_data']); $y++) {
 			
 			unset($path, $title, $link);
 			// creating slide path
-			$path = '';            
-            if($this->config['generate_thumbnails'] == 1) {
-                    $path = $uri->root().'modules/mod_image_show_gk4/cache/'.GKIS_Shop_and_Buy_Image::translateName($slide->image, $this->config['module_id']);
-            } else {
-                $path = $uri->root();
-        		$path .= $slide->image;
-            }
+			$path = '';
+			
+			if($this->config['generate_thumbnails'] == 1) {
+				$path = $uri->root().'modules/mod_image_show_gk4/cache/'.GKIS_Shop_and_Buy_Image::translateName($slide->image, $this->config['module_id']);
+			} else {
+				$path = $uri->root();
+				$path .= $slide->image;
+			}
 			
 	        if($slide->type == "k2"){
 	          	$title = htmlspecialchars($this->articlesK2[$slide->artK2_id]["title"]);
@@ -66,7 +67,7 @@ for($y = 0; $y < count($this->config['image_show_data']); $y++) {
 				// creating slide link
 				$link = ($slide->type == "text") ? $slide->url : $this->articles[$slide->art_id]["link"];	
 			}
-
+			
 			$text = str_replace(array('[ampersand]', '[leftbracket]', '[rightbracket]'), array('&', '<', '>'), $text);
 		?>
 		

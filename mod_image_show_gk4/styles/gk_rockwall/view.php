@@ -31,7 +31,8 @@ jimport('joomla.utilities.string');
 			if($this->config['generate_thumbnails'] == 1) {
 				$path = $uri->root().'modules/mod_image_show_gk4/cache/'.GKIS_RockWall_Image::translateName($this->config['image_show_data'][$i]->image, $this->config['module_id']);
 			} else {
-				$path = $this->config['image_show_data'][$i]->image;
+				$path = $uri->root();
+				$path .= $this->config['image_show_data'][$i]->image;
 			}
 			$content = '';
 			

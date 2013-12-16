@@ -25,6 +25,7 @@ defined('_JEXEC') or die;
 				
 				unset($path, $title, $link);
                 // creating slide path
+                
 				$path = $uri->root().'modules/mod_image_show_gk4/cache/'.GKIS_LeagueNews1_Image::translateName($this->config['image_show_data'][$i]->image, $this->config['module_id']);
                 //
                 if($this->config['image_show_data'][$i]->type == "k2"){
@@ -53,7 +54,7 @@ defined('_JEXEC') or die;
 			</div>
 			<?php endif; ?>
 		<?php endfor; ?>
-		<a href="#" class="gkIsMoreNews"><?php echo JText::_('TPL_GK_LANG_IS_MORE_NEWS'); ?></a>
+		<a href="#" class="gkIsMoreNews"><?php echo JText::_('MOD_IMAGE_SHOW_LEAGUE_NEWS_MORE_NEWS'); ?></a>
 	</div>
 	
 	<div class="gkMoreNews">

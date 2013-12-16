@@ -13,11 +13,13 @@
 // no direct access
 defined('_JEXEC') or die;
 // substr function to use mb_* function if exists.
-function gk_substr($text, $start, $limit) {
-	if(function_exists('mb_substr')) {
-		return mb_substr($text, $start, $limit);	
-	} else {
-		return substr($text, $start, $limit);
+if(!function_exists('gk_substr')) {
+	function gk_substr($text, $start, $limit) {
+		if(function_exists('mb_substr')) {
+			return mb_substr($text, $start, $limit);	
+		} else {
+			return substr($text, $start, $limit);
+		}
 	}
 }
 
@@ -41,8 +43,15 @@ function gk_substr($text, $start, $limit) {
 	                   // creating slide link
 					   $link = ($this->config['image_show_data'][$i]->type == "text") ? $this->config['image_show_data'][$i]->url : $this->articles[$this->config['image_show_data'][$i]->art_id]["link"];	
 					}
-    	           // creating slide path
-					$path = $uri->root().'modules/mod_image_show_gk4/cache/'.GKIS_AppsProTech_Image::translateName($this->config['image_show_data'][$i]->image, $this->config['module_id']);
+    	            // creating slide path					
+					$path = '';
+					// check if the slide have to be generated or not
+					if($this->config['generate_thumbnails'] == 1) {
+						$path = $uri->root().'modules/mod_image_show_gk4/cache/'.GKIS_AppsProTech_Image::translateName($this->config['image_show_data'][$i]->image, $this->config['module_id']);
+					} else {
+						$path = $uri->root();
+						$path .= $this->config['image_show_data'][$i]->image;
+					}
 					
 				?>
 				

@@ -33,16 +33,16 @@ defined('_JEXEC') or die;
 	                   // creating slide link
 					   $link = ($this->config['image_show_data'][$i]->type == "text") ? $this->config['image_show_data'][$i]->url : $this->articles[$this->config['image_show_data'][$i]->art_id]["link"];	
 					}
-    	           // creating slide path
-                    $path = '';
-                    // check if the slide have to be generated or not
-                    if($this->config['generate_thumbnails'] == 1) {
-                            $path = $uri->root().'modules/mod_image_show_gk4/cache/'.GKIS_Startup_Image::translateName($this->config['image_show_data'][$i]->image, $this->config['module_id']);
-                    } else {
-                            $path = $uri->root();
-                            $path .= $slide->image;
-                    }
-                         	
+    	            // creating slide path
+					$path = '';
+					// check if the slide have to be generated or not
+					if($this->config['generate_thumbnails'] == 1) {
+						$path = $uri->root().'modules/mod_image_show_gk4/cache/'.GKIS_Startup_Image::translateName($this->config['image_show_data'][$i]->image, $this->config['module_id']);
+					} else {
+						$path = $uri->root();
+						$path .= $this->config['image_show_data'][$i]->image;
+					}
+					
 				?>
 				
 				<div class="gkIsSlide" style="z-index: <?php echo $i+1; ?>;" title="<?php echo $title; ?>"><?php echo $path; ?><a href="<?php echo $link; ?>">link</a></div>
