@@ -31,7 +31,7 @@ jimport('joomla.utilities.string');
 				$path = $uri->root().'modules/mod_image_show_gk4/cache/'.GKIS_Bluap_Image::translateName($this->config['image_show_data'][$i]->image, $this->config['module_id']);
 			} else {
 				$path = $uri->root();
-				$path .= $slide->image;
+				$path .= $this->config['image_show_data'][$i]->image;
 			}
             // creating slide title
 			$title = htmlspecialchars(($this->config['image_show_data'][$i]->type == "text") ? $this->config['image_show_data'][$i]->name : 'Only the text slides can be used');
