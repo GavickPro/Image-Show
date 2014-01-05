@@ -40,7 +40,7 @@ defined('_JEXEC') or die;
 						$path = $uri->root().'modules/mod_image_show_gk4/cache/'.GKIS_Startup_Image::translateName($this->config['image_show_data'][$i]->image, $this->config['module_id']);
 					} else {
 						$path = $uri->root();
-						$path .= $slide->image;
+						$path .= $this->config['image_show_data'][$i]->image;
 					}
 					
 				?>
