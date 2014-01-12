@@ -46,10 +46,10 @@ class GKIS_gk_game_Controller {
 		// if the thumbnail generation is enabled
 		if($this->config['generate_thumbnails'] == 1) {
 			// basic images params		
-			$img_width = $this->config['config']->gk_rockwall->gk_rockwall_image_width;
-			$img_height = $this->config['config']->gk_rockwall->gk_rockwall_image_height;
-			$img_bg = $this->config['config']->gk_rockwall->gk_rockwall_image_bg;
-			$quality = $this->config['config']->gk_rockwall->gk_rockwall_quality;
+			$img_width = $this->config['config']->gk_game->gk_game_image_width;
+			$img_height = $this->config['config']->gk_game->gk_game_image_height;
+			$img_bg = $this->config['config']->gk_game->gk_game_image_bg;
+			$quality = $this->config['config']->gk_game->gk_game_quality;
 			// check the slides
 			foreach($this->config['image_show_data'] as $slide) {
 				$stretch = ($slide->stretch == 'nostretch') ? false : true;
@@ -112,7 +112,7 @@ class GKIS_gk_game_Controller {
 			$document->addStyleSheet($uri->root().'modules/mod_image_show_gk4/styles/'.$this->config['styles'].'/style.css' );
 		}
 		// add script fragment
-		$document->addScriptDeclaration('try {$Gavick;}catch(e){$Gavick = {};};$Gavick["gkIs-'.$this->config['module_id'].'"] = { "anim_speed": '.$this->config['config']->gk_rockwall->gk_rockwall_animation_speed.', "anim_interval": '.$this->config['config']->gk_rockwall->gk_rockwall_animation_interval.', "autoanim": '.$this->config['config']->gk_rockwall->gk_rockwall_autoanimation.', "slide_links": '.$this->config['config']->gk_rockwall->gk_rockwall_slide_links.' };');
+		$document->addScriptDeclaration('try {$Gavick;}catch(e){$Gavick = {};};$Gavick["gkIs-'.$this->config['module_id'].'"] = { "anim_speed": '.$this->config['config']->gk_game->gk_game_animation_speed.', "anim_interval": '.$this->config['config']->gk_game->gk_game_animation_interval.', "autoanim": '.$this->config['config']->gk_game->gk_game_autoanimation.', "slide_links": '.$this->config['config']->gk_game->gk_game_slide_links.' };');
 		// generate necessary variables
 		$width = $this->config['config']->gk_game->gk_game_image_width;
 		$height = $this->config['config']->gk_game->gk_game_image_height;
