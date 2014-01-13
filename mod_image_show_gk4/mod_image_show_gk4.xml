@@ -29,6 +29,10 @@
 		<folder>cache</folder>
 		<folder>styles</folder>
 	</files>
+	
+	<updateservers>
+    	<server type="extension" priority="1" name="Image Show GK4 Updates">https://www.gavick.com/update_server/joomla25/image_show_gk4.xml</server>
+    </updateservers>
 
 	<languages>
 		<language tag="en-GB">language/en-GB.mod_image_show_gk4.ini</language>
@@ -74,10 +78,6 @@
 				        <option value="0">MOD_IMAGE_SHOW_DISABLED</option>
 				        <option value="1">MOD_IMAGE_SHOW_ENABLED</option>
 				</field>
-			</fieldset>
-			<!-- updates -->
-			<fieldset name="IMAGE_SHOW_UPDATES" addfieldpath="/modules/mod_image_show_gk4/admin/elements">
-			    <field type="update" name="module_updates" /> 
 			</fieldset>
 			<!-- about us -->
 			<fieldset name="IMAGE_SHOW_ABOUT_US" addfieldpath="/modules/mod_image_show_gk4/admin/elements">

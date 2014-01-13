@@ -2,8 +2,6 @@ $current_slide = 0;
 $currently_opened = 0;
 
 window.addEvent("load",function(){
-	// get the updates
-	getUpdates();
 	var add_form = document.id('gk_tab_add_form');
 	// get the tabs data
 	var tabs = JSON.decode(document.id('jform_params_image_show_data').innerHTML);
@@ -516,25 +514,6 @@ window.addEvent("load",function(){
 	//
 	document.id('IMAGE_SHOW_MANAGER-options').getParent().getElement('.panelform .adminformlist li').setStyle('border', 'none');
 });
-// function to generate the updates list
-function getUpdates() {
-	document.id('jform_params_module_updates-lbl').destroy(); // remove unnecesary label
-	var update_url = 'https://www.gavick.com/updates.raw?task=json&tmpl=component&query=product&product=mod_image_show_gk4_j16';
-	var update_div = document.id('gk_module_updates');
-	update_div.innerHTML = '<div id="gk_update_div"><span id="gk_loader"></span>Loading update data from GavicPro Update service...</div>';
-	
-	new Asset.javascript(update_url,{
-		id: "new_script",
-		onload: function(){
-			content = '';
-			$GK_UPDATE.each(function(el){
-				content += '<li><span class="gk_update_version"><strong>Version:</strong> ' + el.version + ' </span><span class="gk_update_data"><strong>Date:</strong> ' + el.date + ' </span><span class="gk_update_link"><a href="' + el.link + '" target="_blank">Download</a></span></li>';
-			});
-			update_div.innerHTML = '<ul class="gk_updates">' + content + '</ul>';
-			if(update_div.innerHTML == '<ul class="gk_updates"></ul>') update_div.innerHTML = '<p>There is no available updates for this module</p>';	
-		}
-	});
-}
 // encode chars
 function htmlspecialchars(string) {
     string = string.toString();
