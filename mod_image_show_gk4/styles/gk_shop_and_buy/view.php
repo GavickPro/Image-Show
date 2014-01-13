@@ -18,6 +18,10 @@ $firstFlagPag = false;
 
 jimport('joomla.utilities.string');
 
+if($this->config['random_slides'] == 1) {
+	shuffle($this->config['image_show_data']);
+}
+
 $slidesCounter = 0;
 
 for($y = 0; $y < count($this->config['image_show_data']); $y++) {

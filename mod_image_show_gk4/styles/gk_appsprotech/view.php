@@ -23,6 +23,10 @@ if(!function_exists('gk_substr')) {
 	}
 }
 
+if($this->config['random_slides'] == 1) {
+	shuffle($this->config['image_show_data']);
+}
+
 ?>
 
 <div id="gkIs-<?php echo $this->config['module_id'];?>" class="gkIsWrapper-gk_appsprotech">

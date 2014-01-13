@@ -15,6 +15,10 @@ defined('_JEXEC') or die;
 
 jimport('joomla.utilities.string');
 
+if($this->config['random_slides'] == 1) {
+	shuffle($this->config['image_show_data']);
+}
+
 $data_count = 0;
 for($i = 0; $i < count($this->config['image_show_data']); $i++) {
 	if($this->config['image_show_data'][$i]->published) {

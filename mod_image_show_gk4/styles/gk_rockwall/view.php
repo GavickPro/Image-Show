@@ -15,6 +15,10 @@ defined('_JEXEC') or die;
 
 jimport('joomla.utilities.string');
 
+if($this->config['random_slides'] == 1) {
+	shuffle($this->config['image_show_data']);
+}
+
 ?>
 
 <div id="gkIs-<?php echo $this->config['module_id'];?>" class="gkIsWrapper-gk_rockwall" data-textpos="<?php echo $this->config['config']->gk_rockwall->gk_rockwall_title_block_position; ?>">
