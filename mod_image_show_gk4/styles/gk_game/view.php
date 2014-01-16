@@ -19,8 +19,21 @@ if($this->config['random_slides'] == 1) {
 	shuffle($this->config['image_show_data']);
 }
 
+$slides_count = 0;
+
+for($i = 0; $i < count($this->config['image_show_data']); $i++) {
+	if($this->config['image_show_data'][$i]->published) {
+		$slides_count++;
+	}
+}
+
 ?>
-<div id="gkIs-<?php echo $this->config['module_id'];?>" class="gkIsWrapper-gk_game">
+<div 
+	id="gkIs-<?php echo $this->config['module_id'];?>" 
+	class="gkIsWrapper-gk_game"
+	<?php if($slides_count == 1) : ?>data-one-slide="true"<?php endif; ?>
+	<?php if($this->config['config']->gk_game->gk_game_animation_loop == 0) : ?>data-no-loop="true"<?php endif; ?>
+>
 	<div class="gkIsPreloader">
 		<div class="spinner">
 			<div class="dot1"></div>
@@ -69,7 +82,10 @@ if($this->config['random_slides'] == 1) {
 				<div>
 					<h2><a href="<?php echo $link; ?>"><?php echo $title; ?></a></h2>
 					<p><a href="<?php echo $link; ?>"><?php echo $content; ?></a></p>
+					
+					<?php if($slides_count > 1) : ?>
 					<span class="gkProgress"><span class="gkProgressBar" style="-webkit-transition-duration: <?php echo $this->config['config']->gk_game->gk_game_animation_interval / 1000; ?>s!important; -moz-transition-duration: <?php echo $this->config['config']->gk_game->gk_game_animation_interval / 1000; ?>s!important; -ms-transition-duration: <?php echo $this->config['config']->gk_game->gk_game_animation_interval / 1000; ?>s!important; -o-transition-duration: <?php echo $this->config['config']->gk_game->gk_game_animation_interval / 1000; ?>s!important; transition-duration: <?php echo $this->config['config']->gk_game->gk_game_animation_interval / 1000; ?>s!important;"></span></span>
+					<?php endif; ?>
 				</div>
 			</figcaption>
 			<?php endif; ?>
