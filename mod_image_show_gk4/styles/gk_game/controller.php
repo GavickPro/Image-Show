@@ -163,7 +163,7 @@ class GKIS_gk_game_Controller {
 		}
 		');
 		// load view
-		require_once (dirname(__FILE__).DS.'view.php');
+		require(dirname(__FILE__).DS.'view.php');
 	}
 }
 

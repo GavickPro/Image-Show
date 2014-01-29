@@ -117,7 +117,7 @@ class GKIS_gk_fashion_Controller {
 		$width = $this->config['config']->gk_fashion->gk_fashion_image_width;
 		$height = $this->config['config']->gk_fashion->gk_fashion_image_height;
 		// load view
-		require_once (dirname(__FILE__).DS.'view.php');
+		require(dirname(__FILE__).DS.'view.php');
 	}
 }
 

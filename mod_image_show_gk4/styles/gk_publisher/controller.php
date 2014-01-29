@@ -117,7 +117,7 @@ class GKIS_gk_publisher_Controller {
 		$width = $this->config['config']->gk_publisher->gk_publisher_image_width;
 		$height = $this->config['config']->gk_publisher->gk_publisher_image_height;
 		// load view
-		require_once (dirname(__FILE__).DS.'view.php');
+		require(dirname(__FILE__).DS.'view.php');
 	}
 }
 

@@ -117,7 +117,7 @@ class GKIS_gk_musicstate_Controller {
 		$width = $this->config['config']->gk_musicstate->gk_musicstate_image_width;
 		$height = $this->config['config']->gk_musicstate->gk_musicstate_image_height;
 		// load view
-		require_once (dirname(__FILE__).DS.'view.php');
+		require(dirname(__FILE__).DS.'view.php');
 	}
 	// function to generate blank transparent PNG images
 	public function generateBlankImage($width, $height){ 
