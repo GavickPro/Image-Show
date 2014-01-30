@@ -68,7 +68,7 @@ window.addEvent("load",function(){
                 }
                 //
                 var initText = wrapper.getElement('.figcaption');
-                initText.setStyle('margin-top', -0.5 * initText.getSize().y + "px");
+                if(initText) { initText.setStyle('margin-top', -0.5 * initText.getSize().y + "px"); }
                 // buttons 
                 if(wrapper.getElement('.gkIsBtnPrev')) {
                 	wrapper.getElement('.gkIsBtnPrev').addEvent('click', function() {
