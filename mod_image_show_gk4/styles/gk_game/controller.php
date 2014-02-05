@@ -112,7 +112,7 @@ class GKIS_gk_game_Controller {
 			$document->addStyleSheet($uri->root().'modules/mod_image_show_gk4/styles/'.$this->config['styles'].'/style.css' );
 		}
 		// add script fragment
-		$document->addScriptDeclaration('try {$Gavick;}catch(e){$Gavick = {};};$Gavick["gkIs-'.$this->config['module_id'].'"] = { "anim_speed": '.$this->config['config']->gk_game->gk_game_animation_speed.', "anim_interval": '.$this->config['config']->gk_game->gk_game_animation_interval.', "autoanim": '.$this->config['config']->gk_game->gk_game_autoanimation.', "slide_links": '.$this->config['config']->gk_game->gk_game_slide_links.' };');
+		$document->addScriptDeclaration('try {$Gavick;}catch(e){$Gavick = {};};$Gavick["gkIs-'.$this->config['module_id'].'"] = { "anim_speed": '.$this->config['config']->gk_game->gk_game_animation_speed.', "anim_interval": '.$this->config['config']->gk_game->gk_game_animation_interval.', "slide_links": '.$this->config['config']->gk_game->gk_game_slide_links.' };');
 		// generate necessary variables
 		$width = $this->config['config']->gk_game->gk_game_image_width;
 		$height = $this->config['config']->gk_game->gk_game_image_height;
