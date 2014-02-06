@@ -117,7 +117,7 @@ class GKIS_gk_shop_and_buy_Controller {
 		$width = $this->config['config']->gk_shop_and_buy->gk_shop_and_buy_image_width;
 		$height = $this->config['config']->gk_shop_and_buy->gk_shop_and_buy_image_height;
 		// load view
-		require_once (dirname(__FILE__).DS.'view.php');
+		require(dirname(__FILE__).DS.'view.php');
 	}
 }
 
