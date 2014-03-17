@@ -80,8 +80,11 @@ for($i = 0; $i < count($this->config['image_show_data']); $i++) {
 			<?php if($this->config['config']->gk_game->gk_game_show_title_block && $title != '') : ?>	
 			<figcaption class="gkPage">
 				<div>
+					<?php $content = str_replace(array('[ampersand]', '[leftbracket]', '[rightbracket]'), array('&', '<', '>'), $content); ?>
 					<h2><a href="<?php echo $link; ?>"><?php echo $title; ?></a></h2>
+					<?php if($this->config['image_show_data'][$i]->type == "text") : ?>
 					<p><a href="<?php echo $link; ?>"><?php echo $content; ?></a></p>
+					<?php endif; ?>
 					
 					<?php if($slides_count > 1) : ?>
 					<span class="gkProgress"><span class="gkProgressBar" style="-webkit-transition-duration: <?php echo $this->config['config']->gk_game->gk_game_animation_interval / 1000; ?>s!important; -moz-transition-duration: <?php echo $this->config['config']->gk_game->gk_game_animation_interval / 1000; ?>s!important; -ms-transition-duration: <?php echo $this->config['config']->gk_game->gk_game_animation_interval / 1000; ?>s!important; -o-transition-duration: <?php echo $this->config['config']->gk_game->gk_game_animation_interval / 1000; ?>s!important; transition-duration: <?php echo $this->config['config']->gk_game->gk_game_animation_interval / 1000; ?>s!important;"></span></span>
