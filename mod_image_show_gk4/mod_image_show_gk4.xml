@@ -79,6 +79,10 @@
 					<option value="0">MOD_IMAGE_SHOW_DISABLED</option>
 					<option value="1">MOD_IMAGE_SHOW_ENABLED</option>
 				</field>
+				<field name="random_slides" type="radio" class="btn-group" default="0" label="MOD_IMAGE_SHOW_RANDOM_SLIDES" description="MOD_IMAGE_SHOW_RANDOM_SLIDES_DESC">
+				        <option value="0">MOD_IMAGE_SHOW_DISABLED</option>
+				        <option value="1">MOD_IMAGE_SHOW_ENABLED</option>
+				</field>
 				<field name="use_style_css" type="radio" class="btn-group" default="1" label="MOD_IMAGE_SHOW_USE_STYLE_CSS" description="MOD_IMAGE_SHOW_USE_STYLE_CSS_DESC">
 				        <option value="0">MOD_IMAGE_SHOW_DISABLED</option>
 				        <option value="1">MOD_IMAGE_SHOW_ENABLED</option>
