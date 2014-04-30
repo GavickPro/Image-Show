@@ -10,7 +10,7 @@ window.addEvent("load",function(){
 	if(config == null || config == '') config = {};
 	
 	// check Joomla! version and add suffix
-	if((jQuery('#gk_about_us').data('jversion')).substr(0,3) == '3.2') {
+	if(parseFloat((jQuery('#gk_about_us').data('jversion')).substr(0,3)) >= '3.2') {
 		jQuery('#module-form').addClass('j32');
 	}
 	

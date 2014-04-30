@@ -58,7 +58,7 @@ window.addEvent("load",function(){
 	        				wrapper.getElement('figure').fade('in');
 	        				wrapper.getElement('figure').addClass('active');
 	        				
-	        				if(wrapper.getElement('figure').getElement('figcaption')) {
+	        				if(wrapper.getProperty('data-one-slide') != 'true' && wrapper.getElement('figure').getElement('figcaption')) {
 	        					wrapper.getElement('figure').getElement('.gkProgressBar').addClass('active');
 	        				}
 	        			}, 500);
@@ -98,10 +98,12 @@ window.addEvent("load",function(){
         		        wrapper.getElements('.gkIsSlide').setStyle('cursor', 'pointer');
         		    }
         		    
-        		    // auto-animation	                	
-    		    	$G['animation_timer'] = setTimeout(function() {
-    		    		gk_game_autoanimate($G, wrapper, 'next', null);
-    		    	}, $G['anim_interval']);
+        		    // auto-animation	
+        		    if(wrapper.getProperty('data-one-slide') != 'true') {                	
+    		    		$G['animation_timer'] = setTimeout(function() {
+    		    			gk_game_autoanimate($G, wrapper, 'next', null);
+    		    		}, $G['anim_interval']);
+    		    	}
 	            }
 	        }, 500);
 	    });
@@ -162,18 +164,29 @@ var gk_game_animate = function($G, wrapper, imgPrev, imgNext) {
 
 			clearTimeout($G['animation_timer']);
 			
-			$G['animation_timer'] = setTimeout(function() {
-				if($G['blank']) {
-					$G['blank'] = false;
-					clearTimeout($G['animation_timer']);
-					
-					$G['animation_timer'] = setTimeout(function() {
+			if(!(
+	    		wrapper.getProperty('data-no-loop') == 'true' && 
+	    		$G['actual_slide'] == wrapper.getElements('figure').length - 1
+	    	)) {
+				$G['animation_timer'] = setTimeout(function() {
+					if($G['blank']) {
+						$G['blank'] = false;
+						clearTimeout($G['animation_timer']);
+						
+						$G['animation_timer'] = setTimeout(function() {
+							gk_game_autoanimate($G, wrapper, 'next', null);
+						}, $G['anim_interval']);
+					} else {
 						gk_game_autoanimate($G, wrapper, 'next', null);
-					}, $G['anim_interval']);
-				} else {
-					gk_game_autoanimate($G, wrapper, 'next', null);
-				}
-			}, $G['anim_interval']);
+					}
+				}, $G['anim_interval']);
+	    	} else {
+	    		setTimeout(function() {
+		    		if(wrapper.getElement('figure')) {
+		    			wrapper.getElements('.gkProgressBar').getParent().fade('out');
+		    		}
+	    		}, $G['anim_interval']);
+	    	}
 		} 
 	}).start('opacity', 1);
 }; 

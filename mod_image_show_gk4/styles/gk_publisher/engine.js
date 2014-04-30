@@ -21,7 +21,7 @@ window.addEvent("load",function(){
             el.getElement('a').destroy();
             newImg.setProperty("src",el.innerHTML);
             imagesToLoad.push(newImg);
-            newImg.inject(el, 'after');
+            newImg.injectAfter(el);
             el.destroy();
         });
         
@@ -32,7 +32,7 @@ window.addEvent("load",function(){
             });
             
             if(process == imagesToLoad.length){
-                clearTimeout(time);
+                $clear(time);
                 loadedImages = process;
                 (function(){
         			wrapper.getElement('.gkIsPreloader').fade('out');
@@ -42,7 +42,7 @@ window.addEvent("load",function(){
         
         var time_main = (function(){
             if(loadedImages){
-                clearTimeout(time_main);
+                $clear(time_main);
                 
                 wrapper.getElements(".gkIsSlide").each(function(elmt,i){
                     slides[i] = elmt;

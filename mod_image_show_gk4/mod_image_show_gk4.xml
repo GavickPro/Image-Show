@@ -2,12 +2,12 @@
 <extension type="module" version="3.0" client="site" method="upgrade">
 	<name>Image Show GK4</name>
 	<author>GavickPro</author>
-	<creationDate>06/02/2013</creationDate>
-	<copyright>Copyright (C) 2011-2013 GavickPro. All rights reserved.</copyright>
+	<creationDate>01/05/2014</creationDate>
+	<copyright>Copyright (C) 2011-2014 GavickPro. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later</license>
 	<authorEmail>info@gavick.com</authorEmail>
 	<authorUrl>www.gavickpro.com</authorUrl>
-	<version>1.44</version>
+	<version>1.45</version>
 	<description><![CDATA[
 		<style type="text/css">
 			span.readonly { padding: 10px; font-family: Arial; font-size:13px !important; font-weight: normal !important; text-align: justify; color: #4d4d4d; line-height: 24px; }
@@ -21,7 +21,7 @@
 			span.readonly p.license { border-top: 1px solid #eee; font-size: 11px; margin: 30px 26px 0; padding: 6px 0; }
 		</style>
 
-		<span class="readonly"><h1>Image Show GK4<small>ver. 1.44</small></h1><p>GK4 is new generation of our extensions dedicated to Joomla 1.6+.</p><p>With Image Show GK4 module, you can create slideshow on a site which include various images and article fragments or texts defined by a user. Thanks to slide management system integrated in the module, its support is very easy, intuitive and fast. With the new method of creating module styles you can easily move your slideshow style from one template to other template.</p> <p class='homepage'><a href='http://tools.gavick.com/image-show.html' target='_blank'>Learn more at the Image Show GK4 project website.</a></p><p class='license'>Image Show GK4 is released under the <a target="_blank" href="http://www.gnu.org/licenses/gpl-2.0.html">GNU/GPL v2 license.</a></p></span>
+		<span class="readonly"><h1>Image Show GK4<small>ver. 1.45</small></h1><p>GK4 is new generation of our extensions dedicated to Joomla 1.6+.</p><p>With Image Show GK4 module, you can create slideshow on a site which include various images and article fragments or texts defined by a user. Thanks to slide management system integrated in the module, its support is very easy, intuitive and fast. With the new method of creating module styles you can easily move your slideshow style from one template to other template.</p> <p class='homepage'><a href='http://tools.gavick.com/image-show.html' target='_blank'>Learn more at the Image Show GK4 project website.</a></p><p class='license'>Image Show GK4 is released under the <a target="_blank" href="http://www.gnu.org/licenses/gpl-2.0.html">GNU/GPL v2 license.</a></p></span>
 		
 		<span class='tooltip-content'>Advanced slideshow module for Joomla! 3.2</span>
 	]]></description>
@@ -78,10 +78,6 @@
 				<field name="generate_thumbnails" type="radio" class="btn-group" default="1" label="MOD_IMAGE_SHOW_GENERATE_THUMBNAILS" description="MOD_IMAGE_SHOW_GENERATE_THUMBNAILS_DESC">
 					<option value="0">MOD_IMAGE_SHOW_DISABLED</option>
 					<option value="1">MOD_IMAGE_SHOW_ENABLED</option>
-				</field>
-				<field name="random_slides" type="radio" class="btn-group" default="0" label="MOD_IMAGE_SHOW_RANDOM_SLIDES" description="MOD_IMAGE_SHOW_RANDOM_SLIDES_DESC">
-				        <option value="0">MOD_IMAGE_SHOW_DISABLED</option>
-				        <option value="1">MOD_IMAGE_SHOW_ENABLED</option>
 				</field>
 				<field name="use_style_css" type="radio" class="btn-group" default="1" label="MOD_IMAGE_SHOW_USE_STYLE_CSS" description="MOD_IMAGE_SHOW_USE_STYLE_CSS_DESC">
 				        <option value="0">MOD_IMAGE_SHOW_DISABLED</option>

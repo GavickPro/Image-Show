@@ -17,7 +17,7 @@ require_once (dirname(__FILE__).DS.'class.image.php');
 // Model class loading
 require_once (dirname(__FILE__).DS.'model.php');
 
-class GKIS_gk_publisher_Controller {
+class GKIS_gk_storefront_Controller {
 	// configuration array
 	private $config;
 	// module info
@@ -46,14 +46,14 @@ class GKIS_gk_publisher_Controller {
 		// if the thumbnail generation is enabled
 		if($this->config['generate_thumbnails'] == 1) {
 			// basic images params		
-			$img_width = $this->config['config']->gk_publisher->gk_publisher_image_width;
-			$img_height = $this->config['config']->gk_publisher->gk_publisher_image_height;
-			$img_bg = $this->config['config']->gk_publisher->gk_publisher_image_bg;
-			$quality = $this->config['config']->gk_publisher->gk_publisher_quality;
+			$img_width = $this->config['config']->gk_storefront->gk_storefront_image_width;
+			$img_height = $this->config['config']->gk_storefront->gk_storefront_image_height;
+			$img_bg = $this->config['config']->gk_storefront->gk_storefront_image_bg;
+			$quality = $this->config['config']->gk_storefront->gk_storefront_quality;
 			// check the slides
 			foreach($this->config['image_show_data'] as $slide) {
 				$stretch = ($slide->stretch == 'nostretch') ? false : true;
-				GKIS_Publisher_Image::createThumbnail($slide->image, $this->config, $img_width, $img_height, $img_bg, $stretch, $quality);	
+				GKIS_StoreFront_Image::createThumbnail($slide->image, $this->config, $img_width, $img_height, $img_bg, $stretch, $quality);	
 			}
 		}
 	}
@@ -73,10 +73,10 @@ class GKIS_gk_publisher_Controller {
 		}
 		// get the data
 		if(count($idsK2) > 0) {
-			$this->articlesK2 = GKIS_gk_publisher_Model::getDataK2($idsK2);
+			$this->articlesK2 = GKIS_gk_storefront_Model::getDataK2($idsK2);
 		}
 		if(count($ids) > 0) {
-			$this->articles = GKIS_gk_publisher_Model::getData($ids);
+			$this->articles = GKIS_gk_storefront_Model::getData($ids);
 		}
 	}
 	// generate view
@@ -111,11 +111,23 @@ class GKIS_gk_publisher_Controller {
 			// add stylesheets to document header
 			$document->addStyleSheet($uri->root().'modules/mod_image_show_gk4/styles/'.$this->config['styles'].'/style.css' );
 		}
+		
+		// module instance CSS code
+		$document->addStyleDeclaration('
+			#gkIs-'.$this->config['module_id'].' { height: '.($this->config['config']->gk_storefront->gk_storefront_module_height_desktop).'px; }
+			@media (max-width: 1040px) {
+				#gkIs-'.$this->config['module_id'].' { height: '.($this->config['config']->gk_storefront->gk_storefront_module_height_tablet).'px; }
+			}
+			@media (max-width: 640px) {
+				#gkIs-'.$this->config['module_id'].' { height: '.($this->config['config']->gk_storefront->gk_storefront_module_height_mobile).'px; }
+			}
+		');
+		
 		// add script fragment
-		$document->addScriptDeclaration('try {$Gavick;}catch(e){$Gavick = {};};$Gavick["gkIs-'.$this->config['module_id'].'"] = { "anim_speed": '.$this->config['config']->gk_publisher->gk_publisher_animation_speed.', "anim_interval": '.$this->config['config']->gk_publisher->gk_publisher_animation_interval.', "autoanim": '.$this->config['config']->gk_publisher->gk_publisher_autoanimation.', "slide_links": '.$this->config['config']->gk_publisher->gk_publisher_slide_links.' };');
+		$document->addScriptDeclaration('try {$Gavick;}catch(e){$Gavick = {};};$Gavick["gkIs-'.$this->config['module_id'].'"] = { "anim_speed": '.$this->config['config']->gk_storefront->gk_storefront_animation_speed.', "anim_interval": '.$this->config['config']->gk_storefront->gk_storefront_animation_interval.', "autoanim": '.$this->config['config']->gk_storefront->gk_storefront_autoanimation.', "slide_links": '.$this->config['config']->gk_storefront->gk_storefront_slide_links.' };');
 		// generate necessary variables
-		$width = $this->config['config']->gk_publisher->gk_publisher_image_width;
-		$height = $this->config['config']->gk_publisher->gk_publisher_image_height;
+		$width = $this->config['config']->gk_storefront->gk_storefront_image_width;
+		$height = $this->config['config']->gk_storefront->gk_storefront_image_height;
 		// load view
 		require(dirname(__FILE__).DS.'view.php');
 	}

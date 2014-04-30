@@ -36,7 +36,6 @@ window.addEvent("load",function(){
 	    		
 	    		if(i == 0) {	
 	    			fig.addClass('gkIsNextTextLayer');
-	    			fig.getElement('a.gkLearnMore').setStyle('margin-left', (-0.5 * fig.getElement('a.gkLearnMore').getSize().x) + "px");
 	    			setTimeout(function() {
 	    				fig.getElement('h1').addClass('loaded');
 	    				fig.getElement('h2').addClass('loaded');
@@ -197,7 +196,6 @@ var gk_creativity_animate = function($G, wrapper, imgPrev, imgNext, prev, next) 
 	$G['figcaptions'][prev].removeClass('gkIsNextTextLayer').addClass('gkIsPrevTextLayer');
 	$G['figcaptions'][prev].getElement('h1').removeClass('loaded');
 	$G['figcaptions'][prev].getElement('h2').removeClass('loaded');
-	//$G['figcaptions'][prev].getElement('.gkLearnMore').removeClass('loaded');
 	
 	setTimeout(function() {
 		$G['figcaptions'][next].addClass('gkIsNextTextLayer');	
@@ -205,8 +203,6 @@ var gk_creativity_animate = function($G, wrapper, imgPrev, imgNext, prev, next) 
 		
 		$G['figcaptions'][next].getElement('h1').addClass('loaded');
 		$G['figcaptions'][next].getElement('h2').addClass('loaded');
-		//.getElement('.gkLearnMore').addClass('loaded');
-		$G['figcaptions'][next].getElement('a.gkLearnMore').setStyle('margin-left', (-0.5 * $G['figcaptions'][next].getElement('a.gkLearnMore').getSize().x) + "px");
 	}, $G['anim_speed']);
 	
 	//
@@ -249,15 +245,17 @@ var gk_creativity_autoanimate = function($G, wrapper, dir, next) {
 	$G['actual_slide'] = next;
 };
 
-jQuery(document).keyup(function(e){
-    switch(e.which) {
-        case 37: // left
-        jQuery('.gkIsPrevBtn').click();
+document.addEvent('keyup', function(e){
+    switch(e.key) {
+        case 'left': // left key
+        	document.getElement('.gkIsPrevBtn').fireEvent('click');
         break;
-        case 39: // right
-        jQuery('.gkIsNextBtn').click();
+        
+        case 'right': // right key
+        	document.getElement('.gkIsNextBtn').fireEvent('click');
         break;
-        default: return;
+        
+        default: 
+        	return;
     }
-    e.preventDefault();
 });

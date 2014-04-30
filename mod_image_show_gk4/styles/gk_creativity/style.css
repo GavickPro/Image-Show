@@ -148,6 +148,11 @@
 	padding: 20px 36px;
 	position: absolute;
 	text-transform: uppercase;
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+	transform: translateX(-50%);
 	-webkit-transition: bottom .3s ease-out, opacity .3s ease-out;
 	-moz-transition: bottom .3s ease-out, opacity .3s ease-out;
 	-ms-transition: bottom .3s ease-out, opacity .3s ease-out;

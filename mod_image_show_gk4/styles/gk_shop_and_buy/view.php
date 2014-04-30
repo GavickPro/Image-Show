@@ -26,10 +26,6 @@ for($y = 0; $y < count($this->config['image_show_data']); $y++) {
 	}
 }
 
-if($this->config['random_slides'] == 1) {
-	shuffle($this->config['image_show_data']);
-}
-
 ?>
 
 <div id="gkIs-<?php echo $this->config['module_id'];?>" class="gkIsWrapper-gk_shop_and_buy">
