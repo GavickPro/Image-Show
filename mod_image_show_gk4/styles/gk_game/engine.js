@@ -135,7 +135,9 @@ var gk_game_animate = function($G, wrapper, imgPrev, imgNext) {
 			duration: $G['anim_speed'],
 			onComplete: function() {
 				imgPrev.setProperty('class', '');
-				imgPrev.getElement('.gkProgressBar').removeClass('active');
+				if(imgPrev.getElement('.gkProgressBar')) {
+					imgPrev.getElement('.gkProgressBar').removeClass('active');
+				}
 			}
 		}).start('opacity', 0);
 	}, $G['anim_speed'] / 2);
