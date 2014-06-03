@@ -180,7 +180,7 @@
 	width: 100%;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1240px) {
 	.gkIsWrapper-gk_university figcaption h2 { 
 		font-size: 48px;
 	}
@@ -189,19 +189,30 @@
 	}
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1040px) {
 	.gkIsWrapper-gk_university figcaption h2 {
-		
+		font-size: 32px;
+		line-height: 40px;
 	}
 	.gkIsWrapper-gk_university figcaption p {
-	
+		margin: 10px 0;
 	}
 }
 
-@media (max-width: 760px) {
-
-}
-
-@media (max-width: 600px) {
-
+@media (max-width: 640px) {
+	.gkIsWrapper-gk_university figcaption {
+		top: 65%;
+	}
+	.gkIsWrapper-gk_university figcaption > div {
+		width: 100%;
+	}
+	.gkIsWrapper-gk_university figcaption h2 {
+		font-size: 17px;
+		line-height: 20px;
+	}
+	.gkIsWrapper-gk_university figcaption p {
+		font-size: 12px;
+		line-height: 1.2;
+		margin: 10px 0;
+	}
 }
