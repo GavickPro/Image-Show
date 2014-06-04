@@ -103,7 +103,7 @@ for($y = 0; $y < count($this->config['image_show_data']); $y++) {
 	</div>
 	
 	<?php if($this->config['config']->gk_shop_and_buy->gk_shop_and_buy_pagination) : ?>
-	<olp>
+	<ol>
 		<?php for($y = 0; $y < $slidesCounter; $y++) : ?>
 		<li<?php echo !$firstFlagPag ? ' class="active"' : ''; ?>><?php echo $y; ?></li>
 		<?php $firstFlagPag = true; ?>
