@@ -18,6 +18,10 @@ $firstFlagPag = false;
 
 jimport('joomla.utilities.string');
 
+if($this->config['random_slides'] == 1) {
+	shuffle($this->config['image_show_data']);
+}
+
 $slidesCounter = 0;
 
 for($y = 0; $y < count($this->config['image_show_data']); $y++) {
@@ -79,14 +83,7 @@ for($y = 0; $y < count($this->config['image_show_data']); $y++) {
 			<?php endif; ?>
 			
 			<?php if($this->config['config']->gk_shop_and_buy->gk_shop_and_buy_show_content_block) : ?>	
-			<?php 
-				$additional_class = '';
-			
-				if($this->config['config']->gk_shop_and_buy->gk_shop_and_buy_pagination_position == $this->config['config']->gk_shop_and_buy->gk_shop_and_buy_title_block_position) {
-					$additional_class = ' contains-pagination';
-				}
-			?>
-			<div <?php echo 'class="figcaption '. $this->config['config']->gk_shop_and_buy->gk_shop_and_buy_title_block_position . $additional_class .'"'; ?>>
+			<div class="figcaption">
 				<?php if($this->config['config']->gk_shop_and_buy->gk_shop_and_buy_show_title_block) : ?>	
 				<h3><a href="<?php echo $link; ?>"><?php echo JString::substr($title, 0, $this->config['config']->gk_shop_and_buy->gk_shop_and_buy_title_block_length); ?></a></h3>
 				<?php endif; ?>
@@ -106,7 +103,7 @@ for($y = 0; $y < count($this->config['image_show_data']); $y++) {
 	</div>
 	
 	<?php if($this->config['config']->gk_shop_and_buy->gk_shop_and_buy_pagination) : ?>
-	<ol<?php echo ' class="'.$this->config['config']->gk_shop_and_buy->gk_shop_and_buy_pagination_position.'"'; ?>>
+	<ol>
 		<?php for($y = 0; $y < $slidesCounter; $y++) : ?>
 		<li<?php echo !$firstFlagPag ? ' class="active"' : ''; ?>><?php echo $y; ?></li>
 		<?php $firstFlagPag = true; ?>

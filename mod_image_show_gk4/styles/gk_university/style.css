@@ -1,0 +1,218 @@
+
+/**
+* GK Image Show - CSS style
+* @package Joomla!
+* @Copyright (C) 2009-2013 Gavick.com
+* @ All rights reserved
+* @ Joomla! is Free Software
+* @ Released under GNU/GPL License : http://www.gnu.org/copyleft/gpl.html
+* @ version $Revision: GK4 1.0 $
+**/
+ 
+.gkIsWrapper-gk_university {
+	min-height: 200px;
+	position: relative;
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	-ms-transform: translate3d(0, 0, 0);
+	-o-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+.gkIsWrapper-gk_university .gkIsPreloader {
+	background: #3f4e67 url('loader.gif') no-repeat center center;
+	height: 100%;
+	left: 50%;
+	position: absolute;
+	text-indent: -9999px;
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+	transform: translateX(-50%);
+	width: 100%;
+	z-index: 100;
+}
+
+.gkIsWrapper-gk_university figure {
+	left: 50%;
+	top: 0;
+	opacity: 0;
+	position: absolute;
+	overflow: hidden;
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+	transform: translateX(-50%);
+	width: 100%;
+	z-index: 1;
+}
+
+.gkIsWrapper-gk_university figure.animated {
+	z-index: 2;
+}
+
+.gkIsWrapper-gk_university figcaption > div {
+	float: left;
+	margin: 0;
+	width: 70%;
+}
+
+.gkIsWrapper-gk_university figure.active {
+	z-index: 3;
+}
+
+.gkIsWrapper-gk_university img {
+	display: block;
+	height: auto;
+	position: relative;
+	width: 100%;
+}
+
+.gkIsWrapper-gk_university figcaption {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	height: auto;
+	left: 50%;
+	opacity: 0;
+	position: absolute;
+	top: 43%;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-o-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+	width: 100%;
+	z-index: 1;
+}
+
+.gkIsWrapper-gk_university figure.active figcaption {
+	z-index: 101;
+}
+
+.gkIsWrapper-gk_university figcaption h2 {
+	color: #fff;
+	font-size: 60px;
+	font-weight: 300;
+	line-height: 64px;
+	margin: 0;
+	opacity: 0;
+	padding: 0;
+	position: relative;
+	text-transform: uppercase;
+	top: 50px;
+	-webkit-transition: all .35s ease-out;
+	-moz-transition: all .35s ease-out;
+	-ms-transition: all .35s ease-out;
+	-o-transition: all .35s ease-out;
+	transition: all .35s ease-out;
+}
+
+.gkIsWrapper-gk_university figcaption p {
+	font-size: 20px;
+	line-height: 28px;
+	font-weight: 300;
+	margin: 20px 0;
+	opacity: 0;
+	position: relative;
+	top: 15px;
+	-webkit-transition: all .35s ease-out;
+	-moz-transition: all .35s ease-out;
+	-ms-transition: all .35s ease-out;
+	-o-transition: all .35s ease-out;
+	transition: all .35s ease-out;
+	-webkit-transition-delay: .2s;
+	-moz-transition-delay: .2s;
+	-ms-transition-delay: .2s;
+	-o-transition-delay: .2s;
+	transition-delay: .2s;
+	width: 80%;
+}
+
+.gkIsWrapper-gk_university .active figcaption h2 {
+	opacity: 1;
+	top: 0;
+}
+
+.gkIsWrapper-gk_university .active figcaption p {
+	opacity: 1;
+	top: 0;
+}
+
+.gkIsWrapper-gk_university figcaption p,
+.gkIsWrapper-gk_university figcaption a {
+	color: #fff;
+}
+
+.gkIsWrapper-gk_university .gkProgress {
+	background: transparent;
+	border: 1px solid #fa7252;
+	display: block;
+	height: 5px;
+	margin: 15px 0 0 0;
+	overflow: hidden;
+	width: 25%;
+}
+.gkIsWrapper-gk_university .gkProgressBar {
+	background: #fa7252;
+	display: block;
+	height: 6px;
+	margin-left: -100%;
+	opacity: 1!important;
+	-webkit-transition: margin 1s linear;
+	-moz-transition: margin 1s linear;
+	-ms-transition: margin 1s linear;
+	-o-transition: margin 1s linear;
+	transition: margin 1s linear;
+	width: 100%;
+}
+.gkIsWrapper-gk_university .active .gkProgressBar {
+	margin-left: 0;
+}
+
+/* Responsive styles */
+.gkIsWrapper-gk_university .gkIsSlide {
+	background-position: center top;
+	background-repeat: no-repeat;
+	margin: 0 auto;
+	width: 100%;
+}
+
+@media (max-width: 1240px) {
+	.gkIsWrapper-gk_university figcaption h2 { 
+		font-size: 48px;
+	}
+	.gkIsWrapper-gk_university figcaption p {
+		font-size: 14px;
+	}
+}
+
+@media (max-width: 1040px) {
+	.gkIsWrapper-gk_university figcaption h2 {
+		font-size: 32px;
+		line-height: 40px;
+	}
+	.gkIsWrapper-gk_university figcaption p {
+		margin: 10px 0;
+	}
+}
+
+@media (max-width: 640px) {
+	.gkIsWrapper-gk_university figcaption {
+		top: 65%;
+	}
+	.gkIsWrapper-gk_university figcaption > div {
+		width: 100%;
+	}
+	.gkIsWrapper-gk_university figcaption h2 {
+		font-size: 17px;
+		line-height: 20px;
+	}
+	.gkIsWrapper-gk_university figcaption p {
+		font-size: 12px;
+		line-height: 1.2;
+		margin: 10px 0;
+	}
+}

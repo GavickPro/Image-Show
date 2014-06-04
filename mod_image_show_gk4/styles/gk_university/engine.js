@@ -1,6 +1,6 @@
 window.addEvent("load",function(){
 	setTimeout(function() {
-	    $$(".gkIsWrapper-gk_game").each(function(el){
+	    $$(".gkIsWrapper-gk_university").each(function(el){
 	        var elID = el.getProperty("id");
 	        var wrapper = document.id(elID);
 	        var $G = $Gavick[elID];
@@ -11,8 +11,6 @@ window.addEvent("load",function(){
 	        var swipe_max_time = 500;
 	        // animation variables
 	        $G['animation_timer'] = false;
-	        // text block position
-	        $G['text_pos'] = wrapper.getProperty('data-textpos');
 	        // blank flag
 	        $G['blank'] = false;
 	        // load the images
@@ -45,28 +43,36 @@ window.addEvent("load",function(){
 							'title': img.getProperty('title')
 						});
 						newDiv.setStyle('background-image', "url('" + img.getProperty('src') + "')");
+						fig.setStyle('opacity', 0);
 						newDiv.inject(img, 'before');
 						img.dispose();
 					});
 					
 	                setTimeout(function(){
-	        			wrapper.getElement('.gkIsPreloader').setStyle('position', 'absolute');
-	        			wrapper.getElement('.gkIsPreloader').fade('out');
-	        			setTimeout(function() {
-	        				wrapper.getElement('.gkIsPreloader').dispose();
-	        				
-	        				wrapper.getElement('figure').fade('in');
-	        				wrapper.getElement('figure').addClass('active');
-	        				
-	        				if(wrapper.getProperty('data-one-slide') != 'true' && wrapper.getElement('figure').getElement('figcaption')) {
-	        					wrapper.getElement('figure').getElement('.gkProgressBar').addClass('active');
-	        				}
-	        			}, 500);
+	        			wrapper.addClass('loaded');
+	        			wrapper.getElement('.gkIsPreloader').set('tween', { duration: 'long' });
+	        			wrapper.getElement('.gkIsPreloader').tween('opacity', 0);
+        				
+        				wrapper.getElements('figure').each(function(fig, i) {
+        					fig.setStyle('opacity', 1);
+        				});
+        				
+        				setTimeout(function() {
+        					wrapper.getElement('.gkIsPreloader').dispose();
+        				}, 1000);
+        				
+        				wrapper.getElement('figure').setStyle('opacity', 1);
+        				wrapper.getElement('figure').addClass('active');
+        				
+        				if(
+        					wrapper.getProperty('data-one-slide') != 'true' &&
+        					wrapper.getElement('figure').getElement('figcaption')
+        				) {
+        					wrapper.getElement('figure').getElement('.gkProgressBar').addClass('active');
+        				}
 	        		}, 400);
 	        		
         		    $G['actual_slide'] = 0;
-        		    
-        		    wrapper.addClass('loaded');
         		    
         		    wrapper.getElements(".gkIsSlide").each(function(elmt,i){
         		        slides[i] = elmt;
@@ -75,19 +81,11 @@ window.addEvent("load",function(){
         		    setTimeout(function() {
         		        var initfig = slides[0].getParent().getElement('figcaption');
         		        if(initfig) {
-        		        	initfig.set('morph', { duration: 250 });
+        		        	initfig.set('morph', { duration: 250, unit: '%' });
         		        	
-        		        	if($G['text_pos'] == 'left') {
-        		        		initfig.morph({
-        		        			'opacity': [0, 1],
-        		        			'left': ['-50%', '0%']
-        		        		});
-        		        	} else {
-        		        		initfig.morph({
-        		        			'opacity': [0, 1],
-        		        			'right': ['-50%', '0%']
-        		        		});
-        		        	}
+    		        		initfig.morph({
+    		        			'opacity': [0, 1]
+    		        		});
         		        }
         		    }, 250);
         		    
@@ -101,7 +99,7 @@ window.addEvent("load",function(){
         		    // auto-animation	
         		    if(wrapper.getProperty('data-one-slide') != 'true') {                	
     		    		$G['animation_timer'] = setTimeout(function() {
-    		    			gk_game_autoanimate($G, wrapper, 'next', null);
+    		    			gk_university_autoanimate($G, wrapper, 'next', null);
     		    		}, $G['anim_interval']);
     		    	}
 	            }
@@ -110,22 +108,14 @@ window.addEvent("load",function(){
     }, 1000);
 });
 
-var gk_game_animate = function($G, wrapper, imgPrev, imgNext) {	
+var gk_university_animate = function($G, wrapper, imgPrev, imgNext) {	
 	var prevfig = imgPrev.getElement('figcaption');
 	//
 	if(prevfig) {
-		prevfig.set('morph', { duration: 150 });
-		if($G['text_pos'] == 'left') {
-			prevfig.morph({
-				'opacity': [1, 0],
-				'left': ['0%', '-50%']
-			});
-		} else {
-			prevfig.morph({
-				'opacity': [1, 0],
-				'right': ['0%', '-50%']
-			});
-		}
+		prevfig.set('morph', { duration: 150, unit: '%' });
+		prevfig.morph({
+			'opacity': [1, 0]
+		});
 	}
 	//
 	imgNext.setProperty('class', 'animated');
@@ -141,27 +131,18 @@ var gk_game_animate = function($G, wrapper, imgPrev, imgNext) {
 			}
 		}).start('opacity', 0);
 	}, $G['anim_speed'] / 2);
-	//imgNext.fade('in');
+	
 	new Fx.Tween(imgNext, {
 		duration: $G['anim_speed'],
 		onComplete: function() {			
 			imgNext.setProperty('class', 'active');
 			var nextfig = imgNext.getElement('figcaption');
 			if(nextfig) {
-				nextfig.set('morph', { duration: 150 });
+				nextfig.set('morph', { duration: 150, unit: '%' });
 				
-				if($G['text_pos'] == 'left') {
-					nextfig.morph({
-						'opacity': [0, 1],
-						'left': ['-50%', '0%']
-					});
-				} else {
-					nextfig.morph({
-						'opacity': [0, 1],
-						'right': ['-50%', '0%']
-					});
-					nextfig.getElement('.gkProgressBar').addClass('active');
-				}
+				nextfig.morph({
+					'opacity': [0, 1]
+				});
 			}
 
 			clearTimeout($G['animation_timer']);
@@ -176,10 +157,10 @@ var gk_game_animate = function($G, wrapper, imgPrev, imgNext) {
 						clearTimeout($G['animation_timer']);
 						
 						$G['animation_timer'] = setTimeout(function() {
-							gk_game_autoanimate($G, wrapper, 'next', null);
+							gk_university_autoanimate($G, wrapper, 'next', null);
 						}, $G['anim_interval']);
 					} else {
-						gk_game_autoanimate($G, wrapper, 'next', null);
+						gk_university_autoanimate($G, wrapper, 'next', null);
 					}
 				}, $G['anim_interval']);
 	    	} else {
@@ -193,7 +174,7 @@ var gk_game_animate = function($G, wrapper, imgPrev, imgNext) {
 	}).start('opacity', 1);
 }; 
 
-var gk_game_autoanimate = function($G, wrapper, dir, next) {
+var gk_university_autoanimate = function($G, wrapper, dir, next) {
 	var i = $G['actual_slide'];
 	var imgs = wrapper.getElements('figure');
 	
@@ -201,6 +182,6 @@ var gk_game_autoanimate = function($G, wrapper, dir, next) {
 		next = (dir == 'next') ? ((i < imgs.length - 1) ? i+1 : 0) : ((i == 0) ? imgs.length - 1 : i - 1); // dir: next|prev
 	}
 	
-	gk_game_animate($G, wrapper, imgs[i], imgs[next]);
+	gk_university_animate($G, wrapper, imgs[i], imgs[next]);
 	$G['actual_slide'] = next;
 };
