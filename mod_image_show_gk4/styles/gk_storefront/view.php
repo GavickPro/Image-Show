@@ -18,7 +18,6 @@ jimport('joomla.utilities.string');
 if($this->config['random_slides'] == 1) {
 	shuffle($this->config['image_show_data']);
 }
-
 ?>
 
 <div id="gkIs-<?php echo $this->config['module_id'];?>" class="gkIsWrapper-gk_storefront">
@@ -61,16 +60,17 @@ if($this->config['random_slides'] == 1) {
 			}
 		?>
 		<figure data-url="<?php echo $path; ?>" data-link="<?php echo $link; ?>" data-zindex="<?php echo $i+1; ?>" data-title="<?php echo $title; ?>">
-			<?php if($this->config['config']->gk_storefront->gk_storefront_show_title_block && $title != '') : ?>	
 			<figcaption>
+				<?php if($this->config['config']->gk_storefront->gk_storefront_show_title_block && $title != '') : ?>	
 				<h2><?php echo $title; ?></h2>
 				<?php echo $content; ?>
+				<?php endif; ?>
 			</figcaption>
-			<?php endif; ?>
 		</figure>
 	<?php endif; ?>
 	<?php endfor; ?>
-	
+
+	<?php if($this->config['config']->gk_storefront->gk_storefront_show_pagination): ?>	
 	<ul class="gkIsPagination">
 	<?php 
 	$j = 0;
@@ -80,4 +80,5 @@ if($this->config['random_slides'] == 1) {
 		<?php endif; ?>
 	<?php endfor; ?>
 	</ul>
+	<?php endif; ?>
 </div>
