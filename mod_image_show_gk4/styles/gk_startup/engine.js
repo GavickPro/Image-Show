@@ -42,7 +42,7 @@ window.addEvent("load",function(){
 	 				});
 	 				
 					if(process == imagesToLoad.length){
-						$clear(time);
+						clearTimeout(time);
 						loadedImages = process;
 						(function(){
 							wrapper.getElement('.gkIsPreloader').fade('out');
@@ -64,7 +64,7 @@ window.addEvent("load",function(){
 			
 			var time_main = (function(){
 				if(loadedImages){
-					$clear(time_main);
+					clearTimeout(time_main);
 					
 					wrapper.getElements(".gkIsSlide").each(function(elmt,i){
 						slides[i] = elmt;
@@ -78,7 +78,7 @@ window.addEvent("load",function(){
 					$G["base_y"] = slides[0].getSize().y;
 					
 					slides.each(function(el,i){
-						if(i != 0) el.setOpacity(0);
+						if(i != 0) el.setStyle('opacity', 0);
 					});
 					
 					slides[0].addClass('active');
@@ -169,21 +169,15 @@ function gk_is_appsprotech_anim(wrapper, slides, which, $G){
 				txts[actual].removeClass('active');
 			}
 			
-			(function() {
-				txts[which].fade('in');
-				if(!txts[which].hasClass('active')) {
-					txts[which].addClass('active');
-				}
-			}).delay($G['anim_speed'] + 200);
+			txts[which].fade('in');
+			if(!txts[which].hasClass('active')) {
+				txts[which].addClass('active');
+			}
 		}
 				
 		if(wrapper.getElement('.gkIsPagination')) {
 			wrapper.getElements('.gkIsPagination li').setProperty('class', '');
 			wrapper.getElements('.gkIsPagination li')[which].setProperty('class', 'active');
-		}		
-				
-		/*(function(){
-			slides[$G['actual_slide']].setStyle("z-index", $G['actual_slide']);
-		}).delay($G['anim_speed']);*/
+		}
 	}
 }
