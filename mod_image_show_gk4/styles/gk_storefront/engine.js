@@ -20,7 +20,7 @@ jQuery(window).load(function () {
                 var newImg = new jQuery('<img title="'+el.attr('data-title')+'" class="gkIsSlide" style="z-index: '+el.attr('data-zindex')+';" src="'+el.attr('data-url') + '">');
                 links[i] = el.attr('data-link'); 
                 imagesToLoad.push(newImg); 
-                newImg.insertBefore(el.find('figcaption'));
+                el.prepend(newImg);
             }); 
         //
         var time = setInterval(function() {
