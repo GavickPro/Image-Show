@@ -62,10 +62,12 @@ jQuery(window).load(function () {
                 });
 
                 setTimeout(function() {
-                    var initfig = slides[0].parent().find('figcaption');
-                    if (initfig) {
-                    	initfig.css('opacity', 0);
-                        initfig.animate({ opacity: 1 }, 250);
+                    if(slides && slides[0]) {
+                        var initfig = slides[0].parent().find('figcaption');
+                        if (initfig) {
+                            initfig.css('opacity', 0);
+                            initfig.animate({ opacity: 1 }, 250);
+                        }
                     }
                 }, 250);
                 //
