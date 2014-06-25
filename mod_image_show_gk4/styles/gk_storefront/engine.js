@@ -67,10 +67,12 @@ window.addEvent("load",function(){
         		    }); 
         		    
         		    setTimeout(function() {
-        		        var initfig = slides[0].getParent().getElement('figcaption');
-        		        if(initfig) {
-        		        	initfig.set('morph', { duration: 250 });
-        		        	initfig.morph({'opacity': [0, 1]});
+        		        if(slides && slides[0]) {
+	        		        var initfig = slides[0].getParent().getElement('figcaption');
+	        		        if(initfig) {
+	        		        	initfig.set('morph', { duration: 250 });
+	        		        	initfig.morph({'opacity': [0, 1]});
+	        		        }
         		        }
         		    }, 250);
         		    
