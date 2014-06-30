@@ -20,7 +20,7 @@ jQuery(window).load(function () {
                 var newImg = new jQuery('<img title="'+el.attr('data-title')+'" class="gkIsSlide" style="z-index: '+el.attr('data-zindex')+';" src="'+el.attr('data-url') + '">');
                 links[i] = el.attr('data-link'); 
                 imagesToLoad.push(newImg); 
-                el.prepend(newImg);
+                newImg.insertBefore(el.find('figcaption'));
             }); 
         //
         var time = setInterval(function() {
@@ -33,7 +33,7 @@ jQuery(window).load(function () {
                 clearInterval(time);
                 //
                 wrapper.find('img.gkIsSlide').each(function(i, elm) {
-                	elm = jQuery(elm);
+                    elm = jQuery(elm);
                     var newDiv = new jQuery('<div title="' + elm.attr('title')+'" class="gkIsSlide"  style="'+elm.attr('style')+'; background-image: url(\'' + elm.attr('src') + '\');'+'"></div>');
                     newDiv.insertBefore(elm);
                 });
@@ -46,13 +46,13 @@ jQuery(window).load(function () {
                     wrapper.find('.gkIsPreloader').css('position', 'absolute');
                     wrapper.find('.gkIsPreloader').fadeOut();
                     wrapper.find('figure').first().css('opacity', 1).fadeIn();
-                    wrapper.find('figure').addClass('active');
+                    //wrapper.find('figure').addClass('active');
                     wrapper.addClass('loaded');
 
                     setTimeout(function() {
-	    				wrapper.find('figure').first().addClass('activated');
-	    			}, 50);
-	    			
+                        wrapper.find('figure').first().addClass('activated');
+                    }, 50);
+                    
                 }, 400); 
                 //
                 $G['actual_slide'] = 0;
@@ -62,12 +62,10 @@ jQuery(window).load(function () {
                 });
 
                 setTimeout(function() {
-                    if(slides && slides[0]) {
-                        var initfig = slides[0].parent().find('figcaption');
-                        if (initfig) {
-                            initfig.css('opacity', 0);
-                            initfig.animate({ opacity: 1 }, 250);
-                        }
+                    var initfig = slides[0].parent().find('figcaption');
+                    if (initfig) {
+                        initfig.css('opacity', 0);
+                        initfig.animate({ opacity: 1 }, 250);
                     }
                 }, 250);
                 //
@@ -80,7 +78,7 @@ jQuery(window).load(function () {
                 //
                 wrapper.find('.gkIsPagination li').each(function(i, item) {
                     jQuery(item).click(function() {
-                        if (i != $G['actual_slide']) {
+                        if (i !== $G['actual_slide']) {
                             $G['blank'] = true;
                             gk_storefront_autoanimate($G, wrapper, 'next', i);
                         }
@@ -144,8 +142,7 @@ var gk_storefront_animate = function($G, wrapper, imgPrev, imgNext) {
     var prevfig = jQuery(imgPrev).find('figcaption');
     //
     if (prevfig) {
-        prevfig.css('opacity', 1);
-        prevfig.animate({
+        prevfig.css('opacity', 1).animate({
             opacity: 0
         }, 250);
     }
@@ -157,16 +154,16 @@ var gk_storefront_animate = function($G, wrapper, imgPrev, imgNext) {
     }, $G['anim_speed'], function() {
         jQuery(imgPrev).attr('class', '');
     });
- 	
- 	jQuery(imgNext).animate({
+    
+    jQuery(imgNext).animate({
         opacity: 1
     }, $G['anim_speed'], function() {
         jQuery(imgNext).attr('class', 'active');
         var nextfig = jQuery(imgNext).find('figcaption');
         
-		setTimeout(function() {
-			jQuery(imgNext).attr('class', 'active activated');
-		}, 50);
+        setTimeout(function() {
+            jQuery(imgNext).attr('class', 'active activated');
+        }, 50);
         
         if (nextfig) {
             nextfig.css('opacity', 0);
@@ -196,12 +193,14 @@ var gk_storefront_animate = function($G, wrapper, imgPrev, imgNext) {
 var gk_storefront_autoanimate = function($G, wrapper, dir, next) {
     var i = $G['actual_slide'];
     var imgs = wrapper.find('figure');
+    
 
     if (next == null) {
         next = (dir == 'next') ? ((i < imgs.length - 1) ? i + 1: 0) : ((i == 0) ? imgs.length - 1: i - 1);
         // dir: next|prev
         }
 
+    
     gk_storefront_animate($G, wrapper, imgs[i], imgs[next]);
     $G['actual_slide'] = next;
 
