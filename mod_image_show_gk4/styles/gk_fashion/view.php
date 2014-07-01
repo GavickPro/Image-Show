@@ -53,7 +53,7 @@ if($this->config['random_slides'] == 1) {
 			}
 		?>
 		<figure<?php echo !$firstFlag ? ' class="active"' : ''; ?>>
-			<div class="gkIsSlide" style="z-index: <?php echo $i+1; ?>;" title="<?php echo $title; ?>"><?php echo $path; ?><a href="<?php echo $link; ?>">link</a></div>
+			<div class="gkIsSlide" style="z-index: <?php echo $i+1; ?>;" title="<?php echo $title; ?>" data-path="<?php echo $path; ?>" data-link="<?php echo $link; ?>"></div>
 			
 			<?php if($this->config['config']->gk_fashion->gk_fashion_show_title_block) : ?>	
 			<figcaption<?php echo ' class="'.$this->config['config']->gk_fashion->gk_fashion_title_block_position.'"'; ?>>
