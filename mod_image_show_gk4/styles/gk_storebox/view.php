@@ -62,7 +62,7 @@ if($this->config['random_slides'] == 1) {
 			}
 		?>
 		<figure>
-			<div class="gkIsSlide" style="z-index: <?php echo $i+1; ?>;" title="<?php echo $title; ?>"><?php echo $path; ?><a href="<?php echo $link; ?>">link</a></div>
+			<div class="gkIsSlide" style="z-index: <?php echo $i+1; ?>;" title="<?php echo $title; ?>" data-path="<?php echo $path; ?>" data-link="<?php echo $link; ?>"></div>
 			
 			<?php if($this->config['config']->gk_storebox->gk_storebox_show_title_block && $content != '') : ?>	
 			<figcaption<?php echo ' style="top: '.$this->config['config']->gk_storebox->gk_storebox_title_block_position_y.'%; left: '.$this->config['config']->gk_storebox->gk_storebox_title_block_position_x.'%; background: '.$this->config['config']->gk_storebox->gk_storebox_title_block_bg.'; color: '.$this->config['config']->gk_storebox->gk_storebox_title_block_color.';"'; ?>>
