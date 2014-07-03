@@ -34,7 +34,7 @@
 .gkIsWrapper-gk_fashion figure.active {
 	opacity: 1;
 	position: relative;
-	z-index: 3;
+	z-index: 2;
 }
 
 .gkIsWrapper-gk_fashion img {
@@ -56,7 +56,7 @@
 	padding: 5px 20px;
 	position: absolute;
 	width: 100%;
-	z-index: 2;
+	z-index: 98;
 	-webkit-transition: bottom 0.5s ease-out, top 0.5s ease-out;
 	-moz-transition: bottom 0.5s ease-out, top 0.5s ease-out;
 	-ms-transition: bottom 0.5s ease-out, top 0.5s ease-out;
@@ -71,7 +71,7 @@
 
 .gkIsWrapper-gk_fashion figure.active figcaption {
 	bottom: 0%;
-	z-index: 4;
+	z-index: 99;
 }
 
 .gkIsWrapper-gk_fashion figure.active figcaption.top {
@@ -104,7 +104,7 @@
 	text-align: center;
 	top: 10px;
 	width: 100%;
-	z-index: 10;
+	z-index: 100;
 }
 
 .gkIsWrapper-gk_fashion ol.bottom {

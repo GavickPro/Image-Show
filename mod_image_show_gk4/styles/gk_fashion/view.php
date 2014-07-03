@@ -18,6 +18,10 @@ $firstFlagPag = false;
 
 jimport('joomla.utilities.string');
 
+if($this->config['random_slides'] == 1) {
+	shuffle($this->config['image_show_data']);
+}
+
 ?>
 
 <div id="gkIs-<?php echo $this->config['module_id'];?>" class="gkIsWrapper-gk_fashion">
@@ -49,7 +53,7 @@ jimport('joomla.utilities.string');
 			}
 		?>
 		<figure<?php echo !$firstFlag ? ' class="active"' : ''; ?>>
-			<div class="gkIsSlide" style="z-index: <?php echo $i+1; ?>;" title="<?php echo $title; ?>"><?php echo $path; ?><a href="<?php echo $link; ?>">link</a></div>
+			<div class="gkIsSlide" style="z-index: <?php echo $i+1; ?>;" title="<?php echo $title; ?>" data-path="<?php echo $path; ?>" data-link="<?php echo $link; ?>"></div>
 			
 			<?php if($this->config['config']->gk_fashion->gk_fashion_show_title_block) : ?>	
 			<figcaption<?php echo ' class="'.$this->config['config']->gk_fashion->gk_fashion_title_block_position.'"'; ?>>

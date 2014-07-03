@@ -17,9 +17,8 @@ window.addEvent("load",function(){
                 "style":el.getProperty('style')
             });
             newImg.store('num', i);
-            links[i] = el.getElement('a').getProperty('href');
-            el.getElement('a').destroy();
-            newImg.setProperty("src",el.innerHTML);
+            links[i] = el.getProperty('data-link');
+            newImg.setProperty("src",el.getProperty('data-path'));
             imagesToLoad.push(newImg);
             newImg.inject(el, 'after');
             el.destroy();

@@ -13,7 +13,7 @@
 	max-width: 1400px;
 	position:relative; 
 	width:100%; 
-	-webkit-transform-style: preserve-3d!important;
+	/*-webkit-transform-style: preserve-3d!important;*/
 }
 
 .gkIsWrapper-gk_startup .gkIsImage { 
@@ -303,7 +303,7 @@
 	        transform: scale(1.0); 
 }
 
-@media (max-width: 920px) {
+@media (max-width: 1040px) {
 	.gkIsWrapper-gk_startup .gkIsText { 
 		top: 90px;
 	}
@@ -336,6 +336,13 @@
 	}
 	.gkIsWrapper-gk_startup .gkIsSlide.active { 
 		bottom: 50px; 
+	}
+	body[data-tablet="true"] .gkIsWrapper-gk_startup .gkIsPreloader,
+	body[data-mobile="true"] .gkIsWrapper-gk_startup .gkIsPreloader {
+		display: none;
+		-webkit-animation: none; 
+		   -moz-animation: none; 
+				animation: none; 
 	}
 }
 

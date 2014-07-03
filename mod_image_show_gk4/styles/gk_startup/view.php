@@ -13,6 +13,10 @@
 // no direct access
 defined('_JEXEC') or die;
 
+if($this->config['random_slides'] == 1) {
+	shuffle($this->config['image_show_data']);
+}
+
 ?>
 
 <div id="gkIs-<?php echo $this->config['module_id'];?>" class="gkIsWrapper-gk_startup">
@@ -45,7 +49,7 @@ defined('_JEXEC') or die;
 					
 				?>
 				
-				<div class="gkIsSlide" style="z-index: <?php echo $i+1; ?>;" title="<?php echo $title; ?>"><?php echo $path; ?><a href="<?php echo $link; ?>">link</a></div>
+				<div class="gkIsSlide" style="z-index: <?php echo $i+1; ?>;" title="<?php echo $title; ?>" data-path="<?php echo $path; ?>" data-link="<?php echo $link; ?>"></div>
 			<?php endif; ?>
 		<?php endfor; ?>
 		
