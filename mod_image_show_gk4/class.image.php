@@ -8,7 +8,7 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-class GKIS_Bikestore_Image {
+class GKIS_Image {
 	/*
 		function to change file path to filename.
 		For example:
@@ -18,7 +18,7 @@ class GKIS_Bikestore_Image {
 		(in this situation mirror of ./images/ directory isn't necessary)
 	*/
 	function translateName($name, $mod_id) {
-		$name = GKIS_Bikestore_Image::getRealPath($name);
+		$name = GKIS_Image::getRealPath($name);
 		$start = strpos($name, DS.'images'.DS);
 		$name = substr($name, $start+8);
 		$ext = substr($name, -4);
@@ -29,10 +29,17 @@ class GKIS_Bikestore_Image {
 	}
 	// function to change file path to  real path.
 	function getRealPath($path) {
-		$start = strpos($path, 'images/');
+		$start = strpos($path, GKIS_Image::getMediaPath());
 		$path = './'.substr($path, $start);
 		return realpath($path);
 	}
+	// function used to get the media path
+	function getMediaPath() {
+		$imagemanager = JComponentHelper::getParams('com_media');
+		$imagepath = $imagemanager->get('image_path', '');
+		return $imagepath . '/';
+	}
+	
 	/*
 		function to check cache
 		
@@ -47,7 +54,7 @@ class GKIS_Bikestore_Image {
 	}
 	// Creating thumbnails
 	function createThumbnail($path, $config, $width, $height, $image_bg, $image_stretch, $quality) {
-		if(GKIS_Bikestore_Image::checkCache(GKIS_Bikestore_Image::translateName($path,$config['module_id']), $config['last_modification'], $config['module_id'])){
+		if(GKIS_Image::checkCache(GKIS_Image::translateName($path,$config['module_id']), $config['last_modification'], $config['module_id'])){
 			return TRUE;	
 		}else{
 			// importing classes
@@ -59,9 +66,9 @@ class GKIS_Bikestore_Image {
 			// cache dir
 			$cache_dir = JPATH_ROOT.DS.'modules'.DS.'mod_image_show_gk4'.DS.'cache'.DS;
 			// file path
-			$file = GKIS_Bikestore_Image::getRealPath($path);
+			$file = GKIS_Image::getRealPath($path);
 			// filename
-			$filename = GKIS_Bikestore_Image::translateName($path,$config['module_id']);
+			$filename = GKIS_Image::translateName($path,$config['module_id']);
 			// Getting informations about image
 			if(is_file($file)){
 				$imageData = getimagesize($file);
