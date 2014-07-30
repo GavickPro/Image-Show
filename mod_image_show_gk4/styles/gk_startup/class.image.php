@@ -18,8 +18,8 @@ class GKIS_Startup_Image extends GKIS_Image {
 			jimport('joomla.filesystem.file');
 			jimport('joomla.filesystem.folder');
 			jimport('joomla.filesystem.path');
-			//script configuration - increase memory limit to 64MB
-			ini_set('memory_limit', '64M');
+			//script configuration - increase memory limit to value specified by user - default 128MB
+			ini_set('memory_limit', $config['memory_limit']);
 			// cache dir
 			$cache_dir = JPATH_ROOT.DS.'modules'.DS.'mod_image_show_gk4'.DS.'cache'.DS;
 			// file path

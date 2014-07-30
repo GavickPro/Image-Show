@@ -74,6 +74,17 @@
 			</fieldset>
 			<!-- advanced -->
 			<fieldset name="IMAGE_SHOW_ADVANCED">
+				<field name="memory_limit" type="list" class="gk_switch" default="128M" label="MOD_IMAGE_SHOW_MEMORY_LIMIT" description="MOD_IMAGE_SHOW_MEMORY_LIMIT_DESC">
+				        <option value="32M">32 MB</option>
+				        <option value="64M">64 MB</option>
+				        <option value="128M">128 MB</option>
+				        <option value="256M">256 MB</option>
+				        <option value="384M">384 MB</option>
+				        <option value="512M">512 MB</option>
+				        <option value="768M">768 MB</option>
+				        <option value="1024M">1024 MB</option>
+				        <option value="2048M">2048 MB</option>
+				</field>
 				<field name="generate_thumbnails" type="list" class="gk_switch" default="1" label="MOD_IMAGE_SHOW_GENERATE_THUMBNAILS" description="MOD_IMAGE_SHOW_GENERATE_THUMBNAILS_DESC">
 				        <option value="0">MOD_IMAGE_SHOW_DISABLED</option>
 				        <option value="1">MOD_IMAGE_SHOW_ENABLED</option>
