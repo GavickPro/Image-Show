@@ -8,46 +8,10 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-class GKIS_Startup_Image {
-	/*
-		function to change file path to filename.
-		For example:
-		./images/stories/demo.jpg
-		will be translated to:
-		stories.demo.jpg
-		(in this situation mirror of ./images/ directory isn't necessary)
-	*/
-	function translateName($name, $mod_id) {
-		$name = GKIS_Startup_Image::getRealPath($name);
-		$start = strpos($name, DS.'images'.DS);
-		$name = substr($name, $start+8);
-		$ext = substr($name, -4);
-		$name = substr($name, 0, -4);
-		$name = str_replace(DS,'.',$name);
-		$name .= $mod_id.$ext;
-		return $name;
-	}
-	// function to change file path to  real path.
-	function getRealPath($path) {
-		$start = strpos($path, 'images/');
-		$path = './'.substr($path, $start);
-		return realpath($path);
-	}
-	/*
-		function to check cache
-		
-		this function checks if file exists in cache directory
-		and checks if time of file life isn't too long
-	*/
-	function checkCache($filename, $last_modification_time) {
-		$cache_dir = JPATH_ROOT.DS.'modules'.DS.'mod_image_show_gk4'.DS.'cache'.DS;
-		$file = $cache_dir.$filename;
-		
-		return (!is_file($file)) ? FALSE : (filemtime($file) > $last_modification_time);
-	}
+class GKIS_Startup_Image extends GKIS_Image {
 	// Creating thumbnails
 	function createThumbnail($path, $config, $width, $image_bg, $image_stretch, $quality) {
-		if(GKIS_Startup_Image::checkCache(GKIS_Startup_Image::translateName($path,$config['module_id']), $config['last_modification'], $config['module_id'])){
+		if(GKIS_Image::checkCache(GKIS_Image::translateName($path,$config['module_id']), $config['last_modification'], $config['module_id'])){
 			return TRUE;	
 		}else{
 			// importing classes
@@ -59,9 +23,9 @@ class GKIS_Startup_Image {
 			// cache dir
 			$cache_dir = JPATH_ROOT.DS.'modules'.DS.'mod_image_show_gk4'.DS.'cache'.DS;
 			// file path
-			$file = GKIS_Startup_Image::getRealPath($path);
+			$file = GKIS_Image::getRealPath($path);
 			// filename
-			$filename = GKIS_Startup_Image::translateName($path,$config['module_id']);
+			$filename = GKIS_Image::translateName($path,$config['module_id']);
 			// Getting informations about image
 			if(is_file($file)){
 				$imageData = getimagesize($file);
@@ -141,6 +105,11 @@ class GKIS_Startup_Image {
 					// setting position of putting thumbnail on canvas
 					$base_x = floor(($width - $imageSourceNWidth) / 2);
 					$base_y = floor(($height - $imageSourceNHeight) / 2);
+				} else { // when stretching is disabled
+					$imageSourceNWidth = $width;
+					$imageSourceNHeight = $height;
+					$base_x = 0;
+					$base_y = 0;
 				}
 				// copy image	
 				imagecopyresampled($imageBG, $imageSource, $base_x, $base_y, 0, 0, $imageSourceNWidth, $imageSourceNHeight, $imageSourceWidth, $imageSourceHeight);

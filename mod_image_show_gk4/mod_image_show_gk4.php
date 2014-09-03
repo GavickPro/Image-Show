@@ -18,6 +18,7 @@ if(!defined('DS')){
 
 // helper loading
 require_once (dirname(__FILE__).DS.'helper.php');
+require_once (dirname(__FILE__).DS.'class.image.php');
 // create class instance with params
 $helper = new GK4ImageShowHelper($module, $params); 
 // creating XHTML code	
