@@ -28,6 +28,7 @@
         <filename module="mod_image_show_gk4">mod_image_show_gk4.php</filename>
 		<filename module="mod_image_show_gk4">mod_image_show_gk4.xml</filename>
 		<filename module="mod_image_show_gk4">helper.php</filename>
+		<filename module="mod_image_show_gk4">class.image.php</filename>
 		<filename module="mod_image_show_gk4">index.html</filename>
 		<folder>admin</folder>
 		<folder>cache</folder>
