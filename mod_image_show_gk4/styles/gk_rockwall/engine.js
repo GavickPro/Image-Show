@@ -19,6 +19,7 @@ window.addEvent("load",function(){
 	        wrapper.getElements('figure').each(function(el,i){
 	            var newImg = new Element('img',{
 	                "title": el.getProperty('data-title'),
+	                "alt" : el.getProperty('data-alt'),
 	                "class": 'gkIsSlide',
 	                "style": 'z-index: ' + el.getProperty('data-zindex') + ';',
 	                "src": el.getProperty('data-url')
