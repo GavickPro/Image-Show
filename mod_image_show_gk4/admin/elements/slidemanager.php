@@ -77,6 +77,10 @@ class JFormFieldSlidemanager extends JFormField {
         // form_content
         $form_content_tooltip = ($type == 'add') ? ' class="hasTip" title="' . JText::_('MOD_IMAGE_SHOW_GK4_FORM_CONTENT_TOOLTIP') . '"' : '';
         $form_content = '<p><label'.$form_content_tooltip.'>'.JText::_('MOD_IMAGE_SHOW_GK4_FORM_CONTENT').'</label><textarea class="gk_tab_'.$type.'_content"></textarea><p>';
+
+		// form_alt
+        $form_alt_tooltip = ($type == 'add') ? ' class="hasTip" title="' . JText::_('MOD_IMAGE_SHOW_GK4_FORM_ALT_TOOLTIP') . '"' : '';
+		$form_alt = '<p><label'.$form_alt_tooltip.'>'.JText::_('MOD_IMAGE_SHOW_GK4_FORM_ALT').'</label><input type="text" class="gk_tab_'.$type.'_alt" /></p>';
         
         // form_url
         $form_url_tooltip = ($type == 'add') ? ' class="hasTip" title="' . JText::_('MOD_IMAGE_SHOW_GK4_FORM_URL_TOOLTIP') . '"' : '';
@@ -115,7 +119,7 @@ class JFormFieldSlidemanager extends JFormField {
         
         
 		// create the form
-		$form = '<div class="height_scroll"><div class="gk_tab_'.$type.'">'.$form_type.$form_image.$form_stretch.$form_access_level.$form_published.$form_name.$form_content.$form_url.$form_article.$form_articleK2.$form_buttons.'</div></div>';
+		$form = '<div class="height_scroll"><div class="gk_tab_'.$type.'">'.$form_type.$form_image.$form_stretch.$form_access_level.$form_published.$form_name.$form_alt.$form_content.$form_url.$form_article.$form_articleK2.$form_buttons.'</div></div>';
 		
 		return $form;
 	}
