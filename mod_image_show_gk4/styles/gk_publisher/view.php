@@ -61,9 +61,13 @@ if($this->config['random_slides'] == 1) {
 				// creating slide link
 				$link = ($slide->type == "text") ? $slide->url : $this->articles[$slide->art_id]["link"];	
 			}
+			
+			// img alt attribute
+			$alt = htmlspecialchars($slide->alt);
+
 		?>
 		<figure<?php echo !$firstFlag ? ' class="active"' : ''; ?>>
-			<div class="gkIsSlide" style="z-index: <?php echo $x+1; ?>;" title="<?php echo $title; ?>" data-path="<?php echo $path; ?>" data-link="<?php echo $link; ?>"></div>
+			<div class="gkIsSlide" style="z-index: <?php echo $x+1; ?>;" title="<?php echo $title; ?>" data-alt="<?php echo $alt; ?>" data-path="<?php echo $path; ?>" data-link="<?php echo $link; ?>"></div>
 			<?php if($this->config['config']->gk_publisher->gk_publisher_show_content_block) : ?>	
 			<?php 
 				$additional_class = '';
