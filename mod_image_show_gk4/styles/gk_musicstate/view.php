@@ -72,7 +72,9 @@ if($this->config['random_slides'] == 1) {
 			<?php if($this->config['config']->gk_musicstate->gk_musicstate_show_title_block && $title != '') : ?>	
 			<figcaption<?php echo ' style="color: '.$this->config['config']->gk_musicstate->gk_musicstate_title_block_color.';"'; ?>>
 				<h2><?php echo $title; ?></h2>
+				<?php if($this->config['image_show_data'][$i]->type == "text") : ?>
 				<p><?php echo $content; ?></p>
+				<?php endif; ?>
 				<a href="<?php echo $link; ?>"><?php echo JText::_('MOD_IMAGE_SHOW_MUSIC_STATE_READMORE'); ?></a>
 			</figcaption>
 			<?php endif; ?>
