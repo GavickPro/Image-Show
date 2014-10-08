@@ -130,7 +130,7 @@ window.addEvent("load",function(){
 		var item = document.id('invisible').getElement('.gk_tab_item').clone();
 		// get the values from the form
 		var name = (source == 'new') ? add_form.getElement('.gk_tab_add_name').get('value') : source.name;
-		var alt = (source == 'new') ? add_form.getElement('.gk_tab_add_alt').get('value') : source.alt;
+		var alt = (source == 'new') ? add_form.getElement('.gk_tab_add_alt').get('value') : source.alt || '';
 		var type = (source == 'new') ? add_form.getElement('.gk_tab_add_type').get('value') : source.type;
 		var image = (source == 'new') ? add_form.getElement('.gk_tab_add_image').get('value') : source.image;
 		var stretch = (source == 'new') ? add_form.getElement('.gk_tab_add_stretch').get('value') : source.stretch;
