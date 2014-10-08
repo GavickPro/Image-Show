@@ -46,10 +46,11 @@ if($this->config['random_slides'] == 1) {
 						$path = $uri->root();
 						$path .= $this->config['image_show_data'][$i]->image;
 					}
-					
+					// img alt attribute
+					$alt = htmlspecialchars($this->config['image_show_data'][$i]->alt);
 				?>
 				
-				<div class="gkIsSlide" style="z-index: <?php echo $i+1; ?>;" title="<?php echo $title; ?>" data-path="<?php echo $path; ?>" data-link="<?php echo $link; ?>"></div>
+				<div class="gkIsSlide" style="z-index: <?php echo $i+1; ?>;" title="<?php echo $title; ?>" data-path="<?php echo $path; ?>" data-link="<?php echo $link; ?>" data-alt="<?php echo $alt; ?>"></div>
 			<?php endif; ?>
 		<?php endfor; ?>
 		

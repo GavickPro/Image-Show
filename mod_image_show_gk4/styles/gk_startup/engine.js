@@ -19,11 +19,12 @@ window.addEvent("load",function(){
 					links.push(el.getProperty('data-link'));
 					var newImg = new Element('img',{
 						"title":el.getProperty('title'),
+						"alt": el.getProperty('data-alt'),
 						"class":el.getProperty('class'),
 						"style":el.getProperty('style')
 					});
 					
-					newImg.setProperty('alt',el.getProperty('data-link'));
+					newImg.setProperty('alt',el.getProperty('data-alt'));
 					newImg.setProperty("src",el.getProperty('data-path'));
 					imagesToLoad.push(newImg);
 					newImg.inject(el, 'after');

@@ -36,11 +36,13 @@ window.addEvent("load",function(){
 		add_form.getElement('.gk_tab_add_art').setStyle('display', 'block');
         add_form.getElement('.gk_tab_add_artK2').setStyle('display', 'none');
 		add_form.getElement('.gk_tab_add_name').getParent().setStyle('display', 'block');
+		add_form.getElement('.gk_tab_add_alt').getParent().setStyle('display', 'block');
 		add_form.getElement('.gk_tab_add_content').getParent().setStyle('display', 'none');
 		add_form.getElement('.gk_tab_add_url').getParent().setStyle('display', 'none');
 	} else if (add_form.getElement('.gk_tab_add_type').value == 'text') {
 		add_form.getElement('.gk_tab_add_art').setStyle('display', 'none');
 		add_form.getElement('.gk_tab_add_name').getParent().setStyle('display', 'block');
+		add_form.getElement('.gk_tab_add_alt').getParent().setStyle('display', 'block');
         add_form.getElement('.gk_tab_add_artK2').setStyle('display', 'none');
 		add_form.getElement('.gk_tab_add_content').getParent().setStyle('display', 'block');
 		add_form.getElement('.gk_tab_add_url').getParent().setStyle('display', 'block');
@@ -48,9 +50,9 @@ window.addEvent("load",function(){
 	   	add_form.getElement('.gk_tab_add_artK2').setStyle('display', 'block');
        	add_form.getElement('.gk_tab_add_art').setStyle('display', 'none');
 		add_form.getElement('.gk_tab_add_name').getParent().setStyle('display', 'block');
+		add_form.getElement('.gk_tab_add_alt').getParent().setStyle('display', 'block');
 		add_form.getElement('.gk_tab_add_content').getParent().setStyle('display', 'none');
 		add_form.getElement('.gk_tab_add_url').getParent().setStyle('display', 'none');
-       
 	}
 	//
 	// add tab form events
@@ -60,18 +62,21 @@ window.addEvent("load",function(){
 			add_form.getElement('.gk_tab_add_art').setStyle('display', 'block');
             add_form.getElement('.gk_tab_add_artK2').setStyle('display', 'none');
 			add_form.getElement('.gk_tab_add_name').getParent().setStyle('display', 'block');
+			add_form.getElement('.gk_tab_add_alt').getParent().setStyle('display', 'block');
 			add_form.getElement('.gk_tab_add_content').getParent().setStyle('display', 'none');
 			add_form.getElement('.gk_tab_add_url').getParent().setStyle('display', 'none');
 		} else if (add_form.getElement('.gk_tab_add_type').value == 'text') {
 			add_form.getElement('.gk_tab_add_art').setStyle('display', 'none');
             add_form.getElement('.gk_tab_add_artK2').setStyle('display', 'none');
 			add_form.getElement('.gk_tab_add_name').getParent().setStyle('display', 'block');
+			add_form.getElement('.gk_tab_add_alt').getParent().setStyle('display', 'block');
 			add_form.getElement('.gk_tab_add_content').getParent().setStyle('display', 'block');
 			add_form.getElement('.gk_tab_add_url').getParent().setStyle('display', 'block');
 		} else {
 		    add_form.getElement('.gk_tab_add_artK2').setStyle('display', 'block');
             add_form.getElement('.gk_tab_add_art').setStyle('display', 'none');
 			add_form.getElement('.gk_tab_add_name').getParent().setStyle('display', 'block');
+			add_form.getElement('.gk_tab_add_alt').getParent().setStyle('display', 'block');
 			add_form.getElement('.gk_tab_add_content').getParent().setStyle('display', 'none');
 			add_form.getElement('.gk_tab_add_url').getParent().setStyle('display', 'none');
 		}
@@ -98,10 +103,12 @@ window.addEvent("load",function(){
 		add_form.getElement('.gk_tab_add_art').setStyle('display', 'none');
         add_form.getElement('.gk_tab_add_artK2').setStyle('display', 'none');
 		add_form.getElement('.gk_tab_add_name').getParent().setStyle('display', 'block');
+		add_form.getElement('.gk_tab_add_alt').getParent().setStyle('display', 'block');
 		add_form.getElement('.gk_tab_add_content').getParent().setStyle('display', 'block');
 		add_form.getElement('.gk_tab_add_url').getParent().setStyle('display', 'block');
 		// clear the form		
 		add_form.getElement('.gk_tab_add_name').set('value', '');
+		add_form.getElement('.gk_tab_add_alt').set('value', '');
 		add_form.getElement('.gk_tab_add_type').set('value', 'text');
 		add_form.getElement('.gk_tab_add_image').set('value', '');
 		add_form.getElement('.gk_tab_add_stretch').set('value', 'nostretch');
@@ -127,6 +134,7 @@ window.addEvent("load",function(){
 		var item = document.id('invisible').getElement('.gk_tab_item').clone();
 		// get the values from the form
 		var name = (source == 'new') ? add_form.getElement('.gk_tab_add_name').get('value') : source.name;
+		var alt = (source == 'new') ? add_form.getElement('.gk_tab_add_alt').get('value') : source.alt || '';
 		var type = (source == 'new') ? add_form.getElement('.gk_tab_add_type').get('value') : source.type;
 		var image = (source == 'new') ? add_form.getElement('.gk_tab_add_image').get('value') : source.image;
 		var stretch = (source == 'new') ? add_form.getElement('.gk_tab_add_stretch').get('value') : source.stretch;
@@ -149,6 +157,7 @@ window.addEvent("load",function(){
 		//
 		// fill the edit form
 		item.getElement('.gk_tab_edit_name').set('value', name);
+		item.getElement('.gk_tab_edit_alt').set('value', alt);
 		item.getElement('.gk_tab_edit_type').set('value', type);
 		item.getElement('.gk_tab_edit_image').set('value', image);
 		item.getElement('.gk_tab_edit_stretch').set('value', stretch);
@@ -206,6 +215,7 @@ window.addEvent("load",function(){
 		if(item.getElement('.gk_tab_edit_type').value == 'article') {
 			item.getElement('.gk_tab_edit_art').setStyle('display', 'block');
 			item.getElement('.gk_tab_edit_name').getParent().setStyle('display', 'block');
+			item.getElement('.gk_tab_edit_alt').getParent().setStyle('display', 'block');
 			item.getElement('.gk_tab_edit_content').getParent().setStyle('display', 'none');
 			item.getElement('.gk_tab_edit_url').getParent().setStyle('display', 'none');
             item.getElement('.gk_tab_edit_artK2').setStyle('display', 'none');
@@ -213,11 +223,13 @@ window.addEvent("load",function(){
 		  item.getElement('.gk_tab_edit_artK2').setStyle('display', 'none');
 			item.getElement('.gk_tab_edit_art').setStyle('display', 'none');
 			item.getElement('.gk_tab_edit_name').getParent().setStyle('display', 'block');
+			item.getElement('.gk_tab_edit_alt').getParent().setStyle('display', 'block');
 			item.getElement('.gk_tab_edit_content').getParent().setStyle('display', 'block');
 			item.getElement('.gk_tab_edit_url').getParent().setStyle('display', 'block');
 		} else {
 		       item.getElement('.gk_tab_edit_artK2').setStyle('display', 'block');
 				item.getElement('.gk_tab_edit_name').getParent().setStyle('display', 'block');
+				item.getElement('.gk_tab_edit_alt').getParent().setStyle('display', 'block');
                 item.getElement('.gk_tab_edit_art').setStyle('display', 'none');
 				item.getElement('.gk_tab_edit_content').getParent().setStyle('display', 'none');
 				item.getElement('.gk_tab_edit_url').getParent().setStyle('display', 'none'); 
@@ -228,22 +240,23 @@ window.addEvent("load",function(){
 				item.getElement('.gk_tab_edit_art').setStyle('display', 'block');
                 item.getElement('.gk_tab_edit_artK2').setStyle('display', 'none');
 				item.getElement('.gk_tab_edit_name').getParent().setStyle('display', 'block');
+				item.getElement('.gk_tab_edit_alt').getParent().setStyle('display', 'block');
 				item.getElement('.gk_tab_edit_content').getParent().setStyle('display', 'none');
 				item.getElement('.gk_tab_edit_url').getParent().setStyle('display', 'none');
 			} else if(item.getElement('.gk_tab_edit_type').value == 'text') {
                 item.getElement('.gk_tab_edit_artK2').setStyle('display', 'none');
 				item.getElement('.gk_tab_edit_art').setStyle('display', 'none');
 				item.getElement('.gk_tab_edit_name').getParent().setStyle('display', 'block');
+				item.getElement('.gk_tab_edit_alt').getParent().setStyle('display', 'block');
 				item.getElement('.gk_tab_edit_content').getParent().setStyle('display', 'block');
-				item.getElement('.gk_tab_edit_url').getParent().setStyle('display', 'block');
-                
+				item.getElement('.gk_tab_edit_url').getParent().setStyle('display', 'block'); 
 			} else {
 			    item.getElement('.gk_tab_edit_artK2').setStyle('display', 'block');
 				item.getElement('.gk_tab_edit_name').getParent().setStyle('display', 'block');
+				item.getElement('.gk_tab_edit_alt').getParent().setStyle('display', 'block');
                 item.getElement('.gk_tab_edit_art').setStyle('display', 'none');
 				item.getElement('.gk_tab_edit_content').getParent().setStyle('display', 'none');
 				item.getElement('.gk_tab_edit_url').getParent().setStyle('display', 'none'); 
-             
 			}
 		});
 		// remove
@@ -273,6 +286,7 @@ window.addEvent("load",function(){
 			if(e) e.stop();
 			// get the data from editor			
 			var name = item.getElement('.gk_tab_edit_name').get('value');
+			var alt = item.getElement('.gk_tab_edit_alt').get('value');
 			var type = item.getElement('.gk_tab_edit_type').get('value');
 			var image = item.getElement('.gk_tab_edit_image').get('value');
 			var stretch = item.getElement('.gk_tab_edit_stretch').get('value');
@@ -289,6 +303,7 @@ window.addEvent("load",function(){
 			var item_id = items.indexOf(item);
 			tabs[item_id] = {
 				"name" : name,
+				"alt" : alt,
 				"type" : type,
 				"image" : image,
 				"stretch" : stretch,
@@ -367,6 +382,7 @@ window.addEvent("load",function(){
 		if(source == 'new') { // only new objects
 			tabs.push({
 				"name" : name,
+				"alt" : alt,
 				"type" : type,
 				"image" : image,
 				"stretch" : stretch,

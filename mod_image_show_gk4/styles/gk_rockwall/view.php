@@ -58,8 +58,11 @@ if($this->config['random_slides'] == 1) {
 				// creating slide link
 				$link = ($this->config['image_show_data'][$i]->type == "text") ? $this->config['image_show_data'][$i]->url : $this->articles[$this->config['image_show_data'][$i]->art_id]["link"];	
 			}
+			
+			// img alt attribute
+			$alt = htmlspecialchars($this->config['image_show_data'][$i]->alt);
 		?>
-		<figure data-url="<?php echo $path; ?>" data-link="<?php echo $link; ?>" data-zindex="<?php echo $i+1; ?>" data-title="<?php echo $title; ?>">
+		<figure data-url="<?php echo $path; ?>" data-link="<?php echo $link; ?>" data-alt="<?php echo $alt; ?>" data-zindex="<?php echo $i+1; ?>" data-title="<?php echo $title; ?>">
 			<?php if($this->config['config']->gk_rockwall->gk_rockwall_show_title_block && $title != '') : ?>	
 			<figcaption<?php echo ' style="width: '.$this->config['config']->gk_rockwall->gk_rockwall_title_block_width.'%; padding: '.$this->config['config']->gk_rockwall->gk_rockwall_title_block_padding.'; background: '.$this->config['config']->gk_rockwall->gk_rockwall_title_block_bg.'; color: '.$this->config['config']->gk_rockwall->gk_rockwall_title_block_color.';"'; ?>>
 				<h2><?php echo $title; ?></h2>

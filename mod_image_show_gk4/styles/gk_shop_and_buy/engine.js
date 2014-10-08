@@ -16,6 +16,7 @@ window.addEvent("load",function(){
         wrapper.getElements('div.gkIsSlide').each(function(el,i){
             var newImg = new Element('img',{
                 "title":el.getProperty('title'),
+                "alt":el.getProperty('data-alt'),
                 "class":el.getProperty('class'),
                 "style":el.getProperty('style')
             });

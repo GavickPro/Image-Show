@@ -73,13 +73,14 @@ for($y = 0; $y < count($this->config['image_show_data']); $y++) {
 			}
 			
 			$text = str_replace(array('[ampersand]', '[leftbracket]', '[rightbracket]'), array('&', '<', '>'), $text);
+			$alt = htmlspecialchars($slide->alt);
 		?>
 		
 		<div class="figure<?php echo $x == 0 ? ' active': ''; ?>">
 			<?php if($x == 0) : ?>
-			<img class="gkIsSlide" style="z-index: <?php echo $x+1; ?>" title="<?php echo $title; ?>" src="<?php echo $path; ?>" data-url="<?php echo $link; ?>" alt="<?php echo $title; ?>" />
+			<img class="gkIsSlide" style="z-index: <?php echo $x+1; ?>" title="<?php echo $title; ?>" src="<?php echo $path; ?>" data-url="<?php echo $link; ?>" alt="<?php echo $alt; ?>" />
 			<?php else : ?>
-			<div class="gkIsSlide" data-zindex="<?php echo $x+1; ?>" title="<?php echo $title; ?>" data-path="<?php echo $path; ?>" data-link="<?php echo $link; ?>"></div>
+			<div class="gkIsSlide" data-zindex="<?php echo $x+1; ?>" title="<?php echo $title; ?>" data-path="<?php echo $path; ?>" data-link="<?php echo $link; ?>" data-alt="<?php echo $alt; ?>" ></div>
 			<?php endif; ?>
 			
 			<?php if($this->config['config']->gk_shop_and_buy->gk_shop_and_buy_show_content_block) : ?>	
