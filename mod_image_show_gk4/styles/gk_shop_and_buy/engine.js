@@ -249,7 +249,10 @@ var gk_shop_and_buy_autoanimate = function($G, wrapper, dir, nextSlide) {
 		
 		gk_shop_and_buy_animate($G, wrapper, imgs[i], imgs[next], ((next > $G['actual_slide']) ? 'next' : 'prev'), next);
 		$G['actual_slide'] = next;
-		wrapper.getElements('ol li').setProperty('class', '');
-		wrapper.getElements('ol li')[next].setProperty('class', 'active');
+		
+		if(wrapper.getElement('ol')) {
+			wrapper.getElements('ol li').setProperty('class', '');
+			wrapper.getElements('ol li')[next].setProperty('class', 'active');
+		}
 	}
 };
