@@ -62,13 +62,19 @@ class GKIS_gk_startup_Controller {
 		$ids = array();
         $idsK2 = array();
 		// generate the content of the array
-         
-		foreach($this->config['image_show_data'] as $slide) {
-			if($slide->type == 'article') {
+		if($slide->type == 'article') {
+			if($slide->art_id) {
 				array_push($ids, $slide->art_id);
+			} else {
+				array_push($ids, 0);
 			}
-			if($slide->type == 'k2') {
+		}
+		
+		if($slide->type == 'k2') {
+			if($slide->artK2_id) {
 				array_push($idsK2, $slide->artK2_id);
+			} else {
+				array_push($idsK2, 0);
 			}
 		}
 		// get the data
