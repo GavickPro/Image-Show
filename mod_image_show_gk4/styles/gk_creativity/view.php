@@ -37,8 +37,12 @@ if($this->config['random_slides'] == 1) {
 						$path = $this->config['image_show_data'][$i]->image;
 					}
 				} else {
-					$path = $uri->root();
-					$path .= $this->config['image_show_data'][$i]->image;
+					if(preg_match('@^#[0-9a-fA-F]{3,6}$@mi', $this->config['image_show_data'][$i]->image) == 0) {
+						$path = $uri->root();
+						$path .= $this->config['image_show_data'][$i]->image;
+					} else {
+						$path = $this->config['image_show_data'][$i]->image;
+					}
 				}   
 	            //
 	            // creating slide title
