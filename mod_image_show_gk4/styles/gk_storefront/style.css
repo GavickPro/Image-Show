@@ -72,6 +72,7 @@
 	-webkit-font-smoothing: antialiased;
 	left: 50%;
 	opacity: 0;
+	pointer-events: none;
 	position: relative;
 	text-align: center;
 	top: 50%;
