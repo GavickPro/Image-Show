@@ -133,7 +133,7 @@ class GKIS_gk_photo_Controller {
 		');
 		
 		// add script fragment
-		$document->addScriptDeclaration('try {$Gavick;}catch(e){$Gavick = {};};$Gavick["gkIs-'.$this->config['module_id'].'"] = { "anim_speed": '.$this->config['config']->gk_photo->gk_photo_animation_speed.', "anim_interval": '.$this->config['config']->gk_photo->gk_photo_animation_interval.', "autoanim": '.$this->config['config']->gk_photo->gk_photo_autoanimation.', "slide_links": '.$this->config['config']->gk_photo->gk_photo_slide_links.' };');
+		$document->addScriptDeclaration('try {$Gavick;}catch(e){$Gavick = {};};$Gavick["gkIs-'.$this->config['module_id'].'"] = { "anim_speed": '.$this->config['config']->gk_photo->gk_photo_animation_speed.', "anim_interval": '.$this->config['config']->gk_photo->gk_photo_animation_interval.', "autoanim": '.$this->config['config']->gk_photo->gk_photo_autoanimation.' };');
 		// generate necessary variables
 		$width = $this->config['config']->gk_photo->gk_photo_image_width;
 		$height = $this->config['config']->gk_photo->gk_photo_image_height;
