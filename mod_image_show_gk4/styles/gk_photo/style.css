@@ -16,6 +16,9 @@
 	overflow: hidden;
 	position: relative;
 }
+.gkIsWrapper-gk_photo.ie10-cursor-normal {
+	cursor: pointer!important;
+}
 
 .no-mainbody .gkIsWrapper-gk_photo {
 	height: 100%!important;
@@ -348,6 +351,10 @@
 	width: 100%;
 }
 
+.gkIsWrapper-gk_photo.ie10-cursor-normal .gkIsSlide {
+	cursor: pointer;
+}
+
 .gkIsWrapper-gk_photo figcaption {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -570,4 +577,9 @@
 	-ms-transform-origin: 100% 100%;;
 	-o-transform-origin: 100% 100%;;
 	transform-origin: 100% 100%;;
+}
+
+/* Fix for IE10 and below */
+body #gk-bg #gk-bg-wrap .ie10-hide {
+	display: none!important;
 }
