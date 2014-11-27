@@ -101,7 +101,17 @@ window.addEvent("load",function(){
 	        		        	});
 	        		        });
         		        }
-        		    }); 
+        		    });
+        		    
+        		    // IE detection script
+        		    function IE(v) {
+        		      return RegExp('msie' + (!isNaN(v)?('\\s'+v):''), 'i').test(navigator.userAgent);
+        		    }
+        		    
+        		    if(IE(9) || IE(10)) {
+		    			wrapper.addClass('ie10-cursor-normal');
+		    			arrow_element.addClass('ie10-hide');
+		    		}
         		    
         		    setTimeout(function() {
         		        if(slides && slides[0]) {
