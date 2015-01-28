@@ -3,7 +3,7 @@
 /**
 * GK Image Show - model file
 * @package Joomla!
-* @Copyright (C) 2009-2012 Gavick.com
+* @Copyright (C) 2009-2015 Gavick.com
 * @ All rights reserved
 * @ Joomla! is Free Software
 * @ Released under GNU/GPL License : http://www.gnu.org/copyleft/gpl.html
@@ -16,7 +16,7 @@ defined('_JEXEC') or die;
 // import com_content route helper
 require_once (JPATH_SITE.DS.'components'.DS.'com_content'.DS.'helpers'.DS.'route.php');
 
-class GKIS_gk_rockwall_Model {
+class GKIS_gk_quark_Model {
 	// configuration array
 	private $config;
 	// constructor

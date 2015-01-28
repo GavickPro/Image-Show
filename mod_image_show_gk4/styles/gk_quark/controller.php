@@ -3,7 +3,7 @@
 /**
 * GK Image Show - main PHP file
 * @package Joomla!
-* @Copyright (C) 2009-2012 Gavick.com
+* @Copyright (C) 2009-2015 Gavick.com
 * @ All rights reserved
 * @ Joomla! is Free Software
 * @ Released under GNU/GPL License : http://www.gnu.org/copyleft/gpl.html
@@ -17,7 +17,7 @@ require_once (dirname(__FILE__).DS.'class.image.php');
 // Model class loading
 require_once (dirname(__FILE__).DS.'model.php');
 
-class GKIS_gk_rockwall_Controller {
+class GKIS_gk_quark_Controller {
 	// configuration array
 	private $config;
 	// module info
@@ -46,14 +46,14 @@ class GKIS_gk_rockwall_Controller {
 		// if the thumbnail generation is enabled
 		if($this->config['generate_thumbnails'] == 1) {
 			// basic images params		
-			$img_width = $this->config['config']->gk_rockwall->gk_rockwall_image_width;
-			$img_height = $this->config['config']->gk_rockwall->gk_rockwall_image_height;
-			$img_bg = $this->config['config']->gk_rockwall->gk_rockwall_image_bg;
-			$quality = $this->config['config']->gk_rockwall->gk_rockwall_quality;
+			$img_width = $this->config['config']->gk_quark->gk_quark_image_width;
+			$img_height = $this->config['config']->gk_quark->gk_quark_image_height;
+			$img_bg = $this->config['config']->gk_quark->gk_quark_image_bg;
+			$quality = $this->config['config']->gk_quark->gk_quark_quality;
 			// check the slides
 			foreach($this->config['image_show_data'] as $slide) {
 				$stretch = ($slide->stretch == 'nostretch') ? false : true;
-				GKIS_RockWall_Image::createThumbnail($slide->image, $this->config, $img_width, $img_height, $img_bg, $stretch, $quality);	
+				GKIS_Quark_Image::createThumbnail($slide->image, $this->config, $img_width, $img_height, $img_bg, $stretch, $quality);	
 			}
 		}
 	}
@@ -72,7 +72,7 @@ class GKIS_gk_rockwall_Controller {
 				}
 			}
 			
-			if($slide->type == 'k2') {
+            if($slide->type == 'k2') {
 				if($slide->artK2_id) {
 					array_push($idsK2, $slide->artK2_id);
 				} else {
@@ -82,10 +82,10 @@ class GKIS_gk_rockwall_Controller {
 		}
 		// get the data
 		if(count($idsK2) > 0) {
-			$this->articlesK2 = GKIS_gk_rockwall_Model::getDataK2($idsK2);
+			$this->articlesK2 = GKIS_gk_quark_Model::getDataK2($idsK2);
 		}
 		if(count($ids) > 0) {
-			$this->articles = GKIS_gk_rockwall_Model::getData($ids);
+			$this->articles = GKIS_gk_quark_Model::getData($ids);
 		}
 	}
 	// generate view
@@ -120,11 +120,20 @@ class GKIS_gk_rockwall_Controller {
 			// add stylesheets to document header
 			$document->addStyleSheet($uri->root().'modules/mod_image_show_gk4/styles/'.$this->config['styles'].'/style.css' );
 		}
+		
+		// module instance CSS code
+		$document->addStyleDeclaration('
+			#gkIs-'.$this->config['module_id'].' { height: '.($this->config['config']->gk_quark->gk_quark_module_height_desktop).'px; }
+			@media (max-width: 1040px) {
+				#gkIs-'.$this->config['module_id'].' { height: '.($this->config['config']->gk_quark->gk_quark_module_height_tablet).'px; }
+			}
+			@media (max-width: 640px) {
+				#gkIs-'.$this->config['module_id'].' { height: '.($this->config['config']->gk_quark->gk_quark_module_height_mobile).'px; }
+			}
+		');
+		
 		// add script fragment
-		$document->addScriptDeclaration('try {$Gavick;}catch(e){$Gavick = {};};$Gavick["gkIs-'.$this->config['module_id'].'"] = { "anim_speed": '.$this->config['config']->gk_rockwall->gk_rockwall_animation_speed.', "anim_interval": '.$this->config['config']->gk_rockwall->gk_rockwall_animation_interval.', "autoanim": '.$this->config['config']->gk_rockwall->gk_rockwall_autoanimation.', "slide_links": '.$this->config['config']->gk_rockwall->gk_rockwall_slide_links.' };');
-		// generate necessary variables
-		$width = $this->config['config']->gk_rockwall->gk_rockwall_image_width;
-		$height = $this->config['config']->gk_rockwall->gk_rockwall_image_height;
+		$document->addScriptDeclaration('try {$Gavick;}catch(e){$Gavick = {};};$Gavick["gkIs-'.$this->config['module_id'].'"] = { "anim_speed": '.$this->config['config']->gk_quark->gk_quark_animation_speed.', "anim_interval": '.$this->config['config']->gk_quark->gk_quark_animation_interval.', "autoanim": '.$this->config['config']->gk_quark->gk_quark_autoanimation.' };');
 		// load view
 		require(dirname(__FILE__).DS.'view.php');
 	}

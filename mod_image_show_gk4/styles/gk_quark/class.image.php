@@ -2,13 +2,13 @@
 
 /**
 * @author: GavickPro
-* @copyright: 2008-2012
+* @copyright: 2008-2015
 **/
 	
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-class GKIS_RockWall_Image extends GKIS_Image {
+class GKIS_Quark_Image extends GKIS_Image {
 
 }
 
