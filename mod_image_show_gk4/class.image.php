@@ -72,9 +72,9 @@ class GKIS_Image {
 			if(is_file($file)){
 				$imageData = getimagesize($file);
 				// loading image depends from type of image		
-				if($imageData['mime'] == 'image/jpeg' || $imageData['mime'] == 'image/pjpeg' || $imageData['mime'] == 'image/jpg') $imageSource = @imagecreatefromjpeg($file);
-				elseif($imageData['mime'] == 'image/gif') $imageSource = @imagecreatefromgif($file);
-				else $imageSource = @imagecreatefrompng($file); 
+				if($imageData['mime'] == 'image/jpeg' || $imageData['mime'] == 'image/pjpeg' || $imageData['mime'] == 'image/jpg') $imageSource = imagecreatefromjpeg($file);
+				elseif($imageData['mime'] == 'image/gif') $imageSource = imagecreatefromgif($file);
+				else $imageSource = imagecreatefrompng($file); 
 				// here can be exist an error when image is to big - then class return blank page	
 				// setting image size in variables
 				$imageSourceWidth = imagesx($imageSource);
