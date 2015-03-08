@@ -79,6 +79,7 @@ a:hover.modal-img { background-position: -231px 0;  }
 .gk_tab_item_state { float: right; width: 18px; height: 19px; margin-top: 10px; background: url('icons.png') no-repeat -140px 0; cursor: pointer }
 .gk_tab_item_state.published:hover { background-position: -176px 0; }
 .gk_tab_item_state.unpublished { background-position: -158px 0; }
+.gk_tab_item_state span { display: none; }
 .module_style { margin: -1px -10px; }
 .gk_tab_item_name { display: block; max-width: 38%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; float: left; }
 
