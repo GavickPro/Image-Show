@@ -10,7 +10,11 @@
 	    var tabs = JSON.parse(json_data_to_parse);
 	    if (tabs == null || tabs == '')
 	        tabs = [];
-	    var config = JSON.parse($('#jform_params_config').html());
+	    var json_config_to_parse = $('#jform_params_config').html();
+	    if(json_config_to_parse == '') {
+	    	json_config_to_parse = '[]';
+	    }
+	    var config = JSON.parse(json_config_to_parse);
 	    if (config == null || config == '')
 	        config = {};
 	    if (parseFloat((jQuery('#gk_about_us').data('jversion')).substr(0, 3)) >= '3.2') {
