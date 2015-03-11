@@ -3,7 +3,11 @@
 	$currently_opened = 0;
 	$(window).load(function() {
 	    var add_form = $('#gk_tab_add_form');
-	    var tabs = JSON.parse($('#jform_params_image_show_data').html());
+	    var json_data_to_parse = $('#jform_params_image_show_data').html();
+	    if(json_data_to_parse == '') {
+	    	json_data_to_parse = '[]';
+	    }
+	    var tabs = JSON.parse(json_data_to_parse);
 	    if (tabs == null || tabs == '')
 	        tabs = [];
 	    var config = JSON.parse($('#jform_params_config').html());
