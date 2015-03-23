@@ -56,9 +56,11 @@ window.addEvent("load",function(){
                                 
                 $G['actual_slide'] = 0;
                 
-                (function() {
-                	gk_publisher_autoanimate($G, wrapper, 'next');
-                }).delay($G['anim_interval']);
+                if($G['autoanim'] != 0) {
+                	(function() {
+                		gk_publisher_autoanimate($G, wrapper, 'next');
+                	}).delay($G['anim_interval']);
+                }
                 // pagination
                 if(wrapper.getElement('ol')) {
                     wrapper.getElements('ol li').each(function(btn, i) {
@@ -89,9 +91,11 @@ var gk_publisher_animate = function($G, wrapper, imgPrev, imgNext) {
 			
 			clearTimeout($G['animation_timer']);
 			
-			$G['animation_timer'] = setTimeout(function() {
-				gk_publisher_autoanimate($G, wrapper, 'next', null);
-			},$G['anim_interval']);
+			if($G['autoanim'] != 0) { 
+				$G['animation_timer'] = setTimeout(function() {
+					gk_publisher_autoanimate($G, wrapper, 'next', null);
+				},$G['anim_interval']);
+			}
 		} 
 	});
 
