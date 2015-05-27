@@ -78,7 +78,7 @@
 
 .gkIsWrapper-gk_publisher figure.active figcaption {
 	bottom: 0%;
-	z-index: 4;
+	z-index: 99;
 }
 
 .gkIsWrapper-gk_publisher figure.active figcaption.top {
@@ -122,7 +122,7 @@
 	text-align: center;
 	top: 12px;
 	width: 100%;
-	z-index: 10;
+	z-index: 100;
 }
 
 .gkIsWrapper-gk_publisher ol.bottom {
