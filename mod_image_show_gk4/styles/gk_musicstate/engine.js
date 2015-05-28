@@ -121,16 +121,17 @@ window.addEvent("load",function(){
                                                     'opacity': 0
                                             });
                                     });
-                            });            
+                            }); 
                             
-                            // auto-animation
-                            if($G['autoanim'] == 1) {                                
+                            if(slides.length > 1) {
+                                // auto-animation
+                                if($G['autoanim'] == 1) {                                
                                     $G['animation_timer'] = setTimeout(function() {
                                             gk_musicstate_autoanimate($G, wrapper, 'next', null);
                                     }, $G['anim_interval']);
-                            }
+                                }
                             
-                            // pagination
+                                // pagination
                                 var slide_pos_start_x = 0;
                                 var slide_pos_start_y = 0;
                                 var slide_time_start = 0;
@@ -174,6 +175,7 @@ window.addEvent("load",function(){
                                                 }
                                         }
                                 });
+                            }
                     }
                 }, 500);
             });
