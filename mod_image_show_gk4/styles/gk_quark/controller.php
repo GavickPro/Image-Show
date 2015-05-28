@@ -133,7 +133,7 @@ class GKIS_gk_quark_Controller {
 		');
 		
 		// add script fragment
-		$document->addScriptDeclaration('try {$Gavick;}catch(e){$Gavick = {};};$Gavick["gkIs-'.$this->config['module_id'].'"] = { "anim_speed": '.$this->config['config']->gk_quark->gk_quark_animation_speed.', "anim_interval": '.$this->config['config']->gk_quark->gk_quark_animation_interval.', "autoanim": '.$this->config['config']->gk_quark->gk_quark_autoanimation.' };');
+		$document->addScriptDeclaration('try {$Gavick;}catch(e){$Gavick = {};};$Gavick["gkIs-'.$this->config['module_id'].'"] = { "anim_interval": '.$this->config['config']->gk_quark->gk_quark_animation_interval.', "autoanim": '.$this->config['config']->gk_quark->gk_quark_autoanimation.' };');
 		// load view
 		require(dirname(__FILE__).DS.'view.php');
 	}
