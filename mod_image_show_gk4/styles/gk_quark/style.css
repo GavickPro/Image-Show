@@ -12,6 +12,7 @@
 .gkIsWrapper-gk_quark {
 	background: transparent;
 	margin: 0;
+	overflow: hidden;
 	position: relative;
 }
 
