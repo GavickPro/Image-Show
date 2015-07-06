@@ -15,7 +15,7 @@ class JFormFieldSlidemanager extends JFormField {
 		$item_form = '<div id="invisible"><div class="gk_tab_item"><div class="gk_tab_item_desc"><span class="gk_tab_item_name"></span><span class="gk_tab_item_order_down" title="'.JText::_('MOD_IMAGE_SHOW_GK4_FORM_ITEM_ORDER_DOWN').'"></span><span class="gk_tab_item_order_up" title="'.JText::_('MOD_IMAGE_SHOW_GK4_FORM_ITEM_ORDER_UP').'"></span><a href="#remove" class="gk_tab_item_remove" title="'.JText::_('MOD_IMAGE_SHOW_GK4_FORM_ITEM_REMOVE').'">'.JText::_('MOD_IMAGE_SHOW_GK4_FORM_ITEM_REMOVE').'</a><a href="#edit" class="gk_tab_item_edit" title="'.JText::_('MOD_IMAGE_SHOW_GK4_FORM_ITEM_EDIT').'">'.JText::_('MOD_IMAGE_SHOW_GK4_FORM_ITEM_EDIT').'</a><span class="gk_tab_item_type"></span><span class="gk_tab_item_access"></span><span class="gk_tab_item_state published"><span>'.JText::_('MOD_IMAGE_SHOW_GK4_FORM_ITEM_PUBLISHED').'</span><span>'.JText::_('MOD_IMAGE_SHOW_GK4_FORM_ITEM_UNPUBLISHED').'</span></span><a rel="{handler:\'image\'}" class="gk-modal modal-img" title="'.JText::_('MOD_IMAGE_SHOW_GK4_FORM_ITEM_PREVIEW').'">'.JText::_('MOD_IMAGE_SHOW_GK4_FORM_ITEM_PREVIEW').'</a></div><div class="gk_tab_editor_scroll"><div class="gk_tab_item_editor">'.$edit_form.'</div></div></div></div>';
 		
 		$tabs_list = '<div id="tabs_list"></div>';
-		$textarea = '<textarea name="'.$this->name.'" id="'.$this->id.'" rows="20" cols="50">'.$this->value.'</textarea>';
+		$textarea = '<textarea name="'.$this->name.'" id="'.$this->id.'" rows="20" cols="50">'.str_replace(array('\"', "\'"), array('"', "'"), $this->value).'</textarea>';
 		return $item_form . $add_form . $tabs_list . $textarea;
 	}
 	
