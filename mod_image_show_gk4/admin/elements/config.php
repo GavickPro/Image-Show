@@ -42,7 +42,9 @@ class JFormFieldConfig extends JFormField {
 			$final_output = 'Module have no styles. Please install some style package.';
 		}
 		
-		$final_output .= '<textarea name="'.$this->name.'" id="'.$this->id.'" rows="20" cols="50">'.str_replace(array("\'", '\"'), array("'", '"'), $this->value).'</textarea>';
+		$option_value = str_replace("\'", "'", $this->value);
+		$option_value = str_replace(array('{\"', '\":', ':\"', '\",', ',\"', '\"}'), '"', $option_value);
+		$final_output .= '<textarea name="'.$this->name.'" id="'.$this->id.'" rows="20" cols="50">'.$option_value.'</textarea>';
 		
 		return $final_output;
 	}
