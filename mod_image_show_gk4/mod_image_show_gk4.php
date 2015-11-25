@@ -13,6 +13,9 @@
 // no direct access
 defined('_JEXEC') or die;
 
+// solves problem with loading mootools library
+JHtml::_('behavior.framework', true);
+
 // helper loading
 require_once (dirname(__FILE__).DS.'helper.php');
 require_once (dirname(__FILE__).DS.'class.image.php');
