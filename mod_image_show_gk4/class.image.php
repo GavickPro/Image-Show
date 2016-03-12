@@ -17,7 +17,7 @@ class GKIS_Image {
 		stories.demo.jpg
 		(in this situation mirror of ./images/ directory isn't necessary)
 	*/
-	function translateName($name, $mod_id) {
+	static function translateName($name, $mod_id) {
 		$name = GKIS_Image::getRealPath($name);
 		$start = strpos($name, DS.'images'.DS);
 		$name = substr($name, $start+8);
@@ -28,13 +28,13 @@ class GKIS_Image {
 		return $name;
 	}
 	// function to change file path to  real path.
-	function getRealPath($path) {
+	static function getRealPath($path) {
 		$start = strpos($path, GKIS_image::getMediaPath());
 		$path = './'.substr($path, $start);
 		return realpath($path);
 	}
 	// function used to get the media path
-	function getMediaPath() {
+	static function getMediaPath() {
 		$imagemanager = JComponentHelper::getParams('com_media');
 		$imagepath = $imagemanager->get('image_path', '');
 		return $imagepath . '/';
@@ -45,14 +45,14 @@ class GKIS_Image {
 		this function checks if file exists in cache directory
 		and checks if time of file life isn't too long
 	*/
-	function checkCache($filename, $last_modification_time) {
+	static function checkCache($filename, $last_modification_time) {
 		$cache_dir = JPATH_ROOT.DS.'modules'.DS.'mod_image_show_gk4'.DS.'cache'.DS;
 		$file = $cache_dir.$filename;
 		
 		return (!is_file($file)) ? FALSE : (filemtime($file) > $last_modification_time);
 	}
 	// Creating thumbnails
-	function createThumbnail($path, $config, $width, $height, $image_bg, $image_stretch, $quality) {
+	static function createThumbnail($path, $config, $width, $height, $image_bg, $image_stretch, $quality) {
 		if(GKIS_Image::checkCache(GKIS_Image::translateName($path,$config['module_id']), $config['last_modification'], $config['module_id'])){
 			return TRUE;
 		}else{
