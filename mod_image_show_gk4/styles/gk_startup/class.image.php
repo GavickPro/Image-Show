@@ -10,7 +10,7 @@ defined('_JEXEC') or die('Restricted access');
 
 class GKIS_Startup_Image extends GKIS_Image {
 	// Creating thumbnails
-	function createThumbnail($path, $config, $width, $image_bg, $image_stretch, $quality) {
+	static function createThumbnail($path, $config, $width, $image_bg, $image_stretch, $quality) {
 		if(GKIS_Image::checkCache(GKIS_Image::translateName($path,$config['module_id']), $config['last_modification'], $config['module_id'])){
 			return TRUE;	
 		}else{
