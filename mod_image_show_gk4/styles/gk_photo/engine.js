@@ -125,21 +125,23 @@ window.addEvent("load",function(){
         		    
         		    var pagination = wrapper.getElement('.gkIsPagination');
         		    
-        		    pagination.setProperty('data-id', wrapper.getProperty('id'));
-        		    pagination.addClass('gkIsPhotoPagination');
-        		    
-        		    if(document.id('page-nav')) {
-        		    	pagination.inject(document.id('page-nav'), 'top');
+        		    if(pagination) {
+	        		    pagination.setProperty('data-id', wrapper.getProperty('id'));
+	        		    pagination.addClass('gkIsPhotoPagination');
+	        		    
+	        		    if(document.id('page-nav')) {
+	        		    	pagination.inject(document.id('page-nav'), 'top');
+	        		    }
+	        		    
+	        		    pagination.getElements('li').each(function(item, i) {
+	        		    	item.addEvent('click', function() {
+	        		    		if(i != $G['actual_slide']) {
+	        		    			$G['blank'] = true;
+	        		    			gk_photo_autoanimate($G, wrapper, 'next', i);
+	        		    		}
+	        		    	});
+	        		    });
         		    }
-        		    
-        		    pagination.getElements('li').each(function(item, i) {
-        		    	item.addEvent('click', function() {
-        		    		if(i != $G['actual_slide']) {
-        		    			$G['blank'] = true;
-        		    			gk_photo_autoanimate($G, wrapper, 'next', i);
-        		    		}
-        		    	});
-        		    });
         		    
         		    // auto-animation
         		    if($G['autoanim'] == 1) {	                	
@@ -271,6 +273,8 @@ var gk_photo_autoanimate = function($G, wrapper, dir, next) {
 	gk_photo_animate($G, wrapper, imgs[i], imgs[next]);
 	$G['actual_slide'] = next;
 	
-	document.getElements('.gkIsPagination[data-id="'+wrapper.getProperty('id')+'"] li').removeClass('active');
-	document.getElements('.gkIsPagination[data-id="'+wrapper.getProperty('id')+'"] li')[next].addClass('active');
+	if(document.getElements('.gkIsPagination[data-id="'+wrapper.getProperty('id')+'"] li')) {
+ 	    document.getElements('.gkIsPagination[data-id="'+wrapper.getProperty('id')+'"] li').removeClass('active');
+	    document.getElements('.gkIsPagination[data-id="'+wrapper.getProperty('id')+'"] li')[next].addClass('active');
+	}
 };
