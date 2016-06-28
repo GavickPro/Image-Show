@@ -37,7 +37,7 @@ class GKIS_gk_publisher_Model {
 		SELECT 
 			`c`.`id` AS `id`,
 			`c`.`catid` AS `cid`,
-			`c`.`title` AS `title`
+			`c`.`title` AS `title`,
 			`c`.`introtext` AS `text`
 		FROM 
 			#__content AS `c` 
