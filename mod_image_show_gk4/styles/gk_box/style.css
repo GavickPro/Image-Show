@@ -1,0 +1,71 @@
+/**
+* GK Image Show - CSS style
+* @package Joomla!
+* @Copyright (C) 2009-2011 Gavick.com
+* @ All rights reserved
+* @ Joomla! is Free Software
+* @ Released under GNU/GPL License : http://www.gnu.org/copyleft/gpl.html
+* @ version $Revision: GK4 1.0 $
+**/
+ 
+.gkIsWrapper-gk_box {
+	margin: 0;
+	overflow: hidden;
+	position: relative;
+}
+
+.gkIsWrapper-gk_box .gkIsPreloader {
+	background: #fff;
+	height: 100%;
+	position: absolute;
+	width: 100%;
+	z-index: 101;
+}
+
+.gkIsWrapper-gk_box .gkIsImage {
+	left: 0;
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+}
+
+.gkIsWrapper-gk_box .gkIsImage.active {
+	opacity: 1;
+	position: relative;
+	z-index: 3;
+}
+
+.gkIsWrapper-gk_box .gkIsPagination {
+	text-align: center;
+}
+
+.gkIsWrapper-gk_box .gkIsPagination li {
+	border-top: 3px solid #f3f0e4;
+	cursor: pointer;
+	display: inline-block;
+	margin: 0 30px;
+	padding-top: 20px;
+}
+
+.gkIsWrapper-gk_box .gkIsPagination li.active {
+	border-top: 3px solid #81d4fa;
+}
+
+.gkIsWrapper-gk_box .gkIsText {
+	text-align: center;
+}
+
+.gkIsWrapper-gk_box .gkIsText li {
+	color: #8a8b8c;
+	display: none;
+	font-size: 16px;
+	line-height: 1.6;
+	margin: 40px auto;
+	width: 66.666666%;
+}
+
+.gkIsWrapper-gk_box .gkIsText li.active {
+	display: block;
+}
