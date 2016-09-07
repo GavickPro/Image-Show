@@ -25,7 +25,7 @@ class GKIS_gk_fashion_Model {
 		$this->config = $config;
 	}
 	// getData function
-	function getData($ids) {
+	static function getData($ids) {
 		// prepare an array
 		$results = array();
 		// prepare an query part
@@ -62,7 +62,7 @@ class GKIS_gk_fashion_Model {
 		return $results;
 	}
     
-    function getDataK2($ids) {
+    static function getDataK2($ids) {
     	//
     	require_once (JPATH_SITE.DS.'components'.DS.'com_k2'.DS.'helpers'.DS.'route.php'); 
 		// prepare an array
