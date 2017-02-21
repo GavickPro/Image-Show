@@ -20,9 +20,9 @@
 	    if (parseFloat((jQuery('#gk_about_us').data('jversion')).substr(0, 3)) >= '3.2') {
 	        jQuery('#module-form').addClass('j32');
 	    }
-	    $('ul.nav a[href=#options-IMAGE_SHOW_MANAGER]').click(function() {
+	    $('ul.nav a[href="#options-IMAGE_SHOW_MANAGER"]').click(function() {
 	        setTimeout(function() {
-	            if ($('ul.nav a[href=#options-IMAGE_SHOW_MANAGER]').parent().hasClass('active')) {
+	            if ($('ul.nav a[href="#options-IMAGE_SHOW_MANAGER"]').parent().hasClass('active')) {
 	                $('.pane-slider').css('height', 'auto');
 	            }
 	        }, 750);
